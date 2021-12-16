@@ -37,9 +37,6 @@ const extension: JupyterFrontEndPlugin<void> = {
         console.log(
           `METAMASK EXTENSION LOADED.`
         );
-        window.alert(
-          `METAMASK EXTENSION LOADED.`
-        );
       },
     });
 
