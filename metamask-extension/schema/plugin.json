@@ -9,7 +9,13 @@
         "rank": 80,
         "items": [
           {
-            "command": "jlab-examples:main-menu",
+            "command": "connect_wallet",
+            "args": {
+              "origin": "from the menu"
+            }
+          },
+          {
+            "command": "send_transaction",
             "args": {
               "origin": "from the menu"
             }
