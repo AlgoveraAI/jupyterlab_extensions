@@ -11,6 +11,7 @@ import { ITranslator } from '@jupyterlab/translation';
 
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ExamplePanel } from './panel';
+import { oceanTrial } from './ocean';
 
 /**
  * The command IDs used by the console plugin.
@@ -97,6 +98,17 @@ import { ExamplePanel } from './panel';
         );
       },
     });
+
+    // Add a command
+    const command3 = 'ocean_transaction';
+    commands.addCommand(command3, {
+      label: 'ocean transaction',
+      caption: 'ocean transaction',
+      execute: (args: any) => {
+        console.log(oceanTrial)
+      },
+    });
+
     // add commands to registry
     commands.addCommand(CommandIDs.create, {
       label: trans.__('Open the Kernel Output Panel'),

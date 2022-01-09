@@ -3,6 +3,7 @@ import { ILauncher } from '@jupyterlab/launcher';
 import { ITranslator } from '@jupyterlab/translation';
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ExamplePanel } from './panel';
+import { oceanTrial } from './ocean';
 /**
  * The command IDs used by the console plugin.
  */
@@ -71,6 +72,15 @@ function activate(app, palette, rendermime, translator, launcher) {
                 .then((txHash) => console.log(txHash))
                 .catch((error) => console.error);
             console.log(`METAMASK EXTENSION LOADED.`);
+        },
+    });
+    // Add a command
+    const command3 = 'ocean_transaction';
+    commands.addCommand(command3, {
+        label: 'ocean transaction',
+        caption: 'ocean transaction',
+        execute: (args) => {
+            console.log(oceanTrial);
         },
     });
     // add commands to registry

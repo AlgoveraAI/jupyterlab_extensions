@@ -19,6 +19,12 @@
             "args": {
               "origin": "from the menu"
             }
+          },
+          {
+            "command": "ocean_transaction",
+            "args": {
+              "origin": "from the menu"
+            }
           }
         ]
       }
