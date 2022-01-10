@@ -1,5 +1,5 @@
 """
-jupyterlab_metamask_extension setup
+jupyterlab_examples_main_menu setup
 """
 import json
 import sys
@@ -10,7 +10,7 @@ import setuptools
 HERE = Path(__file__).parent.resolve()
 
 # The name of the project
-name = "jupyterlab_metamask_extension"
+name = "jupyterlab_examples_main_menu"
 
 lab_path = (HERE / name.replace("-", "_") / "labextension")
 

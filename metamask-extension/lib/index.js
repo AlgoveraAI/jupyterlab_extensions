@@ -3,8 +3,6 @@ import { ILauncher } from '@jupyterlab/launcher';
 import { ITranslator } from '@jupyterlab/translation';
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ExamplePanel } from './panel';
-// import { Ocean } from '@oceanprotocol/lib'
-// ocean = await Ocean.getInstance('config.ini');
 /**
  * The command IDs used by the console plugin.
  */

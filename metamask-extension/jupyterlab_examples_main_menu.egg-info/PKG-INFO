@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
-Name: jupyterlab-metamask-extension
+Name: jupyterlab-examples-main-menu
 Version: 0.1.0
-Summary: JupyterLab extension adding Metamask support.
-Home-page: nothing.com
+Summary: Minimal JupyterLab example adding a menu.
+Home-page: https://github.com/jupyterlab/extension-examples
 Author: Project Jupyter Contributors
-Author-email: d@d.com
+Author-email: changethis@changethis.com
 License: BSD-3-Clause
 Keywords: Jupyter,JupyterLab,JupyterLab3
 Platform: Linux

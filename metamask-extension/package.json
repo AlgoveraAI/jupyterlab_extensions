@@ -1,20 +1,20 @@
 {
-  "name": "jupyterlab_metamask_extension",
+  "name": "@jupyterlab-examples/main-menu",
   "version": "0.1.0",
-  "description": "JupyterLab extension adding Metamask support.",
+  "description": "Minimal JupyterLab example adding a menu.",
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "nothing.com",
+  "homepage": "https://github.com/jupyterlab/extension-examples",
   "bugs": {
     "url": "https://github.com/jupyterlab/extension-examples/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
     "name": "Project Jupyter Contributors",
-    "email": "d@d.com"
+    "email": "changethis@changethis.com"
   },
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
@@ -64,7 +64,6 @@
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.1.0",
-    "@types/node-fetch": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.14.0",
