@@ -1,0 +1,20 @@
+[build-system]
+requires = ["jupyter_packaging~=0.10", "jupyterlab~=3.1"]
+build-backend = "jupyter_packaging.build_api"
+
+[license]
+file="LICENSE"
+
+[tool.jupyter-packaging.options]
+skip-if-exists = ["ipylab/labextension/static/style.js"]
+ensured-targets = ["ipylab/labextension/static/style.js", "ipylab/labextension/package.json"]
+
+[tool.jupyter-packaging.builder]
+factory = "jupyter_packaging.npm_builder"
+
+[tool.jupyter-packaging.build-args]
+build_cmd = "build:prod"
+npm = ["jlpm"]
+
+[tool.check-manifest]
+ignore = [".binder/**", "*.json", "docs/**", "yarn.lock", "readthedocs.yml", ".*", "ipylab/labextension/**"]
