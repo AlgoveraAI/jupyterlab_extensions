@@ -2331,6 +2331,11 @@
         "signature": "5d403a206b573f557e540ac6b0f4dbedef1ae9e80a2290771919680f7aa471c5",
         "affectsGlobalScope": false
       },
+      "./src/index.ts": {
+        "version": "509643cb72eadeeedc2ba9fa2b8381578c5f0df01ab77e6d3267c85bc6c78b29",
+        "signature": "c59e48957c8519ce3bcbb53128b6a86cea99135d5fa056218db2a1baa2715a12",
+        "affectsGlobalScope": true
+      },
       "./node_modules/@oceanprotocol/lib/dist/node/utils/logger.d.ts": {
         "version": "c1377d6720cc8a2d31f50848c2bca7cd89499ee9dd2d1deeeae35a4fdc93fb58",
         "signature": "c1377d6720cc8a2d31f50848c2bca7cd89499ee9dd2d1deeeae35a4fdc93fb58",
@@ -3015,11 +3020,6 @@
         "version": "edf6416d5ce4b59e0e3eac6cc42e4d007a7bb319fe50837270e1330bd01430fb",
         "signature": "fa73bffd9cb5cadd36a86175512eaa5f763ff82cefc4d7dd1c8988af4a7e2e89",
         "affectsGlobalScope": false
-      },
-      "./src/index.ts": {
-        "version": "bfef64de7abbc269ffe459fc4f8212845658a97563bbb131dca50a5e7cd574c5",
-        "signature": "c59e48957c8519ce3bcbb53128b6a86cea99135d5fa056218db2a1baa2715a12",
-        "affectsGlobalScope": true
       }
     },
     "options": {
@@ -6694,7 +6694,6 @@
         "./node_modules/@jupyterlab/rendermime/lib/index.d.ts",
         "./node_modules/@jupyterlab/translation/lib/index.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./src/ocean.ts",
         "./src/panel.ts"
       ],
       "./src/ocean.ts": [
