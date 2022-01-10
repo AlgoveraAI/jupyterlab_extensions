@@ -8,6 +8,9 @@ This is a development repository adding Web3 extensions to JupyterLab.
 
 conda create -n metajupyter --override-channels --strict-channel-priority -c conda-forge -c nodefaults jupyterlab=3 cookiecutter nodejs jupyter-packaging git
 
+# go in the extension directory
+cd metamask-extension/
+
 # install the extension
 
 pip install -ve .
@@ -24,3 +27,5 @@ jlpm run build
 
 jupyter lab
 ```
+
+Note: If you get an error at any point of the installation process, try running `jupyter labextension install .` in the metamask-extension/ directory.
