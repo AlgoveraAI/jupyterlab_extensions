@@ -60,6 +60,7 @@
     "@metamask/detect-provider": "^1.2.0",
     "@metamask/eth-sig-util": "^4.0.0",
     "@metamask/providers": "^8.1.1",
+    "ethers": "^5.5.3",
     "web3": "^1.6.1"
   },
   "devDependencies": {
@@ -85,7 +86,7 @@
     "outputDir": "jupyterlab_examples_main_menu/labextension",
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.fbfd8ff51c8e58892b31.js",
+      "load": "static/remoteEntry.08869d7320360d100440.js",
       "extension": "./extension",
       "style": "./style"
     }

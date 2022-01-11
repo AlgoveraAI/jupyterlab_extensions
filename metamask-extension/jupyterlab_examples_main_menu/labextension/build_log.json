@@ -84,26 +84,26 @@
     },
     "resolve": {
       "alias": {
-        "@phosphor/algorithm$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/algorithm/dist/index.js",
-        "@phosphor/application$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/application/dist/index.js",
-        "@phosphor/commands$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/commands/dist/index.js",
-        "@phosphor/coreutils$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/coreutils/dist/index.js",
-        "@phosphor/disposable$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/disposable/dist/index.js",
-        "@phosphor/domutils$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/domutils/dist/index.js",
-        "@phosphor/dragdrop$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/dragdrop/dist/index.js",
-        "@phosphor/dragdrop/style": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/widgets/style",
-        "@phosphor/messaging$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/messaging/dist/index.js",
-        "@phosphor/properties$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/properties/dist/index.js",
-        "@phosphor/signaling": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/signaling/dist/index.js",
-        "@phosphor/widgets/style": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/widgets/style",
-        "@phosphor/virtualdom$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/virtualdom/dist/index.js",
-        "@phosphor/widgets$": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/@lumino/widgets/dist/index.js"
+        "@phosphor/algorithm$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/algorithm/dist/index.js",
+        "@phosphor/application$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/application/dist/index.js",
+        "@phosphor/commands$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/commands/dist/index.js",
+        "@phosphor/coreutils$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/coreutils/dist/index.js",
+        "@phosphor/disposable$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/disposable/dist/index.js",
+        "@phosphor/domutils$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/domutils/dist/index.js",
+        "@phosphor/dragdrop$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/dragdrop/dist/index.js",
+        "@phosphor/dragdrop/style": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/widgets/style",
+        "@phosphor/messaging$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/messaging/dist/index.js",
+        "@phosphor/properties$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/properties/dist/index.js",
+        "@phosphor/signaling": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/signaling/dist/index.js",
+        "@phosphor/widgets/style": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/widgets/style",
+        "@phosphor/virtualdom$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/virtualdom/dist/index.js",
+        "@phosphor/widgets$": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/@lumino/widgets/dist/index.js"
       },
       "fallback": {
         "url": false,
         "buffer": false,
-        "path": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/path-browserify/index.js",
-        "process": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/node_modules/process/browser.js"
+        "path": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/path-browserify/index.js",
+        "process": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/process/browser.js"
       }
     },
     "watchOptions": {
@@ -113,7 +113,7 @@
     "output": {
       "hashFunction": "sha256",
       "filename": "[name].[contenthash].js",
-      "path": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/jupyterlab_examples_main_menu/labextension/static",
+      "path": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/jupyterlab_examples_main_menu/labextension/static",
       "publicPath": "auto"
     },
     "plugins": [
@@ -134,9 +134,9 @@
           },
           "filename": "remoteEntry.[contenthash].js",
           "exposes": {
-            "./index": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/lib/index.js",
-            "./extension": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/lib/index.js",
-            "./style": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/style/index.js"
+            "./index": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/lib/index.js",
+            "./extension": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/lib/index.js",
+            "./style": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/style/index.js"
           },
           "shared": {
             "@jupyterlab/application": {
@@ -616,11 +616,12 @@
             "@metamask/detect-provider": {},
             "@metamask/eth-sig-util": {},
             "@metamask/providers": {},
+            "ethers": {},
             "web3": {},
             "@jupyterlab-examples/main-menu": {
               "version": "0.1.0",
               "singleton": true,
-              "import": "/Users/jakubsmekal/Development/Algovera/testing_repo/mme_in_development/lib/index.js"
+              "import": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/lib/index.js"
             }
           }
         }

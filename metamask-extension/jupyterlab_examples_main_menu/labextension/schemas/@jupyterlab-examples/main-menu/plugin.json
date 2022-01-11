@@ -1,6 +1,6 @@
 {
-  "title": "Main Menu Example",
-  "description": "Main Menu Example settings.",
+  "title": "Metamask Extension",
+  "description": "Metamask Extension for connecting to wallet",
   "jupyter.lab.menus": {
     "main": [
       {

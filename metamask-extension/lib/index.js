@@ -61,7 +61,7 @@ function activate(app, palette, rendermime, translator, launcher) {
                 params: [
                     {
                         from: accounts[0],
-                        to: '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
+                        to: '0x8b8115a4b5B97f59B57DC8d5c3BbaCb16140f785',
                         value: '0x29a2241af62c0000',
                         gasPrice: '0x09184e72a000',
                         gas: '0x2710',
