@@ -21,73 +21,19 @@ _DESCRIPTION = """\
 CryptoPunks is a non-fungible token (NFT) collection on the Ethereum blockchain. The dataset contains 10,000 CryptoPunk images, most of humans but also of three special types: Zombie (88), Ape (24) and Alien (9). They are provided with both clear backgrounds and teal backgrounds. 
 """
 TEST_KEY = '0x5d75837394b078ce97bc289fa8d75e21000573520bfa7784a9d28ccaae602bf8'
-wallet = Wallet(ocean.web3, private_key=TEST_KEY, transaction_timeout=20, block_confirmations=config.block_confirmations)
-did = "did:op:d21196A9AC0A0Aa9df1ef6f30a440584Fe1C5E7b"
-data_token_address = '0xd21196A9AC0A0Aa9df1ef6f30a440584Fe1C5E7b'
-asset = ocean.assets.resolve(did)
-pool_address = "0x2d35D25C5BF1005B310284d00Ad05b9F35ea827B"
+# did = "did:op:d21196A9AC0A0Aa9df1ef6f30a440584Fe1C5E7b"
+# data_token_address = '0xd21196A9AC0A0Aa9df1ef6f30a440584Fe1C5E7b'
+# asset = ocean.assets.resolve(did)
+# pool_address = "0x2d35D25C5BF1005B310284d00Ad05b9F35ea827B"
 class CryptoPunks(datasets.GeneratorBasedBuilder):
     """CryptoPunks Data Set"""
-    BUILDER_CONFIGS = [
-        datasets.BuilderConfig(
-            name="plain_images",
-            version=datasets.Version("1.0.0", ""),
-            description="Plain image import of CryptoPunks Dataset",
-        )
-    ]
-    def _info(self):
-        return datasets.DatasetInfo(
-            description=_DESCRIPTION,
-            features=datasets.Features(
-                {
-                    "image": datasets.Value("string"),
-                }
-            ),
-            # supervised_keys=("img"),
-            homepage="https://market.oceanprotocol.com/asset/did:op:Bc6B4f3367a0c81883957142330C86F155c44973",
-        )    
-    def _split_generators(self, dl_manager):
-        # archive = dl_manager.download_and_extract(_DATA_URL)
-        archive = self._buy_and_download()
-        return [
-            datasets.SplitGenerator(
-                name=datasets.Split.TRAIN, gen_kwargs={"files": dl_manager.iter_archive(archive), "split": "train"}
-            ),
-        ]
-    def _generate_examples(self, files, split):
-        """This function returns the examples in the raw (text) form."""
-        if split == "train":
-            batches = ["data_batch_1", "data_batch_2", "data_batch_3", "data_batch_4", "data_batch_5"]
-        if split == "test":
-            batches = ["test_batch"]
-        batches = [f"cifar-10-batches-py/{filename}" for filename in batches]
-        for path, fo in files:
-            if path in batches:
-                dict = pickle.load(fo, encoding="bytes")
-                labels = dict[b"labels"]
-                images = dict[b"data"]
-                for idx, _ in enumerate(images):
-                    img_reshaped = np.transpose(np.reshape(images[idx], (3, 32, 32)), (1, 2, 0))
-                    yield f"{path}_{idx}", {
-                        "img": img_reshaped,
-                        "label": labels[idx],
-                    }
-    # ONLY FOR SAMPLE DATA
-    def _download_sample(self):
-        sample_link = asset.metadata['additionalInformation']['links'][0]['url']
-        ID = Path(sample_link).parts[4]
-        download_dir = Path('data')
-        dataset_name = "punks-sample"
-        download_path = str(download_dir / (dataset_name + '.tgz'))
-        if not download_dir.exists():
-            download_dir.mkdir(parents=True)
-        # !gdown --id {ID} -O {download_path }
-        # !tar -xvzf {download_path} -C {str(download_dir)}
-        sample_dir = download_dir / dataset_name
-        clear_dir, teal_dir = sorted(list(sample_dir.glob('*')))
-        return clear_dir, teal_dir
     # BUY DATASET
-    def _buy_and_download(self):
+    def _buy_and_download(self, private_key, did, pool_address):
+        # Get wallet, asset, datatoken_address
+        wallet = Wallet(ocean.web3, private_key=private_key, transaction_timeout=20, block_confirmations=config.block_confirmations)
+        asset = ocean.assets.resolve(did)
+        data_token_address = f'0x{did[7:]}'
+
         print('executing transaction')
         #my wallet
         print(f"wallet.address = '{wallet.address}'")
