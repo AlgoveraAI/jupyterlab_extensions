@@ -8,7 +8,5 @@ export default function getPrivateKey() {
     
     var wallet = new ethers.Wallet(privateKey);
     console.log("Address: " + wallet.address);
-    return privateKey
+    return [privateKey, wallet.address]
 };
-
-getPrivateKey()
