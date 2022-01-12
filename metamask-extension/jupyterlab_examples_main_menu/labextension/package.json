@@ -91,7 +91,7 @@
     "schemaDir": "schema",
     "webpackConfig": "./webpack.config.js",
     "_build": {
-      "load": "static/remoteEntry.c3f7fbe25a9d0e7858f7.js",
+      "load": "static/remoteEntry.a7769c7588b4ebca0648.js",
       "extension": "./extension",
       "style": "./style"
     }

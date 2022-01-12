@@ -1,6 +1,28 @@
 "use strict";
 (self["webpackChunk_jupyterlab_examples_main_menu"] = self["webpackChunk_jupyterlab_examples_main_menu"] || []).push([["lib_index_js"],{
 
+/***/ "./lib/address.js":
+/*!************************!*\
+  !*** ./lib/address.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getPrivateKey)
+/* harmony export */ });
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ethers */ "webpack/sharing/consume/default/ethers/ethers");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ethers__WEBPACK_IMPORTED_MODULE_0__);
+
+function getPrivateKey() {
+    var wallet = ethers__WEBPACK_IMPORTED_MODULE_0__.Wallet.createRandom();
+    return [wallet.privateKey, wallet.address];
+}
+;
+
+
+/***/ }),
+
 /***/ "./lib/index.js":
 /*!**********************!*\
   !*** ./lib/index.js ***!
@@ -19,14 +41,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @jupyterlab/rendermime */ "webpack/sharing/consume/default/@jupyterlab/rendermime");
 /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./panel */ "./lib/panel.js");
-/* harmony import */ var _transaction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./transaction */ "./lib/transaction.js");
+/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./panel */ "./lib/panel.js");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ethers */ "webpack/sharing/consume/default/ethers/ethers");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ethers__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _address__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./address */ "./lib/address.js");
+/* harmony import */ var _transaction__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./transaction */ "./lib/transaction.js");
 
 
 
 
 
-// import getPrivateKey from './address';
+
+
 
 /**
  * The command IDs used by the console plugin.
@@ -57,7 +83,7 @@ function activate(app, palette, rendermime, translator, launcher) {
      * @returns The panel
      */
     async function createPanel() {
-        panel = new _panel__WEBPACK_IMPORTED_MODULE_4__.ExamplePanel(manager, rendermime, translator);
+        panel = new _panel__WEBPACK_IMPORTED_MODULE_5__.ExamplePanel(manager, rendermime, translator);
         shell.add(panel, 'main');
         return panel;
     }
@@ -69,7 +95,7 @@ function activate(app, palette, rendermime, translator, launcher) {
         execute: (args) => {
             getAccount();
             console.log('accounts');
-            console.log(accounts);
+            console.log(account);
             // window.ethereum.request({ method: 'eth_requestAccounts' });
             console.log(`METAMASK EXTENSION LOADED.`);
         },
@@ -80,8 +106,10 @@ function activate(app, palette, rendermime, translator, launcher) {
         label: 'send transaction',
         caption: 'send transaction',
         execute: (args) => {
-            // const [privateKey, walletAddress] = getPrivateKey();
-            console.log(_transaction__WEBPACK_IMPORTED_MODULE_5__["default"]);
+            const [privateKey, walletAddress] = (0,_address__WEBPACK_IMPORTED_MODULE_6__["default"])();
+            (0,_transaction__WEBPACK_IMPORTED_MODULE_7__["default"])(walletAddress);
+            console.log(privateKey);
+            console.log(walletAddress);
             // sendOcean(walletAddress);
             // console.log(privateKey)
             // window.ethereum
@@ -156,9 +184,15 @@ function activate(app, palette, rendermime, translator, launcher) {
 // const signer = provider.getSigner()
 // signer.connect(provider)
 // console.log(signer)
-let accounts = [];
+let account;
 async function getAccount() {
-    accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const provider = new ethers__WEBPACK_IMPORTED_MODULE_4__.providers.Web3Provider(window.ethereum, "any");
+    // Prompt user for account connections
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    console.log("Account:", await signer.getAddress());
+    account = await signer.getAddress();
+    // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 }
 /**
  * Initialization data for the main menu example.
@@ -268,52 +302,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ sendOcean)
 /* harmony export */ });
-// import Web3 from 'web3';
-// import { AbiItem } from 'web3-utils';
-async function sendOcean(toAddress, accounts) {
-    //   const web3 = new Web3(window.ethereum);
-    console.log('web3');
-    //   const oceanAddress = '0x8967BCF84170c91B0d24D4302C2376283b0B3a07';
-    //   // Use BigNumber
-    //   let decimals = web3.utils.toBN(18);
-    //   let amount = web3.utils.toBN(100);
-    //   let minABI = [
-    //     // transfer
-    //     {
-    //       "constant": false,
-    //       "inputs": [
-    //         {
-    //           "name": "_to",
-    //           "type": "address"
-    //         },
-    //         {
-    //           "name": "_value",
-    //           "type": "uint256"
-    //         }
-    //       ],
-    //       "name": "transfer",
-    //       "outputs": [
-    //         {
-    //           "name": "",
-    //           "type": "bool"
-    //         }
-    //       ],
-    //       "type": "function"
-    //     }
-    //   ];
-    //   // Get ERC20 Token contract instance
-    //   let contract = new web3.eth.Contract(minABI as AbiItem[], oceanAddress);
-    //   // calculate ERC20 token amount
-    //   let value = amount.mul(web3.utils.toBN(10).pow(decimals));
-    //   // call transfer function
-    //   contract.methods.transfer(toAddress, value).send({from: accounts[0]})
-    //   .on('transactionHash', function(hash: any){
-    //     console.log(hash);
-    //   });
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ethers */ "webpack/sharing/consume/default/ethers/ethers");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ethers__WEBPACK_IMPORTED_MODULE_0__);
+
+async function sendOcean(to_address) {
+    console.log('Sending OCEAN initiated');
+    const send_token_amount = '10';
+    const oceanAddress = '0x8967BCF84170c91B0d24D4302C2376283b0B3a07';
+    const contractAbiFragment = [
+        {
+            "name": "transfer",
+            "type": "function",
+            "inputs": [
+                {
+                    "name": "_to",
+                    "type": "address"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_tokens"
+                }
+            ],
+            "constant": false,
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false
+        }
+    ];
+    console.log('Parameters defined');
+    const provider = new ethers__WEBPACK_IMPORTED_MODULE_0__.providers.Web3Provider(window.ethereum, "any");
+    // Prompt user for account connections
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    let contract = new ethers__WEBPACK_IMPORTED_MODULE_0__.Contract(oceanAddress, contractAbiFragment, signer);
+    console.log('Contract defined');
+    // How many tokens?
+    let numberOfTokens = ethers__WEBPACK_IMPORTED_MODULE_0__.utils.parseUnits(send_token_amount, 18);
+    console.log(`numberOfTokens: ${numberOfTokens}`);
+    console.log('Ready to transfer');
+    // Send tokens
+    contract.transfer(to_address, numberOfTokens).then((transferResult) => {
+        console.dir(transferResult);
+        alert("sent token");
+    });
+    console.log('Done: see address below on etherscan');
+    console.log(to_address);
 }
 
 
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.1e18840df9ff332fb942.js.map
+//# sourceMappingURL=lib_index_js.6efcb27b675a3b77299e.js.map

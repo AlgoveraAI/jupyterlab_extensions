@@ -64,12 +64,15 @@ __webpack_require__.d(exports, {
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
 /******/ 			id: moduleId,
-/******/ 			// no module.loaded needed
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -82,6 +85,11 @@ __webpack_require__.d(exports, {
 /******/ 	__webpack_require__.c = __webpack_module_cache__;
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/amd options */
+/******/ 	(() => {
+/******/ 		__webpack_require__.amdO = {};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -124,7 +132,7 @@ __webpack_require__.d(exports, {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"lib_index_js":"1e18840df9ff332fb942","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"e18ee91e4b70f0b69f0f","style_index_js":"2874839c66e0434a33bd"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"lib_index_js":"6efcb27b675a3b77299e","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":"e18ee91e4b70f0b69f0f","style_index_js":"2874839c66e0434a33bd","vendors-node_modules_ethers_lib_esm_index_js":"d7c04fcd8fc4aead198d","_4afa":"0a43eed1fc98353ee3c1"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -202,6 +210,15 @@ __webpack_require__.d(exports, {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/node module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nmd = (module) => {
+/******/ 			module.paths = [];
+/******/ 			if (!module.children) module.children = [];
+/******/ 			return module;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/sharing */
 /******/ 	(() => {
 /******/ 		__webpack_require__.S = {};
@@ -242,6 +259,7 @@ __webpack_require__.d(exports, {
 /******/ 			switch(name) {
 /******/ 				case "default": {
 /******/ 					register("@jupyterlab-examples/main-menu", "0.1.0", () => (__webpack_require__.e("lib_index_js").then(() => (() => (__webpack_require__(/*! ./lib/index.js */ "./lib/index.js"))))));
+/******/ 					register("ethers", "5.5.3", () => (Promise.all([__webpack_require__.e("vendors-node_modules_ethers_lib_esm_index_js"), __webpack_require__.e("_4afa")]).then(() => (() => (__webpack_require__(/*! ./node_modules/ethers/lib.esm/index.js */ "./node_modules/ethers/lib.esm/index.js"))))));
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -409,6 +427,7 @@ __webpack_require__.d(exports, {
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/launcher": () => (loadSingletonVersionCheck("default", "@jupyterlab/launcher", [1,3,2,6])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/translation": () => (loadSingletonVersionCheck("default", "@jupyterlab/translation", [1,3,2,6])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/rendermime": () => (loadSingletonVersionCheck("default", "@jupyterlab/rendermime", [1,3,2,6])),
+/******/ 			"webpack/sharing/consume/default/ethers/ethers": () => (loadStrictVersionCheckFallback("default", "ethers", [1,5,5,3], () => (Promise.all([__webpack_require__.e("vendors-node_modules_ethers_lib_esm_index_js"), __webpack_require__.e("_4afa")]).then(() => (() => (__webpack_require__(/*! ethers */ "./node_modules/ethers/lib.esm/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/outputarea": () => (loadVersionCheck("default", "@jupyterlab/outputarea", [1,3,2,6])),
 /******/ 			"webpack/sharing/consume/default/@lumino/widgets": () => (loadSingletonVersionCheck("default", "@lumino/widgets", [1,1,19,0]))
 /******/ 		};
@@ -419,6 +438,7 @@ __webpack_require__.d(exports, {
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/launcher",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/translation",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/rendermime",
+/******/ 				"webpack/sharing/consume/default/ethers/ethers",
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/outputarea",
 /******/ 				"webpack/sharing/consume/default/@lumino/widgets"
 /******/ 			]
@@ -552,4 +572,4 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=remoteEntry.c3f7fbe25a9d0e7858f7.js.map
+//# sourceMappingURL=remoteEntry.a7769c7588b4ebca0648.js.map

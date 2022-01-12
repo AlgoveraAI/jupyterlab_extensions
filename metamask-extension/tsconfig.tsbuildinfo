@@ -2972,12 +2972,12 @@
         "affectsGlobalScope": false
       },
       "./src/transaction.ts": {
-        "version": "77b5f340ee0c724db4dea20359b98df46435069989f1e3d48ed9bfa6d22416d3",
-        "signature": "7ac23ed0df45c1771a0cbf02345f1f3361c561f33af72c056ef1fae22be88e5f",
+        "version": "b908d950f536ea87f35e54928ad48cc8c008cec8869296e21de7abef98c4933f",
+        "signature": "d4d5818fe425e3cfdcdd77f8a5ba1072187cd3a6083b61b8d7413707527faa6a",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "cf3a7564a157228d969187e4b062a07d9c818be7ca6a22738557fb497908afaa",
+        "version": "4398e9ea3519cd9eea85e4087e011e6c3efe654b5c1f3a6b7636e7d79fc74ea3",
         "signature": "c59e48957c8519ce3bcbb53128b6a86cea99135d5fa056218db2a1baa2715a12",
         "affectsGlobalScope": true
       }
@@ -6597,6 +6597,8 @@
         "./node_modules/@jupyterlab/rendermime/lib/index.d.ts",
         "./node_modules/@jupyterlab/translation/lib/index.d.ts",
         "./node_modules/@types/node/util.d.ts",
+        "./node_modules/ethers/lib/index.d.ts",
+        "./src/address.ts",
         "./src/panel.ts",
         "./src/transaction.ts"
       ],
@@ -6611,7 +6613,8 @@
         "./node_modules/@types/node/util.d.ts"
       ],
       "./src/transaction.ts": [
-        "./node_modules/@types/node/util.d.ts"
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/ethers/lib/index.d.ts"
       ]
     },
     "exportedModulesMap": {

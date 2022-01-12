@@ -1,1 +1,1 @@
-export default function sendOcean(toAddress: string, accounts: any[]): Promise<void>;
+export default function sendOcean(to_address: string): Promise<void>;

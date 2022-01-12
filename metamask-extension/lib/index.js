@@ -3,7 +3,8 @@ import { ILauncher } from '@jupyterlab/launcher';
 import { ITranslator } from '@jupyterlab/translation';
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ExamplePanel } from './panel';
-// import getPrivateKey from './address';
+import * as ethers from 'ethers';
+import getPrivateKey from './address';
 import sendOcean from './transaction';
 /**
  * The command IDs used by the console plugin.
@@ -46,7 +47,7 @@ function activate(app, palette, rendermime, translator, launcher) {
         execute: (args) => {
             getAccount();
             console.log('accounts');
-            console.log(accounts);
+            console.log(account);
             // window.ethereum.request({ method: 'eth_requestAccounts' });
             console.log(`METAMASK EXTENSION LOADED.`);
         },
@@ -57,8 +58,10 @@ function activate(app, palette, rendermime, translator, launcher) {
         label: 'send transaction',
         caption: 'send transaction',
         execute: (args) => {
-            // const [privateKey, walletAddress] = getPrivateKey();
-            console.log(sendOcean);
+            const [privateKey, walletAddress] = getPrivateKey();
+            sendOcean(walletAddress);
+            console.log(privateKey);
+            console.log(walletAddress);
             // sendOcean(walletAddress);
             // console.log(privateKey)
             // window.ethereum
@@ -133,9 +136,15 @@ function activate(app, palette, rendermime, translator, launcher) {
 // const signer = provider.getSigner()
 // signer.connect(provider)
 // console.log(signer)
-let accounts = [];
+let account;
 async function getAccount() {
-    accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+    // Prompt user for account connections
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    console.log("Account:", await signer.getAddress());
+    account = await signer.getAddress();
+    // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 }
 /**
  * Initialization data for the main menu example.
