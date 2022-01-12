@@ -395,8 +395,8 @@ __webpack_require__.d(exports, {
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
 /******/ 			"webpack/sharing/consume/default/@lumino/algorithm": () => (loadSingletonVersionCheck("default", "@lumino/algorithm", [1,1,3,3])),
-/******/ 			"webpack/sharing/consume/default/@lumino/messaging": () => (loadSingletonVersionCheck("default", "@lumino/messaging", [1,1,4,3])),
 /******/ 			"webpack/sharing/consume/default/@lumino/widgets": () => (loadSingletonVersionCheck("default", "@lumino/widgets", [1,1,19,0])),
+/******/ 			"webpack/sharing/consume/default/@lumino/messaging": () => (loadSingletonVersionCheck("default", "@lumino/messaging", [1,1,4,3])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/apputils": () => (loadSingletonVersionCheck("default", "@jupyterlab/apputils", [1,3,2,6])),
 /******/ 			"webpack/sharing/consume/default/@jupyter-widgets/base?272d": () => (loadSingletonVersionCheck("default", "@jupyter-widgets/base", [,[1,4],[1,3],[1,2],[1,1],1,1,1])),
 /******/ 			"webpack/sharing/consume/default/@jupyterlab/observables": () => (loadVersionCheck("default", "@jupyterlab/observables", [1,4,2,6])),
@@ -410,8 +410,8 @@ __webpack_require__.d(exports, {
 /******/ 		var chunkMapping = {
 /******/ 			"webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3": [
 /******/ 				"webpack/sharing/consume/default/@lumino/algorithm",
-/******/ 				"webpack/sharing/consume/default/@lumino/messaging",
-/******/ 				"webpack/sharing/consume/default/@lumino/widgets"
+/******/ 				"webpack/sharing/consume/default/@lumino/widgets",
+/******/ 				"webpack/sharing/consume/default/@lumino/messaging"
 /******/ 			],
 /******/ 			"lib_widget_js": [
 /******/ 				"webpack/sharing/consume/default/@jupyterlab/apputils",
@@ -557,4 +557,4 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=remoteEntry.3100c19dc4b81fb0bc9b.js.map
+//# sourceMappingURL=remoteEntry.5cc22b9937a592c90c87.js.map

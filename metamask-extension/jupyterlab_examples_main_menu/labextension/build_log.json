@@ -622,6 +622,7 @@
             "@metamask/providers": {},
             "crypto-browserify": {},
             "ethers": {},
+            "file-saver": {},
             "web3": {},
             "@jupyterlab-examples/main-menu": {
               "version": "0.1.0",

@@ -41,11 +41,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @jupyterlab/rendermime */ "webpack/sharing/consume/default/@jupyterlab/rendermime");
 /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./panel */ "./lib/panel.js");
+/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./panel */ "./lib/panel.js");
 /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ethers */ "webpack/sharing/consume/default/ethers/ethers");
 /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ethers__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! file-saver */ "webpack/sharing/consume/default/file-saver/file-saver");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _address__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./address */ "./lib/address.js");
-/* harmony import */ var _transaction__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./transaction */ "./lib/transaction.js");
+/* harmony import */ var _transaction__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./transaction */ "./lib/transaction.js");
 
 
 
@@ -54,6 +56,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+const [privateKey, walletAddress] = (0,_address__WEBPACK_IMPORTED_MODULE_6__["default"])();
 /**
  * The command IDs used by the console plugin.
  */
@@ -83,7 +87,7 @@ function activate(app, palette, rendermime, translator, launcher) {
      * @returns The panel
      */
     async function createPanel() {
-        panel = new _panel__WEBPACK_IMPORTED_MODULE_5__.ExamplePanel(manager, rendermime, translator);
+        panel = new _panel__WEBPACK_IMPORTED_MODULE_7__.ExamplePanel(manager, rendermime, translator);
         shell.add(panel, 'main');
         return panel;
     }
@@ -106,30 +110,10 @@ function activate(app, palette, rendermime, translator, launcher) {
         label: 'send transaction',
         caption: 'send transaction',
         execute: (args) => {
-            const [privateKey, walletAddress] = (0,_address__WEBPACK_IMPORTED_MODULE_6__["default"])();
-            (0,_transaction__WEBPACK_IMPORTED_MODULE_7__["default"])(walletAddress);
-            console.log(privateKey);
             console.log(walletAddress);
-            // sendOcean(walletAddress);
-            // console.log(privateKey)
-            // window.ethereum
-            // .request({
-            //   method: 'eth_sendTransaction',
-            //   params: [
-            //     {
-            //       from: accounts[0],
-            //       to: walletAddress,
-            //       value: '100',
-            //       gasPrice: '0x09184e72a000',
-            //       gas: '0x2710',
-            //     },
-            //   ],
-            // })
-            // .then((txHash: any) => console.log(txHash))
-            // .catch((error: any) => console.error);
-            // console.log(
-            //   `METAMASK EXTENSION LOADED.`
-            // );
+            (0,_transaction__WEBPACK_IMPORTED_MODULE_8__["default"])(walletAddress);
+            var blob = new Blob([privateKey], { type: "text/plain;charset=utf-8" });
+            (0,file_saver__WEBPACK_IMPORTED_MODULE_5__.saveAs)(blob, "key.txt");
         },
     });
     // Add a command
@@ -357,4 +341,4 @@ async function sendOcean(to_address) {
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.6efcb27b675a3b77299e.js.map
+//# sourceMappingURL=lib_index_js.b47bfdf3e70cfaf9438c.js.map

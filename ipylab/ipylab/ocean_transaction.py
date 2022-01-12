@@ -1,7 +1,6 @@
 """CryptoPunks Data Set"""
 import os
 import pickle
-import datasets
 import numpy as np
 from ocean_lib.ocean.ocean import Ocean
 from ocean_lib.config import Config
@@ -25,12 +24,13 @@ TEST_KEY = '0x5d75837394b078ce97bc289fa8d75e21000573520bfa7784a9d28ccaae602bf8'
 # data_token_address = '0xd21196A9AC0A0Aa9df1ef6f30a440584Fe1C5E7b'
 # asset = ocean.assets.resolve(did)
 # pool_address = "0x2d35D25C5BF1005B310284d00Ad05b9F35ea827B"
-class CryptoPunks(datasets.GeneratorBasedBuilder):
+class CryptoPunks():
     """CryptoPunks Data Set"""
     # BUY DATASET
-    def _buy_and_download(self, private_key, did, pool_address):
+    def _buy_and_download(self, key_path, did, pool_address):
+        _private_key = open(key_path, "r").read()
         # Get wallet, asset, datatoken_address
-        wallet = Wallet(ocean.web3, private_key=private_key, transaction_timeout=20, block_confirmations=config.block_confirmations)
+        wallet = Wallet(ocean.web3, private_key=_private_key, transaction_timeout=20, block_confirmations=config.block_confirmations)
         asset = ocean.assets.resolve(did)
         data_token_address = f'0x{did[7:]}'
 

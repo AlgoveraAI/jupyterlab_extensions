@@ -48,7 +48,8 @@
     "watch:src": "tsc -w"
   },
   "browser": {
-    "crypto": false
+    "crypto": false,
+    "child_process": false
   },
   "dependencies": {
     "@jupyterlab/application": "^3.1.0",
@@ -65,10 +66,13 @@
     "@metamask/providers": "^8.1.1",
     "crypto-browserify": "^3.12.0",
     "ethers": "^5.5.3",
+    "file-saver": "^2.0.5",
     "web3": "^1.6.1"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.1.0",
+    "@types/file-saver": "^2.0.5",
+    "@types/fs-extra": "^9.0.13",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.14.0",
@@ -91,7 +95,7 @@
     "schemaDir": "schema",
     "webpackConfig": "./webpack.config.js",
     "_build": {
-      "load": "static/remoteEntry.a7769c7588b4ebca0648.js",
+      "load": "static/remoteEntry.6c1b06318882c698c9d1.js",
       "extension": "./extension",
       "style": "./style"
     }
