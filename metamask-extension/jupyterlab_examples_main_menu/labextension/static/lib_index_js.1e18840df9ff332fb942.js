@@ -20,10 +20,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @jupyterlab/rendermime */ "webpack/sharing/consume/default/@jupyterlab/rendermime");
 /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./panel */ "./lib/panel.js");
+/* harmony import */ var _transaction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./transaction */ "./lib/transaction.js");
 
 
 
 
+
+// import getPrivateKey from './address';
 
 /**
  * The command IDs used by the console plugin.
@@ -77,22 +80,28 @@ function activate(app, palette, rendermime, translator, launcher) {
         label: 'send transaction',
         caption: 'send transaction',
         execute: (args) => {
-            window.ethereum
-                .request({
-                method: 'eth_sendTransaction',
-                params: [
-                    {
-                        from: accounts[0],
-                        to: '0x8b8115a4b5B97f59B57DC8d5c3BbaCb16140f785',
-                        value: '0x29a2241af62c0000',
-                        gasPrice: '0x09184e72a000',
-                        gas: '0x2710',
-                    },
-                ],
-            })
-                .then((txHash) => console.log(txHash))
-                .catch((error) => console.error);
-            console.log(`METAMASK EXTENSION LOADED.`);
+            // const [privateKey, walletAddress] = getPrivateKey();
+            console.log(_transaction__WEBPACK_IMPORTED_MODULE_5__["default"]);
+            // sendOcean(walletAddress);
+            // console.log(privateKey)
+            // window.ethereum
+            // .request({
+            //   method: 'eth_sendTransaction',
+            //   params: [
+            //     {
+            //       from: accounts[0],
+            //       to: walletAddress,
+            //       value: '100',
+            //       gasPrice: '0x09184e72a000',
+            //       gas: '0x2710',
+            //     },
+            //   ],
+            // })
+            // .then((txHash: any) => console.log(txHash))
+            // .catch((error: any) => console.error);
+            // console.log(
+            //   `METAMASK EXTENSION LOADED.`
+            // );
         },
     });
     // Add a command
@@ -247,7 +256,64 @@ class ExamplePanel extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_3__.StackedP
 }
 
 
+/***/ }),
+
+/***/ "./lib/transaction.js":
+/*!****************************!*\
+  !*** ./lib/transaction.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ sendOcean)
+/* harmony export */ });
+// import Web3 from 'web3';
+// import { AbiItem } from 'web3-utils';
+async function sendOcean(toAddress, accounts) {
+    //   const web3 = new Web3(window.ethereum);
+    console.log('web3');
+    //   const oceanAddress = '0x8967BCF84170c91B0d24D4302C2376283b0B3a07';
+    //   // Use BigNumber
+    //   let decimals = web3.utils.toBN(18);
+    //   let amount = web3.utils.toBN(100);
+    //   let minABI = [
+    //     // transfer
+    //     {
+    //       "constant": false,
+    //       "inputs": [
+    //         {
+    //           "name": "_to",
+    //           "type": "address"
+    //         },
+    //         {
+    //           "name": "_value",
+    //           "type": "uint256"
+    //         }
+    //       ],
+    //       "name": "transfer",
+    //       "outputs": [
+    //         {
+    //           "name": "",
+    //           "type": "bool"
+    //         }
+    //       ],
+    //       "type": "function"
+    //     }
+    //   ];
+    //   // Get ERC20 Token contract instance
+    //   let contract = new web3.eth.Contract(minABI as AbiItem[], oceanAddress);
+    //   // calculate ERC20 token amount
+    //   let value = amount.mul(web3.utils.toBN(10).pow(decimals));
+    //   // call transfer function
+    //   contract.methods.transfer(toAddress, value).send({from: accounts[0]})
+    //   .on('transactionHash', function(hash: any){
+    //     console.log(hash);
+    //   });
+}
+
+
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.32488ff561f9f8a3febe.js.map
+//# sourceMappingURL=lib_index_js.1e18840df9ff332fb942.js.map

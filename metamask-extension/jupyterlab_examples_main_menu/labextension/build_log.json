@@ -103,7 +103,11 @@
         "url": false,
         "buffer": false,
         "path": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/path-browserify/index.js",
-        "process": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/process/browser.js"
+        "process": "/Users/jakubsmekal/Development/Algovera/testing_repo/jupyterlab_extensions/metamask-extension/node_modules/process/browser.js",
+        "crypto": false,
+        "https": "/Users/jakubsmekal/Development/node_modules/https-browserify/index.js",
+        "http": "/Users/jakubsmekal/Development/node_modules/stream-http/index.js",
+        "stream": "/Users/jakubsmekal/Development/node_modules/stream-browserify/index.js"
       }
     },
     "watchOptions": {
@@ -616,6 +620,7 @@
             "@metamask/detect-provider": {},
             "@metamask/eth-sig-util": {},
             "@metamask/providers": {},
+            "crypto-browserify": {},
             "ethers": {},
             "web3": {},
             "@jupyterlab-examples/main-menu": {

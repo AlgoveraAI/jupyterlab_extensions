@@ -12,16 +12,15 @@ import { ITranslator } from '@jupyterlab/translation';
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ExamplePanel } from './panel';
 
-import getPrivateKey from './address.js';
-// import * as web3 from 'web3';
+// import getPrivateKey from './address';
+
+import sendOcean from './transaction';
 
 declare global {
   interface Window {
       ethereum:any;
   }
 }
-
-// const web3 = window.ethereum;
 
 /**
  * The command IDs used by the console plugin.
@@ -88,9 +87,8 @@ declare global {
       label: 'send transaction',
       caption: 'send transaction',
       execute: (args: any) => {
-        const [privateKey, walletAddress] = getPrivateKey();
-        console.log(privateKey)
-        console.log(walletAddress)
+        // const [privateKey, walletAddress] = getPrivateKey();
+        console.log(sendOcean);
         // sendOcean(walletAddress);
         // console.log(privateKey)
         // window.ethereum
@@ -179,45 +177,7 @@ async function getAccount() {
   accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 }
 
-// async function sendOcean(toAddress: string) {
-//   const oceanAddress = '0x8967BCF84170c91B0d24D4302C2376283b0B3a07';
-//   // Use BigNumber
-//   let decimals = web3.utils.toBN(18);
-//   let amount = web3.utils.toBN(100);
-//   let minABI = [
-//     // transfer
-//     {
-//       "constant": false,
-//       "inputs": [
-//         {
-//           "name": "_to",
-//           "type": "address"
-//         },
-//         {
-//           "name": "_value",
-//           "type": "uint256"
-//         }
-//       ],
-//       "name": "transfer",
-//       "outputs": [
-//         {
-//           "name": "",
-//           "type": "bool"
-//         }
-//       ],
-//       "type": "function"
-//     }
-//   ];
-//   // Get ERC20 Token contract instance
-//   let contract = new web3.eth.Contract(minABI, oceanAddress);
-//   // calculate ERC20 token amount
-//   let value = amount.mul(web3.utils.toBN(10).pow(decimals));
-//   // call transfer function
-//   contract.methods.transfer(toAddress, value).send({from: accounts[0]})
-//   .on('transactionHash', function(hash: any){
-//     console.log(hash);
-//   });
-// }
+
 /**
  * Initialization data for the main menu example.
  */

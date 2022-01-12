@@ -1,1 +1,1 @@
-export default function getPrivateKey(): string;
+export default function getPrivateKey(): string[];

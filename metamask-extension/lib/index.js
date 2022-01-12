@@ -3,6 +3,8 @@ import { ILauncher } from '@jupyterlab/launcher';
 import { ITranslator } from '@jupyterlab/translation';
 import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { ExamplePanel } from './panel';
+// import getPrivateKey from './address';
+import sendOcean from './transaction';
 /**
  * The command IDs used by the console plugin.
  */
@@ -55,22 +57,28 @@ function activate(app, palette, rendermime, translator, launcher) {
         label: 'send transaction',
         caption: 'send transaction',
         execute: (args) => {
-            window.ethereum
-                .request({
-                method: 'eth_sendTransaction',
-                params: [
-                    {
-                        from: accounts[0],
-                        to: '0x8b8115a4b5B97f59B57DC8d5c3BbaCb16140f785',
-                        value: '0x29a2241af62c0000',
-                        gasPrice: '0x09184e72a000',
-                        gas: '0x2710',
-                    },
-                ],
-            })
-                .then((txHash) => console.log(txHash))
-                .catch((error) => console.error);
-            console.log(`METAMASK EXTENSION LOADED.`);
+            // const [privateKey, walletAddress] = getPrivateKey();
+            console.log(sendOcean);
+            // sendOcean(walletAddress);
+            // console.log(privateKey)
+            // window.ethereum
+            // .request({
+            //   method: 'eth_sendTransaction',
+            //   params: [
+            //     {
+            //       from: accounts[0],
+            //       to: walletAddress,
+            //       value: '100',
+            //       gasPrice: '0x09184e72a000',
+            //       gas: '0x2710',
+            //     },
+            //   ],
+            // })
+            // .then((txHash: any) => console.log(txHash))
+            // .catch((error: any) => console.error);
+            // console.log(
+            //   `METAMASK EXTENSION LOADED.`
+            // );
         },
     });
     // Add a command

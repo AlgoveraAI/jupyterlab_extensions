@@ -47,6 +47,9 @@
     "watch:labextension": "jupyter labextension watch .",
     "watch:src": "tsc -w"
   },
+  "browser": {
+    "crypto": false
+  },
   "dependencies": {
     "@jupyterlab/application": "^3.1.0",
     "@jupyterlab/apputils": "^3.1.0",
@@ -60,6 +63,7 @@
     "@metamask/detect-provider": "^1.2.0",
     "@metamask/eth-sig-util": "^4.0.0",
     "@metamask/providers": "^8.1.1",
+    "crypto-browserify": "^3.12.0",
     "ethers": "^5.5.3",
     "web3": "^1.6.1"
   },
@@ -85,8 +89,9 @@
     "extension": true,
     "outputDir": "jupyterlab_examples_main_menu/labextension",
     "schemaDir": "schema",
+    "webpackConfig": "./webpack.config.js",
     "_build": {
-      "load": "static/remoteEntry.08869d7320360d100440.js",
+      "load": "static/remoteEntry.c3f7fbe25a9d0e7858f7.js",
       "extension": "./extension",
       "style": "./style"
     }
