@@ -17,7 +17,7 @@ var _JUPYTERLAB;
               __webpack_require__.e(
                 "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3"
               ),
-              __webpack_require__.e("lib_widget_js"),
+              __webpack_require__.e("lib_plugin_js-lib_widgets_frontend_js"),
               __webpack_require__.e("lib_index_js"),
             ]).then(
               () => () =>
@@ -32,8 +32,7 @@ var _JUPYTERLAB;
               __webpack_require__.e(
                 "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3"
               ),
-              __webpack_require__.e("lib_widget_js"),
-              __webpack_require__.e("lib_plugin_js"),
+              __webpack_require__.e("lib_plugin_js-lib_widgets_frontend_js"),
             ]).then(
               () => () =>
                 __webpack_require__(/*! ./lib/plugin */ "./lib/plugin.js")
@@ -101,7 +100,7 @@ var _JUPYTERLAB;
     /******/ // Create a new module (and put it into the cache)
     /******/ var module = (__webpack_module_cache__[moduleId] = {
       /******/ id: moduleId,
-      /******/ // no module.loaded needed
+      /******/ loaded: false,
       /******/ exports: {},
       /******/
     });
@@ -113,6 +112,9 @@ var _JUPYTERLAB;
       module.exports,
       __webpack_require__
     );
+    /******/
+    /******/ // Flag the module as loaded
+    /******/ module.loaded = true;
     /******/
     /******/ // Return the exports of the module
     /******/ return module.exports;
@@ -126,6 +128,12 @@ var _JUPYTERLAB;
   /******/ __webpack_require__.c = __webpack_module_cache__;
   /******/
   /************************************************************************/
+  /******/ /* webpack/runtime/amd options */
+  /******/ (() => {
+    /******/ __webpack_require__.amdO = {};
+    /******/
+  })();
+  /******/
   /******/ /* webpack/runtime/compat get default export */
   /******/ (() => {
     /******/ // getDefaultExport function for compatibility with non-harmony modules
@@ -194,16 +202,18 @@ var _JUPYTERLAB;
           "vendors-node_modules_jquery_dist_jquery_js": "afeee86c9790c447b0a8",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
             "55e80702cd02e7e671b6",
-          lib_widget_js: "f49f0e8332605f723ddd",
+          "lib_plugin_js-lib_widgets_frontend_js": "91e9cd656662866072f8",
           lib_index_js: "f6621001b911755234cc",
-          lib_plugin_js: "7c4034988e8d8446104f",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
             "1130b4fe5cc6c0440fed",
-          style_style_js: "6f9dd0df6b210c99aa42",
+          style_style_js: "d00d12a32cb5898f6fb0",
           "vendors-node_modules_jupyter-widgets_controls_lib_index_js":
             "361d02ed940b95b2613e",
           "webpack_sharing_consume_default_jupyter-widgets_base-webpack_sharing_consume_default_lumino_d-b18fc4":
             "2d25c59c3e9554e98c26",
+          "vendors-node_modules_ethers_lib_esm_index_js":
+            "f95e80d94e56f6362ced",
+          _4afa: "358ba94cf4ce009c8966",
         }[chunkId] +
         ".js"
       );
@@ -318,6 +328,17 @@ var _JUPYTERLAB;
     /******/
   })();
   /******/
+  /******/ /* webpack/runtime/node module decorator */
+  /******/ (() => {
+    /******/ __webpack_require__.nmd = (module) => {
+      /******/ module.paths = [];
+      /******/ if (!module.children) module.children = [];
+      /******/ return module;
+      /******/
+    };
+    /******/
+  })();
+  /******/
   /******/ /* webpack/runtime/sharing */
   /******/ (() => {
     /******/ __webpack_require__.S = {};
@@ -411,11 +432,24 @@ var _JUPYTERLAB;
                 __webpack_require__.e(
                   "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3"
                 ),
-                __webpack_require__.e("lib_widget_js"),
+                __webpack_require__.e("lib_plugin_js-lib_widgets_frontend_js"),
                 __webpack_require__.e("lib_index_js"),
               ]).then(
                 () => () =>
                   __webpack_require__(/*! ./lib/index.js */ "./lib/index.js")
+              )
+            );
+            /******/ register("ethers", "5.5.3", () =>
+              Promise.all([
+                __webpack_require__.e(
+                  "vendors-node_modules_ethers_lib_esm_index_js"
+                ),
+                __webpack_require__.e("_4afa"),
+              ]).then(
+                () => () =>
+                  __webpack_require__(
+                    /*! ./node_modules/ethers/lib.esm/index.js */ "./node_modules/ethers/lib.esm/index.js"
+                  )
               )
             );
             /******/
@@ -836,16 +870,16 @@ var _JUPYTERLAB;
     );
     /******/ var installedModules = {};
     /******/ var moduleToHandlerMapping = {
+      /******/ "webpack/sharing/consume/default/@lumino/widgets": () =>
+        loadSingletonVersionCheck("default", "@lumino/widgets", [1, 1, 19, 0]),
       /******/ "webpack/sharing/consume/default/@lumino/algorithm": () =>
         loadSingletonVersionCheck("default", "@lumino/algorithm", [1, 1, 3, 3]),
       /******/ "webpack/sharing/consume/default/@lumino/messaging": () =>
         loadSingletonVersionCheck("default", "@lumino/messaging", [1, 1, 4, 3]),
-      /******/ "webpack/sharing/consume/default/@lumino/widgets": () =>
-        loadSingletonVersionCheck("default", "@lumino/widgets", [1, 1, 19, 0]),
-      /******/ "webpack/sharing/consume/default/@jupyterlab/apputils": () =>
+      /******/ "webpack/sharing/consume/default/@jupyterlab/application": () =>
         loadSingletonVersionCheck(
           "default",
-          "@jupyterlab/apputils",
+          "@jupyterlab/application",
           [1, 3, 2, 8]
         ),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?272d":
@@ -860,6 +894,44 @@ var _JUPYTERLAB;
             1,
             1,
           ]),
+      /******/ "webpack/sharing/consume/default/@jupyterlab/apputils": () =>
+        loadSingletonVersionCheck(
+          "default",
+          "@jupyterlab/apputils",
+          [1, 3, 2, 8]
+        ),
+      /******/ "webpack/sharing/consume/default/@jupyterlab/launcher": () =>
+        loadSingletonVersionCheck(
+          "default",
+          "@jupyterlab/launcher",
+          [1, 3, 2, 8]
+        ),
+      /******/ "webpack/sharing/consume/default/@jupyterlab/translation": () =>
+        loadSingletonVersionCheck(
+          "default",
+          "@jupyterlab/translation",
+          [1, 3, 2, 8]
+        ),
+      /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime": () =>
+        loadSingletonVersionCheck(
+          "default",
+          "@jupyterlab/rendermime",
+          [1, 3, 2, 8]
+        ),
+      /******/ "webpack/sharing/consume/default/ethers/ethers": () =>
+        loadStrictVersionCheckFallback("default", "ethers", [1, 5, 5, 3], () =>
+          Promise.all([
+            __webpack_require__.e(
+              "vendors-node_modules_ethers_lib_esm_index_js"
+            ),
+            __webpack_require__.e("_4afa"),
+          ]).then(
+            () => () =>
+              __webpack_require__(
+                /*! ethers */ "./node_modules/ethers/lib.esm/index.js"
+              )
+          )
+        ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/observables": () =>
         loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 8]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls":
@@ -883,12 +955,8 @@ var _JUPYTERLAB;
                   )
               )
           ),
-      /******/ "webpack/sharing/consume/default/@jupyterlab/application": () =>
-        loadSingletonVersionCheck(
-          "default",
-          "@jupyterlab/application",
-          [1, 3, 2, 8]
-        ),
+      /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea": () =>
+        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 8]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?d99c":
         () =>
           loadSingletonVersionCheck(
@@ -906,20 +974,22 @@ var _JUPYTERLAB;
     /******/ var chunkMapping = {
       /******/ "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
         [
+          /******/ "webpack/sharing/consume/default/@lumino/widgets",
           /******/ "webpack/sharing/consume/default/@lumino/algorithm",
           /******/ "webpack/sharing/consume/default/@lumino/messaging",
-          /******/ "webpack/sharing/consume/default/@lumino/widgets",
           /******/
         ],
-      /******/ lib_widget_js: [
-        /******/ "webpack/sharing/consume/default/@jupyterlab/apputils",
+      /******/ "lib_plugin_js-lib_widgets_frontend_js": [
+        /******/ "webpack/sharing/consume/default/@jupyterlab/application",
         /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?272d",
+        /******/ "webpack/sharing/consume/default/@jupyterlab/apputils",
+        /******/ "webpack/sharing/consume/default/@jupyterlab/launcher",
+        /******/ "webpack/sharing/consume/default/@jupyterlab/translation",
+        /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime",
+        /******/ "webpack/sharing/consume/default/ethers/ethers",
         /******/ "webpack/sharing/consume/default/@jupyterlab/observables",
         /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls",
-        /******/
-      ],
-      /******/ lib_plugin_js: [
-        /******/ "webpack/sharing/consume/default/@jupyterlab/application",
+        /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea",
         /******/
       ],
       /******/ "webpack_sharing_consume_default_jupyter-widgets_base-webpack_sharing_consume_default_lumino_d-b18fc4":
@@ -1134,4 +1204,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.9f04fda35bc785c631c0.js.map
+//# sourceMappingURL=remoteEntry.342921a53809ff537956.js.map

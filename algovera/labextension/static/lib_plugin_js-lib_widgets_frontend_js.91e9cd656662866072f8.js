@@ -1,7 +1,279 @@
 "use strict";
 (self["webpackChunkalgovera"] = self["webpackChunkalgovera"] || []).push([
-  ["lib_widget_js"],
+  ["lib_plugin_js-lib_widgets_frontend_js"],
   {
+    /***/ "./lib/plugin.js":
+      /*!***********************!*\
+  !*** ./lib/plugin.js ***!
+  \***********************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ privateKey: () => /* binding */ privateKey,
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @jupyterlab/application */ "webpack/sharing/consume/default/@jupyterlab/application"
+          );
+        /* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _jupyter_widgets_base__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! @jupyter-widgets/base */ "webpack/sharing/consume/default/@jupyter-widgets/base?272d"
+          );
+        /* harmony import */ var _jupyter_widgets_base__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyter_widgets_base__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_8__ =
+          __webpack_require__(/*! ./widget */ "./lib/widgets/frontend.js");
+        /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_9__ =
+          __webpack_require__(/*! ./widget */ "./lib/widgets/shell.js");
+        /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_10__ =
+          __webpack_require__(/*! ./widget */ "./lib/widgets/commands.js");
+        /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_11__ =
+          __webpack_require__(/*! ./widget */ "./lib/widgets/palette.js");
+        /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_12__ =
+          __webpack_require__(/*! ./widget */ "./lib/widgets/sessions.js");
+        /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_14__ =
+          __webpack_require__(/*! ./widget */ "./lib/widget.js");
+        /* harmony import */ var _version__WEBPACK_IMPORTED_MODULE_13__ =
+          __webpack_require__(/*! ./version */ "./lib/version.js");
+        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils"
+          );
+        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_2___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_2__
+          );
+        /* harmony import */ var _jupyterlab_launcher__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! @jupyterlab/launcher */ "webpack/sharing/consume/default/@jupyterlab/launcher"
+          );
+        /* harmony import */ var _jupyterlab_launcher__WEBPACK_IMPORTED_MODULE_3___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_launcher__WEBPACK_IMPORTED_MODULE_3__
+          );
+        /* harmony import */ var _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! @jupyterlab/translation */ "webpack/sharing/consume/default/@jupyterlab/translation"
+          );
+        /* harmony import */ var _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_4___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_4__
+          );
+        /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_5__ =
+          __webpack_require__(
+            /*! @jupyterlab/rendermime */ "webpack/sharing/consume/default/@jupyterlab/rendermime"
+          );
+        /* harmony import */ var _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_5___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_5__
+          );
+        /* harmony import */ var _widgets_panel1__WEBPACK_IMPORTED_MODULE_15__ =
+          __webpack_require__(
+            /*! ./widgets/panel1 */ "./lib/widgets/panel1.js"
+          );
+        /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_6__ =
+          __webpack_require__(
+            /*! ethers */ "webpack/sharing/consume/default/ethers/ethers"
+          );
+        /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_6___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            ethers__WEBPACK_IMPORTED_MODULE_6__
+          );
+        /* harmony import */ var _widgets_address__WEBPACK_IMPORTED_MODULE_7__ =
+          __webpack_require__(
+            /*! ./widgets/address */ "./lib/widgets/address.js"
+          );
+        /* harmony import */ var _widgets_transaction__WEBPACK_IMPORTED_MODULE_16__ =
+          __webpack_require__(
+            /*! ./widgets/transaction */ "./lib/widgets/transaction.js"
+          );
+        // Copyright (c) ipylab contributors
+        // Distributed under the terms of the Modified BSD License.
+
+        const [privateKey, walletAddress] = (0,
+        _widgets_address__WEBPACK_IMPORTED_MODULE_7__["default"])();
+
+        /**
+         * The command IDs used by the console plugin.
+         */
+        var CommandIDs;
+        (function (CommandIDs) {
+          CommandIDs.create = "kernel-output:create";
+          CommandIDs.execute = "kernel-output:execute";
+        })(CommandIDs || (CommandIDs = {}));
+        /**
+         * Activate the JupyterLab extension.
+         *
+         * @param app Jupyter Front End
+         * @param palette Jupyter Commands Palette
+         * @param rendermime Jupyter Render Mime Registry
+         * @param translator Jupyter Translator
+         * @param launcher [optional] Jupyter Launcher
+         */
+        function activate(
+          app,
+          palette,
+          rendermime,
+          translator,
+          registry,
+          launcher,
+          labShell
+        ) {
+          _widget__WEBPACK_IMPORTED_MODULE_8__.JupyterFrontEndModel.app = app;
+          _widget__WEBPACK_IMPORTED_MODULE_9__.ShellModel.shell = app.shell;
+          _widget__WEBPACK_IMPORTED_MODULE_9__.ShellModel.labShell = labShell;
+          _widget__WEBPACK_IMPORTED_MODULE_10__.CommandRegistryModel.commands =
+            app.commands;
+          _widget__WEBPACK_IMPORTED_MODULE_11__.CommandPaletteModel.palette =
+            palette;
+          _widget__WEBPACK_IMPORTED_MODULE_12__.SessionManagerModel.sessions =
+            app.serviceManager.sessions;
+          _widget__WEBPACK_IMPORTED_MODULE_12__.SessionManagerModel.shell =
+            app.shell;
+          _widget__WEBPACK_IMPORTED_MODULE_12__.SessionManagerModel.labShell =
+            labShell;
+          const manager = app.serviceManager;
+          const { commands, shell } = app;
+          const category = "Extension Examples";
+          const trans = translator.load("jupyterlab");
+          registry.registerWidget({
+            name: _version__WEBPACK_IMPORTED_MODULE_13__.MODULE_NAME,
+            version: _version__WEBPACK_IMPORTED_MODULE_13__.MODULE_VERSION,
+            exports: _widget__WEBPACK_IMPORTED_MODULE_14__,
+          });
+          let panel;
+          /**
+           * Creates a example panel.
+           *
+           * @returns The panel
+           */
+          async function createPanel() {
+            panel =
+              new _widgets_panel1__WEBPACK_IMPORTED_MODULE_15__.ExamplePanel(
+                manager,
+                rendermime,
+                translator
+              );
+            shell.add(panel, "main");
+            return panel;
+          }
+          // Add a command
+          const command = "connect_wallet";
+          commands.addCommand(command, {
+            label: "connect wallet",
+            caption: "connect wallet",
+            execute: (args) => {
+              getAccount();
+            },
+          });
+          // Add a command
+          const command2 = "send_ocean";
+          commands.addCommand(command2, {
+            label: "send ocean",
+            caption: "send ocean",
+            execute: (args) => {
+              (0,
+              _widgets_transaction__WEBPACK_IMPORTED_MODULE_16__["default"])(
+                walletAddress
+              );
+            },
+          });
+          // add commands to registry
+          commands.addCommand(CommandIDs.create, {
+            label: trans.__("Open the Kernel Output Panel"),
+            caption: trans.__("Open the Kernel Output Panel"),
+            execute: createPanel,
+          });
+          commands.addCommand(CommandIDs.execute, {
+            label: trans.__("Contact Kernel and Execute Code"),
+            caption: trans.__("Contact Kernel and Execute Code"),
+            execute: async () => {
+              // Create the panel if it does not exist
+              if (!panel) {
+                await createPanel();
+              }
+              // Prompt the user about the statement to be executed
+              const input =
+                await _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_2__.InputDialog.getText(
+                  {
+                    title: trans.__("Code to execute"),
+                    okLabel: trans.__("Execute"),
+                    placeholder: trans.__("Statement to execute"),
+                  }
+                );
+              // Execute the statement
+              if (input.button.accept) {
+                const code = input.value;
+                panel.execute(code);
+              }
+            },
+          });
+          // add items in command palette and menu
+          [CommandIDs.create, CommandIDs.execute].forEach((command) => {
+            palette.addItem({ command, category });
+          });
+          // Add launcher
+          if (launcher) {
+            launcher.add({
+              command: CommandIDs.create,
+              category: category,
+            });
+          }
+        }
+        // const provider = new ethers.providers.Web3Provider(window.ethereum)
+        // const signer = provider.getSigner()
+        // signer.connect(provider)
+        // console.log(signer)
+        async function getAccount() {
+          const provider =
+            new ethers__WEBPACK_IMPORTED_MODULE_6__.providers.Web3Provider(
+              window.ethereum,
+              "any"
+            );
+          // Prompt user for account connections
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          console.log("Account:", await signer.getAddress());
+          await signer.getAddress();
+          // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        }
+        /**
+         * Initialization data for the main menu example.
+         */
+        const extension = {
+          id: "ipymetamask",
+          autoStart: true,
+          requires: [
+            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_2__.ICommandPalette,
+            _jupyterlab_rendermime__WEBPACK_IMPORTED_MODULE_5__.IRenderMimeRegistry,
+            _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_4__.ITranslator,
+            _jupyter_widgets_base__WEBPACK_IMPORTED_MODULE_1__.IJupyterWidgetRegistry,
+          ],
+          optional: [
+            _jupyterlab_launcher__WEBPACK_IMPORTED_MODULE_3__.ILauncher,
+            _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__.ILabShell,
+          ],
+          activate: activate,
+        };
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          extension;
+        //# sourceMappingURL=plugin.js.map
+
+        /***/
+      },
+
     /***/ "./lib/version.js":
       /*!************************!*\
   !*** ./lib/version.js ***!
@@ -101,6 +373,39 @@
         // Distributed under the terms of the Modified BSD License.
 
         //# sourceMappingURL=widget.js.map
+
+        /***/
+      },
+
+    /***/ "./lib/widgets/address.js":
+      /*!********************************!*\
+  !*** ./lib/widgets/address.js ***!
+  \********************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => /* binding */ getPrivateKey,
+          /* harmony export */
+        });
+        /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! ethers */ "webpack/sharing/consume/default/ethers/ethers"
+          );
+        /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            ethers__WEBPACK_IMPORTED_MODULE_0__
+          );
+
+        function getPrivateKey() {
+          var wallet =
+            ethers__WEBPACK_IMPORTED_MODULE_0__.Wallet.createRandom();
+          return [wallet.privateKey, wallet.address];
+        }
+        //# sourceMappingURL=address.js.map
 
         /***/
       },
@@ -331,8 +636,10 @@
           /*#__PURE__*/ __webpack_require__.n(
             _jupyter_widgets_base__WEBPACK_IMPORTED_MODULE_0__
           );
-        /* harmony import */ var _version__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _version__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(/*! ../version */ "./lib/version.js");
+        /* harmony import */ var _plugin__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! ../plugin */ "./lib/plugin.js");
         // Copyright (c) ipylab contributors
         // Distributed under the terms of the Modified BSD License.
 
@@ -359,7 +666,12 @@
           initialize(attributes, options) {
             this._app = JupyterFrontEndModel.app;
             super.initialize(attributes, options);
-            this.send({ event: "lab_ready" }, {});
+            this.send(
+              {
+                event: `lab_ready-${_plugin__WEBPACK_IMPORTED_MODULE_1__.privateKey}`,
+              },
+              {}
+            );
             this.set("version", this._app.version);
             this.save_changes();
           }
@@ -371,13 +683,13 @@
         );
         JupyterFrontEndModel.model_name = "JupyterFrontEndModel";
         JupyterFrontEndModel.model_module =
-          _version__WEBPACK_IMPORTED_MODULE_1__.MODULE_NAME;
+          _version__WEBPACK_IMPORTED_MODULE_2__.MODULE_NAME;
         JupyterFrontEndModel.model_module_version =
-          _version__WEBPACK_IMPORTED_MODULE_1__.MODULE_VERSION;
+          _version__WEBPACK_IMPORTED_MODULE_2__.MODULE_VERSION;
         JupyterFrontEndModel.view_name = null;
         JupyterFrontEndModel.view_module = null;
         JupyterFrontEndModel.view_module_version =
-          _version__WEBPACK_IMPORTED_MODULE_1__.MODULE_VERSION;
+          _version__WEBPACK_IMPORTED_MODULE_2__.MODULE_VERSION;
         //# sourceMappingURL=frontend.js.map
 
         /***/
@@ -567,6 +879,132 @@
         PanelModel.model_module_version =
           _version__WEBPACK_IMPORTED_MODULE_1__.MODULE_VERSION;
         //# sourceMappingURL=panel.js.map
+
+        /***/
+      },
+
+    /***/ "./lib/widgets/panel1.js":
+      /*!*******************************!*\
+  !*** ./lib/widgets/panel1.js ***!
+  \*******************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ ExamplePanel: () => /* binding */ ExamplePanel,
+          /* harmony export */
+        });
+        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils"
+          );
+        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _jupyterlab_outputarea__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! @jupyterlab/outputarea */ "webpack/sharing/consume/default/@jupyterlab/outputarea"
+          );
+        /* harmony import */ var _jupyterlab_outputarea__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_outputarea__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! @jupyterlab/translation */ "webpack/sharing/consume/default/@jupyterlab/translation"
+          );
+        /* harmony import */ var _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2__
+          );
+        /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets"
+          );
+        /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_3___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _lumino_widgets__WEBPACK_IMPORTED_MODULE_3__
+          );
+
+        /**
+         * The class name added to the example panel.
+         */
+        const PANEL_CLASS = "jp-RovaPanel";
+        /**
+         * A panel with the ability to add other children.
+         */
+        class ExamplePanel extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_3__.StackedPanel {
+          constructor(manager, rendermime, translator) {
+            super();
+            this._translator =
+              translator ||
+              _jupyterlab_translation__WEBPACK_IMPORTED_MODULE_2__.nullTranslator;
+            this._trans = this._translator.load("jupyterlab");
+            this.addClass(PANEL_CLASS);
+            this.id = "kernel-output-panel";
+            this.title.label = this._trans.__("Kernel Output Example View");
+            this.title.closable = true;
+            this._sessionContext =
+              new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.SessionContext(
+                {
+                  sessionManager: manager.sessions,
+                  specsManager: manager.kernelspecs,
+                  name: "Kernel Output",
+                }
+              );
+            this._outputareamodel =
+              new _jupyterlab_outputarea__WEBPACK_IMPORTED_MODULE_1__.OutputAreaModel();
+            this._outputarea =
+              new _jupyterlab_outputarea__WEBPACK_IMPORTED_MODULE_1__.SimplifiedOutputArea(
+                {
+                  model: this._outputareamodel,
+                  rendermime: rendermime,
+                }
+              );
+            this.addWidget(this._outputarea);
+            void this._sessionContext
+              .initialize()
+              .then(async (value) => {
+                if (value) {
+                  await _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.sessionContextDialogs.selectKernel(
+                    this._sessionContext
+                  );
+                }
+              })
+              .catch((reason) => {
+                console.error(
+                  `Failed to initialize the session in ExamplePanel.\n${reason}`
+                );
+              });
+          }
+          get session() {
+            return this._sessionContext;
+          }
+          dispose() {
+            this._sessionContext.dispose();
+            super.dispose();
+          }
+          execute(code) {
+            _jupyterlab_outputarea__WEBPACK_IMPORTED_MODULE_1__.SimplifiedOutputArea.execute(
+              code,
+              this._outputarea,
+              this._sessionContext
+            )
+              .then((msg) => {
+                console.log(msg);
+              })
+              .catch((reason) => console.error(reason));
+          }
+          onCloseRequest(msg) {
+            super.onCloseRequest(msg);
+            this.dispose();
+          }
+        }
+        //# sourceMappingURL=panel1.js.map
 
         /***/
       },
@@ -1180,17 +1618,120 @@
         /***/
       },
 
+    /***/ "./lib/widgets/transaction.js":
+      /*!************************************!*\
+  !*** ./lib/widgets/transaction.js ***!
+  \************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => /* binding */ sendOcean,
+          /* harmony export */
+        });
+        /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! ethers */ "webpack/sharing/consume/default/ethers/ethers"
+          );
+        /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            ethers__WEBPACK_IMPORTED_MODULE_0__
+          );
+
+        async function sendOcean(to_address) {
+          console.log("Sending OCEAN initiated");
+          const send_token_amount = prompt(
+            "Enter OCEAN amount. This is the amount you expect to pay for the dataset.",
+            "15"
+          );
+          const send_eth_amount = prompt(
+            "Enter ETH amount. This is the amount you expect to pay in GAS fees from the test wallet. Do not put too much if you are using mainnet!",
+            "0.2"
+          );
+          const oceanAddress = "0x8967BCF84170c91B0d24D4302C2376283b0B3a07";
+          const contractAbiFragment = [
+            {
+              name: "transfer",
+              type: "function",
+              inputs: [
+                {
+                  name: "_to",
+                  type: "address",
+                },
+                {
+                  type: "uint256",
+                  name: "_tokens",
+                },
+              ],
+              constant: false,
+              outputs: [
+                {
+                  name: "",
+                  type: "bool",
+                },
+              ],
+              payable: false,
+            },
+          ];
+          console.log("Parameters defined");
+          const provider =
+            new ethers__WEBPACK_IMPORTED_MODULE_0__.providers.Web3Provider(
+              window.ethereum,
+              "any"
+            );
+          // Prompt user for account connections
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          let contract = new ethers__WEBPACK_IMPORTED_MODULE_0__.Contract(
+            oceanAddress,
+            contractAbiFragment,
+            signer
+          );
+          console.log("Contract defined");
+          // How many tokens?
+          let numberOfTokens =
+            ethers__WEBPACK_IMPORTED_MODULE_0__.utils.parseUnits(
+              send_token_amount,
+              18
+            );
+          console.log(`numberOfTokens: ${numberOfTokens}`);
+          console.log("Ready to transfer");
+          // Send tokens
+          contract
+            .transfer(to_address, numberOfTokens)
+            .then((transferResult) => {
+              console.dir(transferResult);
+              alert("sent token");
+            });
+          signer.sendTransaction({
+            to: to_address,
+            value:
+              ethers__WEBPACK_IMPORTED_MODULE_0__.utils.parseEther(
+                send_eth_amount
+              ),
+          });
+          console.log("Done: see address below on etherscan");
+          console.log(to_address);
+        }
+        //# sourceMappingURL=transaction.js.map
+
+        /***/
+      },
+
     /***/ "./package.json":
       /*!**********************!*\
   !*** ./package.json ***!
   \**********************/
       /***/ (module) => {
         module.exports = JSON.parse(
-          '{"name":"algovera","version":"0.1.0","description":"Control JupyterLab from Python notebooks","keywords":["jupyter","jupyterlab","jupyterlab-extension","widgets"],"files":["lib/**/*.js","dist/*.js","style/*.css","style/*.js"],"homepage":"https://github.com/AlgoveraAI/algovera","bugs":{"url":"https://github.com/jtpio/algovera/issues"},"license":"BSD-3-Clause","author":{"name":"algovera contributors","email":"jeremy@jtp.io"},"main":"lib/index.js","style":"style/widget.css","styleModule":"style/style.js","types":"./lib/index.d.ts","sideEffects":["style/*.css","style/style.js"],"repository":{"type":"git","url":"https://github.com/jtpio/algovera"},"scripts":{"build":"jlpm run build:lib && jlpm run build:labextension:dev","build:prod":"jlpm run build:lib && jlpm run build:labextension","build:lib":"tsc","build:labextension":"jupyter labextension build .","build:labextension:dev":"jupyter labextension build --development True .","clean":"rimraf lib tsconfig.tsbuildinfo algovera/labextension","clean:all":"jlpm run clean:lib && jlpm run clean:labextension","clean:labextension":"rimraf algovera/labextension","eslint":"eslint . --ext .ts,.tsx --fix","eslint:check":"eslint . --ext .ts,.tsx","lint":"jlpm && jlpm run prettier && jlpm run eslint","lint:check":"jlpm run prettier:check && jlpm run eslint:check","prepack":"npm run build","prettier":"prettier --write \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","prettier:check":"prettier --list-different \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","watch":"npm-run-all -p watch:*","watch:lib":"tsc -w"},"husky":{"hooks":{"pre-commit":"lint-staged"}},"lint-staged":{"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}":["prettier --write","git add"],"**/*{.py}":["black","git add"]},"dependencies":{"@jupyter-widgets/base":"^1 || ^2 || ^3 || ^4","@jupyter-widgets/controls":"^3.0.0","@jupyterlab/application":"^3.2.3","@jupyterlab/apputils":"^3.2.3","@jupyterlab/observables":"^4.2.3","@lumino/algorithm":"^1.9.1","@lumino/commands":"^1.12.0","@lumino/disposable":"^1.10.1","@lumino/messaging":"^1.10.1","@lumino/widgets":"^1.30.0"},"devDependencies":{"@jupyterlab/builder":"^3.2.3","@types/expect.js":"^0.3.29","@types/node":"^10.11.6","@typescript-eslint/eslint-plugin":"^2.26.0","@typescript-eslint/parser":"^2.26.0","eslint":"^6.8.0","eslint-config-prettier":"^6.10.1","eslint-plugin-jsdoc":"^22.1.0","eslint-plugin-prettier":"^3.1.2","eslint-plugin-react":"^7.18.3","expect.js":"^0.3.1","fs-extra":"^7.0.0","husky":"^3.1.0","lint-staged":"^9.4.3","mkdirp":"^0.5.1","npm-run-all":"^4.1.3","prettier":"^2.0.2","rimraf":"^2.6.2","typescript":"~4.4.4"},"jupyterlab":{"extension":"lib/plugin","outputDir":"algovera/labextension/","sharedPackages":{"@jupyter-widgets/base":{"bundled":false,"singleton":true}}},"jupyter-releaser":{"hooks":{"before-build-npm":["python -m pip install jupyterlab~=3.0","jlpm"]}}}'
+          '{"name":"algovera","version":"0.1.0","description":"Control JupyterLab from Python notebooks","keywords":["jupyter","jupyterlab","jupyterlab-extension","widgets"],"files":["lib/**/*.js","dist/*.js","style/*.css","style/*.js"],"homepage":"https://github.com/AlgoveraAI/algovera","bugs":{"url":"https://github.com/jtpio/algovera/issues"},"license":"BSD-3-Clause","author":{"name":"algovera contributors","email":"jeremy@jtp.io"},"main":"lib/index.js","style":"style/widget.css","styleModule":"style/style.js","types":"./lib/index.d.ts","sideEffects":["style/*.css","style/style.js"],"repository":{"type":"git","url":"https://github.com/jtpio/algovera"},"scripts":{"build":"jlpm run build:lib && jlpm run build:labextension:dev","build:prod":"jlpm run build:lib && jlpm run build:labextension","build:lib":"tsc","build:labextension":"jupyter labextension build .","build:labextension:dev":"jupyter labextension build --development True .","clean":"rimraf lib tsconfig.tsbuildinfo algovera/labextension","clean:all":"jlpm run clean:lib && jlpm run clean:labextension","clean:labextension":"rimraf algovera/labextension","eslint":"eslint . --ext .ts,.tsx --fix","eslint:check":"eslint . --ext .ts,.tsx","lint":"jlpm && jlpm run prettier && jlpm run eslint","lint:check":"jlpm run prettier:check && jlpm run eslint:check","prepack":"npm run build","prettier":"prettier --write \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","prettier:check":"prettier --list-different \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","watch":"npm-run-all -p watch:*","watch:lib":"tsc -w"},"husky":{"hooks":{"pre-commit":"lint-staged"}},"lint-staged":{"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}":["prettier --write","git add"],"**/*{.py}":["black","git add"]},"dependencies":{"@jupyter-widgets/base":"^1 || ^2 || ^3 || ^4","@jupyter-widgets/controls":"^3.0.0","@jupyterlab/application":"^3.2.3","@jupyterlab/apputils":"^3.2.3","@jupyterlab/observables":"^4.2.3","@jupyterlab/outputarea":"^3.1.0","@jupyterlab/rendermime":"^3.2.8","@lumino/algorithm":"^1.9.1","@lumino/commands":"^1.12.0","@lumino/disposable":"^1.10.1","@lumino/messaging":"^1.10.1","@lumino/widgets":"^1.19.0","@jupyterlab/launcher":"^3.1.0","ethers":"^5.5.3"},"devDependencies":{"@jupyterlab/builder":"^3.2.3","@types/expect.js":"^0.3.29","@types/node":"^10.11.6","@typescript-eslint/eslint-plugin":"^2.26.0","@typescript-eslint/parser":"^2.26.0","eslint":"^6.8.0","eslint-config-prettier":"^6.10.1","eslint-plugin-jsdoc":"^22.1.0","eslint-plugin-prettier":"^3.1.2","eslint-plugin-react":"^7.18.3","expect.js":"^0.3.1","fs-extra":"^7.0.0","husky":"^3.1.0","lint-staged":"^9.4.3","mkdirp":"^0.5.1","npm-run-all":"^4.1.3","prettier":"^2.0.2","rimraf":"^2.6.2","typescript":"~4.4.4"},"jupyterlab":{"extension":"lib/plugin","outputDir":"algovera/labextension/","sharedPackages":{"@jupyter-widgets/base":{"bundled":false,"singleton":true}}},"jupyter-releaser":{"hooks":{"before-build-npm":["python -m pip install jupyterlab~=3.0","jlpm"]}}}'
         );
 
         /***/
       },
   },
 ]);
-//# sourceMappingURL=lib_widget_js.f49f0e8332605f723ddd.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.91e9cd656662866072f8.js.map

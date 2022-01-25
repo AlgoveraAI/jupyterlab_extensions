@@ -611,6 +611,7 @@
               "import": false
             },
             "@jupyter-widgets/controls": {},
+            "ethers": {},
             "algovera": {
               "version": "0.1.0",
               "singleton": true,
