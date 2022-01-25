@@ -14,7 +14,7 @@
     "style/*.css",
     "style/*.js"
   ],
-  "homepage": "https://github.com/jtpio/algovera",
+  "homepage": "https://github.com/AlgoveraAI/algovera",
   "bugs": {
     "url": "https://github.com/jtpio/algovera/issues"
   },
@@ -112,7 +112,7 @@
       }
     },
     "_build": {
-      "load": "static/remoteEntry.0ba0a6b91b5da247bcbe.js",
+      "load": "static/remoteEntry.9f04fda35bc785c631c0.js",
       "extension": "./extension",
       "style": "./style"
     }

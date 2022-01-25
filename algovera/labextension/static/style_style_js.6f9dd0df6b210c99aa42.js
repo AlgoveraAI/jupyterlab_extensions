@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkipylab"] = self["webpackChunkipylab"] || []).push([
+(self["webpackChunkalgovera"] = self["webpackChunkalgovera"] || []).push([
   ["style_style_js"],
   {
     /***/ "./node_modules/css-loader/dist/cjs.js!./style/widget.css":
@@ -37,7 +37,7 @@
         // Module
         ___CSS_LOADER_EXPORT___.push([
           module.id,
-          "/*-----------------------------------------------------------------------------\n| Copyright (c) ipylab contributors.\n| Distributed under the terms of the Modified BSD License.\n|----------------------------------------------------------------------------*/\n\n/* Default Split Handle Color*/\n.jp-JupyterLuminoSplitPanelWidget .p-SplitPanel-handle {\n  background-color: var(--jp-border-color2);\n}\n\n.jp-SideAreaWidget {\n  background: var(--jp-layout-color1);\n  display: flex;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon {\n  padding: 4px 0px 4px 4px;\n  background-size: 16px;\n  height: 16px;\n  width: 16px;\n  background-image: var(--jp-icon-close);\n  background-position: center;\n  background-repeat: no-repeat;\n  align-self: center;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon:hover,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon:hover {\n  background-size: 16px;\n  background-image: var(--jp-icon-inverse-close-circle);\n}\n",
+          "/*-----------------------------------------------------------------------------\n| Copyright (c) algovera contributors.\n| Distributed under the terms of the Modified BSD License.\n|----------------------------------------------------------------------------*/\n\n/* Default Split Handle Color*/\n.jp-JupyterLuminoSplitPanelWidget .p-SplitPanel-handle {\n  background-color: var(--jp-border-color2);\n}\n\n.jp-SideAreaWidget {\n  background: var(--jp-layout-color1);\n  display: flex;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon {\n  padding: 4px 0px 4px 4px;\n  background-size: 16px;\n  height: 16px;\n  width: 16px;\n  background-image: var(--jp-icon-close);\n  background-position: center;\n  background-repeat: no-repeat;\n  align-self: center;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon:hover,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon:hover {\n  background-size: 16px;\n  background-image: var(--jp-icon-inverse-close-circle);\n}\n",
           "",
           {
             version: 3,
@@ -46,7 +46,7 @@
             mappings:
               "AAAA;;;8EAG8E;;AAE9E,8BAA8B;AAC9B;EACE,yCAAyC;AAC3C;;AAEA;EACE,mCAAmC;EACnC,aAAa;AACf;;AAEA;;EAEE,wBAAwB;EACxB,qBAAqB;EACrB,YAAY;EACZ,WAAW;EACX,sCAAsC;EACtC,2BAA2B;EAC3B,4BAA4B;EAC5B,kBAAkB;AACpB;;AAEA;;EAEE,qBAAqB;EACrB,qDAAqD;AACvD",
             sourcesContent: [
-              "/*-----------------------------------------------------------------------------\n| Copyright (c) ipylab contributors.\n| Distributed under the terms of the Modified BSD License.\n|----------------------------------------------------------------------------*/\n\n/* Default Split Handle Color*/\n.jp-JupyterLuminoSplitPanelWidget .p-SplitPanel-handle {\n  background-color: var(--jp-border-color2);\n}\n\n.jp-SideAreaWidget {\n  background: var(--jp-layout-color1);\n  display: flex;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon {\n  padding: 4px 0px 4px 4px;\n  background-size: 16px;\n  height: 16px;\n  width: 16px;\n  background-image: var(--jp-icon-close);\n  background-position: center;\n  background-repeat: no-repeat;\n  align-self: center;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon:hover,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon:hover {\n  background-size: 16px;\n  background-image: var(--jp-icon-inverse-close-circle);\n}\n",
+              "/*-----------------------------------------------------------------------------\n| Copyright (c) algovera contributors.\n| Distributed under the terms of the Modified BSD License.\n|----------------------------------------------------------------------------*/\n\n/* Default Split Handle Color*/\n.jp-JupyterLuminoSplitPanelWidget .p-SplitPanel-handle {\n  background-color: var(--jp-border-color2);\n}\n\n.jp-SideAreaWidget {\n  background: var(--jp-layout-color1);\n  display: flex;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon {\n  padding: 4px 0px 4px 4px;\n  background-size: 16px;\n  height: 16px;\n  width: 16px;\n  background-image: var(--jp-icon-close);\n  background-position: center;\n  background-repeat: no-repeat;\n  align-self: center;\n}\n\n.jp-SideBar.jp-mod-left .p-mod-closable .p-TabBar-tabCloseIcon:hover,\n.jp-SideBar.jp-mod-right .p-mod-closable .p-TabBar-tabCloseIcon:hover {\n  background-size: 16px;\n  background-image: var(--jp-icon-inverse-close-circle);\n}\n",
             ],
             sourceRoot: "",
           },
@@ -123,4 +123,4 @@
       },
   },
 ]);
-//# sourceMappingURL=style_style_js.eb17ff5563c8b4fe0df9.js.map
+//# sourceMappingURL=style_style_js.6f9dd0df6b210c99aa42.js.map

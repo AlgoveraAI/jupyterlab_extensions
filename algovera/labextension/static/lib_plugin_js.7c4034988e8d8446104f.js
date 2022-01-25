@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkipylab"] = self["webpackChunkipylab"] || []).push([
+(self["webpackChunkalgovera"] = self["webpackChunkalgovera"] || []).push([
   ["lib_plugin_js"],
   {
     /***/ "./lib/plugin.js":
@@ -101,4 +101,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js.0b60ce3487cf4f4b5303.js.map
+//# sourceMappingURL=lib_plugin_js.7c4034988e8d8446104f.js.map

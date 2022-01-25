@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkipylab"] = self["webpackChunkipylab"] || []).push([
+(self["webpackChunkalgovera"] = self["webpackChunkalgovera"] || []).push([
   ["lib_index_js"],
   {
     /***/ "./lib/index.js":
@@ -50,4 +50,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_index_js.cddbb11d2e874977d28f.js.map
+//# sourceMappingURL=lib_index_js.f6621001b911755234cc.js.map

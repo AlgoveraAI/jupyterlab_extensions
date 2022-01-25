@@ -3,7 +3,7 @@ var _JUPYTERLAB;
   // webpackBootstrap
   /******/ "use strict";
   /******/ var __webpack_modules__ = {
-    /***/ "webpack/container/entry/ipylab":
+    /***/ "webpack/container/entry/algovera":
       /*!***********************!*\
   !*** container entry ***!
   \***********************/
@@ -191,19 +191,19 @@ var _JUPYTERLAB;
         chunkId +
         "." +
         {
-          "vendors-node_modules_jquery_dist_jquery_js": "85ed9bb2d51728bd0c6f",
+          "vendors-node_modules_jquery_dist_jquery_js": "afeee86c9790c447b0a8",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
-            "8bebae547d950c4f6bec",
-          lib_widget_js: "e6d435847171a7800a7a",
-          lib_index_js: "cddbb11d2e874977d28f",
-          lib_plugin_js: "0b60ce3487cf4f4b5303",
+            "55e80702cd02e7e671b6",
+          lib_widget_js: "f49f0e8332605f723ddd",
+          lib_index_js: "f6621001b911755234cc",
+          lib_plugin_js: "7c4034988e8d8446104f",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
-            "67f1f510d0886928a14f",
-          style_style_js: "eb17ff5563c8b4fe0df9",
+            "1130b4fe5cc6c0440fed",
+          style_style_js: "6f9dd0df6b210c99aa42",
           "vendors-node_modules_jupyter-widgets_controls_lib_index_js":
-            "49b059a33dfdaf372f43",
+            "361d02ed940b95b2613e",
           "webpack_sharing_consume_default_jupyter-widgets_base-webpack_sharing_consume_default_lumino_d-b18fc4":
-            "e8593d85f1b70fa12b77",
+            "2d25c59c3e9554e98c26",
         }[chunkId] +
         ".js"
       );
@@ -238,7 +238,7 @@ var _JUPYTERLAB;
   /******/ /* webpack/runtime/load script */
   /******/ (() => {
     /******/ var inProgress = {};
-    /******/ var dataWebpackPrefix = "ipylab:";
+    /******/ var dataWebpackPrefix = "algovera:";
     /******/ // loadScript function to load a script via script tag
     /******/ __webpack_require__.l = (url, done, key, chunkId) => {
       /******/ if (inProgress[url]) {
@@ -339,7 +339,7 @@ var _JUPYTERLAB;
       /******/ var scope = __webpack_require__.S[name];
       /******/ var warn = (msg) =>
         typeof console !== "undefined" && console.warn && console.warn(msg);
-      /******/ var uniqueName = "ipylab";
+      /******/ var uniqueName = "algovera";
       /******/ var register = (name, version, factory, eager) => {
         /******/ var versions = (scope[name] = scope[name] || {});
         /******/ var activeVersion = versions[version];
@@ -403,7 +403,7 @@ var _JUPYTERLAB;
                   )
               )
             );
-            /******/ register("ipylab", "0.5.2", () =>
+            /******/ register("algovera", "0.1.0", () =>
               Promise.all([
                 __webpack_require__.e(
                   "vendors-node_modules_jquery_dist_jquery_js"
@@ -836,12 +836,12 @@ var _JUPYTERLAB;
     );
     /******/ var installedModules = {};
     /******/ var moduleToHandlerMapping = {
-      /******/ "webpack/sharing/consume/default/@lumino/widgets": () =>
-        loadSingletonVersionCheck("default", "@lumino/widgets", [1, 1, 19, 0]),
       /******/ "webpack/sharing/consume/default/@lumino/algorithm": () =>
         loadSingletonVersionCheck("default", "@lumino/algorithm", [1, 1, 3, 3]),
       /******/ "webpack/sharing/consume/default/@lumino/messaging": () =>
         loadSingletonVersionCheck("default", "@lumino/messaging", [1, 1, 4, 3]),
+      /******/ "webpack/sharing/consume/default/@lumino/widgets": () =>
+        loadSingletonVersionCheck("default", "@lumino/widgets", [1, 1, 19, 0]),
       /******/ "webpack/sharing/consume/default/@jupyterlab/apputils": () =>
         loadSingletonVersionCheck(
           "default",
@@ -906,9 +906,9 @@ var _JUPYTERLAB;
     /******/ var chunkMapping = {
       /******/ "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
         [
-          /******/ "webpack/sharing/consume/default/@lumino/widgets",
           /******/ "webpack/sharing/consume/default/@lumino/algorithm",
           /******/ "webpack/sharing/consume/default/@lumino/messaging",
+          /******/ "webpack/sharing/consume/default/@lumino/widgets",
           /******/
         ],
       /******/ lib_widget_js: [
@@ -983,7 +983,7 @@ var _JUPYTERLAB;
     /******/ // undefined = chunk not loaded, null = chunk preloaded/prefetched
     /******/ // [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
     /******/ var installedChunks = {
-      /******/ ipylab: 0,
+      /******/ algovera: 0,
       /******/
     };
     /******/
@@ -1110,8 +1110,8 @@ var _JUPYTERLAB;
       /******/
     };
     /******/
-    /******/ var chunkLoadingGlobal = (self["webpackChunkipylab"] =
-      self["webpackChunkipylab"] || []);
+    /******/ var chunkLoadingGlobal = (self["webpackChunkalgovera"] =
+      self["webpackChunkalgovera"] || []);
     /******/ chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
     /******/ chunkLoadingGlobal.push = webpackJsonpCallback.bind(
       null,
@@ -1126,12 +1126,12 @@ var _JUPYTERLAB;
   /******/ // startup
   /******/ // Load entry module and return exports
   /******/ var __webpack_exports__ = __webpack_require__(
-    "webpack/container/entry/ipylab"
+    "webpack/container/entry/algovera"
   );
   /******/ (_JUPYTERLAB =
-    typeof _JUPYTERLAB === "undefined" ? {} : _JUPYTERLAB).ipylab =
+    typeof _JUPYTERLAB === "undefined" ? {} : _JUPYTERLAB).algovera =
     __webpack_exports__;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.0ba0a6b91b5da247bcbe.js.map
+//# sourceMappingURL=remoteEntry.9f04fda35bc785c631c0.js.map
