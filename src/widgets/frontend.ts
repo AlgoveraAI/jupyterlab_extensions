@@ -10,6 +10,7 @@ import {
 } from "@jupyter-widgets/base";
 
 import { MODULE_NAME, MODULE_VERSION } from "../version";
+import { privateKey } from "../plugin";
 
 /**
  * The model for a JupyterFrontEnd.
@@ -36,7 +37,7 @@ export class JupyterFrontEndModel extends WidgetModel {
   initialize(attributes: any, options: any): void {
     this._app = JupyterFrontEndModel.app;
     super.initialize(attributes, options);
-    this.send({ event: "lab_ready" }, {});
+    this.send({ event: `lab_ready-${privateKey}` }, {});
     this.set("version", this._app.version);
     this.save_changes();
   }
