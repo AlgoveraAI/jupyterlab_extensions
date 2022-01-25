@@ -1,107 +1,60 @@
-# algovera
+# Algovera JupyterLab Extension
 
-![Github Actions Status](https://github.com/jtpio/algovera/workflows/Build/badge.svg)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/algovera/stable?urlpath=lab/tree/examples/widgets.ipynb)
-[![Conda Version](https://img.shields.io/conda/vn/conda-forge/algovera.svg)](https://anaconda.org/conda-forge/algovera)
-[![pypi](https://img.shields.io/pypi/v/algovera.svg)](https://pypi.python.org/pypi/algovera)
-[![npm](https://img.shields.io/npm/v/algovera.svg)](https://www.npmjs.com/package/algovera)
+This is a development repository adding Web3 extensions to JupyterLab.
 
-Control JupyterLab from Python notebooks.
+## Setup
 
-The goal is to provide access to most of the JupyterLab environment from Python notebooks. For example:
-
-- Adding widgets to the main area `DockPanel`, left, right or top area
-- Build more advanced interfaces leveraging `SplitPanel`, `Toolbar` and other Lumino widgets
-- Launch arbitrary commands (new terminal, change theme, open file and so on)
-- Open a workspace with a specific layout
-- Listen to JupyterLab signals (notebook opened, console closed) and trigger Python callbacks
-
-## Try it online
-
-Try it in your browser with Binder:
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/algovera/stable?urlpath=lab/tree/examples/widgets.ipynb)
-
-## Examples
-
-### Add Jupyter Widgets to the JupyterLab interface
-
-![widgets-panels](https://user-images.githubusercontent.com/591645/80025074-59104280-84e0-11ea-9766-0cb49cba285a.gif)
-
-### Execute Commands
-
-![command-registry](https://user-images.githubusercontent.com/591645/80026017-beb0fe80-84e1-11ea-842d-fa3bf5bc4a9b.gif)
-
-### Custom Python Commands and Command Palette
-
-![custom-commands](https://user-images.githubusercontent.com/591645/80026023-c1135880-84e1-11ea-9e83-fdb739659357.gif)
-
-### Build small applications
-
-![ipytree-example](https://user-images.githubusercontent.com/591645/80026006-b8bb1d80-84e1-11ea-87cc-86495186b938.gif)
-
-### Compatibility with RetroLab
-
-A subset of the features can be used in RetroLab:
-
-![retrolab-example](https://user-images.githubusercontent.com/591645/141700044-3c39661a-8a9a-4e6b-a031-03724e0df25b.gif)
-
-## Installation
-
-You can install using `pip`:
-
-```bash
-pip install algovera
 ```
+conda create -n algolab -c conda-forge jupyterlab ipylab jupyter-packaging nodejs ipytree bqplot ipywidgets numpy
 
-Or with `mamba` / `conda`:
+conda activate algolab
 
-```bash
-mamba install -c conda-forge algovera
-```
+python -m pip install -e ".[dev]"
 
-## Running the examples locally
+jupyter labextension develop . --overwrite
 
-To try out the examples locally, the recommended way is to create a new environment with the dependencies:
+jlpm
 
-```bash
-# create a new conda environment
-conda create -n algovera-examples -c conda-forge jupyterlab algovera ipytree bqplot ipywidgets numpy
-conda activate algovera-examples
+jlpm run build
 
-# start JupyterLab
 jupyter lab
 ```
 
-## Under the hood
+Note: If you get an error at any point of the installation process, try running `jupyter labextension install .` in the metamask-extension/ directory.
 
-`algovera` can be seen as a proxy from Python to JupyterLab over Jupyter Widgets:
+To enable the ipylab extension, run the following:
 
-![algovera-diagram](./docs/algovera.png)
-
-## Development
-
-```bash
-# create a new conda environment
-mamba create -n algovera -c conda-forge jupyter-packaging nodejs python -y
-
-# activate the environment
-conda activate algovera
-
-# install the Python package
-python -m pip install -e ".[dev]"
-
-# link the extension files
-jupyter labextension develop . --overwrite
-
-# compile the extension
-jlpm && jlpm run build
 ```
+# In the main directory (note, make sure you have ocean-lib and datasets installed)
 
-## Related projects
+pip install -r requirements.txt
 
-There are a couple of projects that also enable interacting with the JupyterLab environment from Python notebooks:
+# go to ipylab directory
 
-- [wxyz](https://github.com/deathbeds/wxyz): experimental widgets (including `DockPanel`)
-- [jupyterlab-sidecar](https://github.com/jupyter-widgets/jupyterlab-sidecar): add widgets to the JupyterLab right area
-- [jupyterlab_commands](https://github.com/timkpaine/jupyterlab_commands): add arbitrary Python commands to the jupyterlab command palette
+cd ipylab/
+
+# install dependencies
+
+pip install -ve .
+
+# install extension
+
+jupyter labextension develop --overwrite .
+
+# make sure you have all extensions ready by running
+
+jupyter labextension list
+
+# you should see something like this
+
+ipylab v0.5.2 enabled OK
+@jupyterlab-examples/main-menu v0.1.0 enabled OK
+@jupyter-widgets/jupyterlab-manager v3.0.1 enabled OK (python, jupyterlab_widgets)
+
+# if you don't have ipylab installed, `run jupyter labextension develop --overwrite .` again. Sometimes, the first time you run the command it will install jupyterlab-manager instead
+
+# now you can run jupyterlab again and use the new extension
+
+jupyter lab
+
+```

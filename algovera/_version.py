@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# Copyright (c) ipylab contributors.
-# Distributed under the terms of the Modified BSD License.
+# Copyright (c) algovera contributors.
 
 import re
 import json
@@ -34,5 +33,5 @@ if match["rest"]:
     parts.append(match["rest"])
 version_info = tuple(parts)
 
-module_name = "ipylab"
+module_name = "algovera"
 module_version = f"^{__version__}"

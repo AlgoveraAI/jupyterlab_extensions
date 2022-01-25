@@ -1,5 +1,4 @@
-# Copyright (c) ipylab contributors.
-# Distributed under the terms of the Modified BSD License.
+# Copyright (c) algovera contributors.
 
 from collections import defaultdict
 

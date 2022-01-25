@@ -1,4 +1,6 @@
 ipywidgets<8,>=7.6.0
+ocean-lib
+numpy
 
 [dev]
 black
