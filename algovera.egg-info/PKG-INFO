@@ -35,6 +35,7 @@ License-File: LICENSE
 This is a development repository adding Web3 extensions to JupyterLab.
 
 ## Setup
+
 ```
 conda create -n algolab -c conda-forge jupyterlab ipylab jupyter-packaging nodejs ipytree bqplot ipywidgets numpy
 
@@ -54,6 +55,7 @@ jupyter lab
 Note: If you get an error at any point of the installation process, try running `jupyter labextension install .` in the metamask-extension/ directory.
 
 To enable the ipylab extension, run the following:
+
 ```
 # In the main directory (note, make sure you have ocean-lib and datasets installed)
 
