@@ -1,5 +1,0 @@
-{
-  "packageManager": "python",
-  "packageName": "jupyterlab_metamask",
-  "uninstallInstructions": "Use your Python package manager (pip, conda, etc.) to uninstall the package jupyterlab_examples_main_menu"
-}
