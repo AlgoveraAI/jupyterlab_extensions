@@ -1,4 +1,0 @@
-wheel
-datasets
-ocean-lib
-ipylab
