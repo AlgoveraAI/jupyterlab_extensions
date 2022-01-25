@@ -12,7 +12,8 @@
     "lib/**/*.js",
     "dist/*.js",
     "style/*.css",
-    "style/*.js"
+    "style/*.js",
+    "schema/**/*.json"
   ],
   "homepage": "https://github.com/AlgoveraAI/algovera",
   "bugs": {
@@ -115,8 +116,9 @@
         "singleton": true
       }
     },
+    "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.342921a53809ff537956.js",
+      "load": "static/remoteEntry.403be3fceb1adf1a7e6a.js",
       "extension": "./extension",
       "style": "./style"
     }
