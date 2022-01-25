@@ -11,7 +11,7 @@ import setuptools
 HERE = Path(__file__).parent.resolve()
 
 # The name of the project
-NAME = "ipylab"
+NAME = "algovera"
 
 lab_path = HERE / NAME / "labextension"
 

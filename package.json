@@ -1,6 +1,6 @@
 {
-  "name": "ipylab",
-  "version": "0.5.2",
+  "name": "algovera",
+  "version": "0.1.0",
   "description": "Control JupyterLab from Python notebooks",
   "keywords": [
     "jupyter",
@@ -14,13 +14,13 @@
     "style/*.css",
     "style/*.js"
   ],
-  "homepage": "https://github.com/jtpio/ipylab",
+  "homepage": "https://github.com/AlgoveraAI/algovera",
   "bugs": {
-    "url": "https://github.com/jtpio/ipylab/issues"
+    "url": "https://github.com/jtpio/algovera/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
-    "name": "ipylab contributors",
+    "name": "algovera contributors",
     "email": "jeremy@jtp.io"
   },
   "main": "lib/index.js",
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jtpio/ipylab"
+    "url": "https://github.com/jtpio/algovera"
   },
   "scripts": {
     "build": "jlpm run build:lib && jlpm run build:labextension:dev",
@@ -41,9 +41,9 @@
     "build:lib": "tsc",
     "build:labextension": "jupyter labextension build .",
     "build:labextension:dev": "jupyter labextension build --development True .",
-    "clean": "rimraf lib tsconfig.tsbuildinfo ipylab/labextension",
+    "clean": "rimraf lib tsconfig.tsbuildinfo algovera/labextension",
     "clean:all": "jlpm run clean:lib && jlpm run clean:labextension",
-    "clean:labextension": "rimraf ipylab/labextension",
+    "clean:labextension": "rimraf algovera/labextension",
     "eslint": "eslint . --ext .ts,.tsx --fix",
     "eslint:check": "eslint . --ext .ts,.tsx",
     "lint": "jlpm && jlpm run prettier && jlpm run eslint",
@@ -104,7 +104,7 @@
   },
   "jupyterlab": {
     "extension": "lib/plugin",
-    "outputDir": "ipylab/labextension/",
+    "outputDir": "algovera/labextension/",
     "sharedPackages": {
       "@jupyter-widgets/base": {
         "bundled": false,

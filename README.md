@@ -1,10 +1,10 @@
-# ipylab
+# algovera
 
-![Github Actions Status](https://github.com/jtpio/ipylab/workflows/Build/badge.svg)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/ipylab/stable?urlpath=lab/tree/examples/widgets.ipynb)
-[![Conda Version](https://img.shields.io/conda/vn/conda-forge/ipylab.svg)](https://anaconda.org/conda-forge/ipylab)
-[![pypi](https://img.shields.io/pypi/v/ipylab.svg)](https://pypi.python.org/pypi/ipylab)
-[![npm](https://img.shields.io/npm/v/ipylab.svg)](https://www.npmjs.com/package/ipylab)
+![Github Actions Status](https://github.com/jtpio/algovera/workflows/Build/badge.svg)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/algovera/stable?urlpath=lab/tree/examples/widgets.ipynb)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/algovera.svg)](https://anaconda.org/conda-forge/algovera)
+[![pypi](https://img.shields.io/pypi/v/algovera.svg)](https://pypi.python.org/pypi/algovera)
+[![npm](https://img.shields.io/npm/v/algovera.svg)](https://www.npmjs.com/package/algovera)
 
 Control JupyterLab from Python notebooks.
 
@@ -20,7 +20,7 @@ The goal is to provide access to most of the JupyterLab environment from Python 
 
 Try it in your browser with Binder:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/ipylab/stable?urlpath=lab/tree/examples/widgets.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/algovera/stable?urlpath=lab/tree/examples/widgets.ipynb)
 
 ## Examples
 
@@ -51,13 +51,13 @@ A subset of the features can be used in RetroLab:
 You can install using `pip`:
 
 ```bash
-pip install ipylab
+pip install algovera
 ```
 
 Or with `mamba` / `conda`:
 
 ```bash
-mamba install -c conda-forge ipylab
+mamba install -c conda-forge algovera
 ```
 
 ## Running the examples locally
@@ -66,8 +66,8 @@ To try out the examples locally, the recommended way is to create a new environm
 
 ```bash
 # create a new conda environment
-conda create -n ipylab-examples -c conda-forge jupyterlab ipylab ipytree bqplot ipywidgets numpy
-conda activate ipylab-examples
+conda create -n algovera-examples -c conda-forge jupyterlab algovera ipytree bqplot ipywidgets numpy
+conda activate algovera-examples
 
 # start JupyterLab
 jupyter lab
@@ -75,18 +75,18 @@ jupyter lab
 
 ## Under the hood
 
-`ipylab` can be seen as a proxy from Python to JupyterLab over Jupyter Widgets:
+`algovera` can be seen as a proxy from Python to JupyterLab over Jupyter Widgets:
 
-![ipylab-diagram](./docs/ipylab.png)
+![algovera-diagram](./docs/algovera.png)
 
 ## Development
 
 ```bash
 # create a new conda environment
-mamba create -n ipylab -c conda-forge jupyter-packaging nodejs python -y
+mamba create -n algovera -c conda-forge jupyter-packaging nodejs python -y
 
 # activate the environment
-conda activate ipylab
+conda activate algovera
 
 # install the Python package
 python -m pip install -e ".[dev]"

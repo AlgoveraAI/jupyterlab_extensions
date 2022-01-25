@@ -7,7 +7,7 @@ include package.json
 include install.json
 include ts*.json
 
-graft ipylab/labextension
+graft algovera/labextension
 
 # Examples
 graft examples

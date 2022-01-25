@@ -6,8 +6,8 @@ build-backend = "jupyter_packaging.build_api"
 file="LICENSE"
 
 [tool.jupyter-packaging.options]
-skip-if-exists = ["ipylab/labextension/static/style.js"]
-ensured-targets = ["ipylab/labextension/static/style.js", "ipylab/labextension/package.json"]
+skip-if-exists = ["algovera/labextension/static/style.js"]
+ensured-targets = ["algovera/labextension/static/style.js", "algovera/labextension/package.json"]
 
 [tool.jupyter-packaging.builder]
 factory = "jupyter_packaging.npm_builder"
@@ -17,4 +17,4 @@ build_cmd = "build:prod"
 npm = ["jlpm"]
 
 [tool.check-manifest]
-ignore = [".binder/**", "*.json", "docs/**", "yarn.lock", "readthedocs.yml", ".*", "ipylab/labextension/**"]
+ignore = [".binder/**", "*.json", "docs/**", "yarn.lock", "readthedocs.yml", ".*", "algovera/labextension/**"]
