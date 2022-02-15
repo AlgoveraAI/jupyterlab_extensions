@@ -13,7 +13,7 @@ from ._version import module_name, module_version
 from .commands import CommandRegistry
 from .shell import Shell
 from .sessions import SessionManager
-from .ocean_transaction import CryptoPunks
+from .ocean_transaction import OceanMarket
 
 
 @register
@@ -33,14 +33,14 @@ class JupyterFrontEnd(Widget):
             shell=Shell(),
             commands=CommandRegistry(),
             sessions=SessionManager(),
-            ocean = CryptoPunks(),
+            ocean = OceanMarket(),
             **kwargs
         )
         self._ready_event = asyncio.Event()
         self._on_ready_callbacks = CallbackDispatcher()
         self.on_msg(self._on_frontend_msg)
         self.private_key = ''
-        self.ocean = CryptoPunks()
+        self.ocean = OceanMarket()
 
     def _on_frontend_msg(self, _, content, buffers):
         if content.get("event", "")[0:9] == "lab_ready":
@@ -48,7 +48,7 @@ class JupyterFrontEnd(Widget):
             self._ready_event.set()
             self._on_ready_callbacks()
         if self.private_key != '':
-            self.ocean = CryptoPunks(self.private_key)
+            self.ocean = OceanMarket(self.private_key)
 
     async def ready(self):
         await self._ready_event.wait()

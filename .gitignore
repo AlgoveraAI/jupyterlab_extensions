@@ -1,3 +1,6 @@
 .DS_STORE*
 *node_modules/
 *.ipynb
+algovera.egg-info
+*__pycache__
+*.ipynb_checkpoints
