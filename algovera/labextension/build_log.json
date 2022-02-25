@@ -612,6 +612,7 @@
             },
             "@jupyter-widgets/controls": {},
             "ethers": {},
+            "lit-js-sdk": {},
             "algovera": {
               "version": "0.1.0",
               "singleton": true,

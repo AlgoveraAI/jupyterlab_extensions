@@ -13,6 +13,9 @@
           },
           {
             "command": "send_ocean"
+          },
+          {
+            "command": "save_file"
           }
         ]
       }

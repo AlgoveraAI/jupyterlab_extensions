@@ -75,6 +75,7 @@
     "@jupyter-widgets/controls": "^3.0.0",
     "@jupyterlab/application": "^3.2.3",
     "@jupyterlab/apputils": "^3.2.3",
+    "@jupyterlab/launcher": "^3.1.0",
     "@jupyterlab/observables": "^4.2.3",
     "@jupyterlab/outputarea": "^3.1.0",
     "@jupyterlab/rendermime": "^3.2.8",
@@ -83,8 +84,8 @@
     "@lumino/disposable": "^1.10.1",
     "@lumino/messaging": "^1.10.1",
     "@lumino/widgets": "^1.19.0",
-    "@jupyterlab/launcher": "^3.1.0",
-    "ethers": "^5.5.3"
+    "ethers": "^5.5.3",
+    "lit-js-sdk": "^1.1.119"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.2.3",
@@ -118,7 +119,7 @@
     },
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.403be3fceb1adf1a7e6a.js",
+      "load": "static/remoteEntry.6680c5a2e4731603f643.js",
       "extension": "./extension",
       "style": "./style"
     }
