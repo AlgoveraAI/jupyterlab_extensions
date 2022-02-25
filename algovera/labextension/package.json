@@ -1,6 +1,6 @@
 {
   "name": "algovera",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Control JupyterLab from Python notebooks",
   "keywords": [
     "jupyter",
@@ -118,7 +118,7 @@
     },
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.403be3fceb1adf1a7e6a.js",
+      "load": "static/remoteEntry.46d66ef14683b0b6cbce.js",
       "extension": "./extension",
       "style": "./style"
     }
