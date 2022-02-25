@@ -37,7 +37,7 @@ TEST_KEY = '0x5d75837394b078ce97bc289fa8d75e21000573520bfa7784a9d28ccaae602bf8'
 # asset = ocean.assets.resolve(did)
 # pool_address = "0x2d35D25C5BF1005B310284d00Ad05b9F35ea827B"
 class OceanMarket():
-    """CryptoPunks Data Set"""
+    """Ocean Market integration"""
     def __init__(self, private_key=None) -> None:
         self.private_key = private_key
         self.wallet = None
