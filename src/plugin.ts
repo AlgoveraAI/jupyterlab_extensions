@@ -27,6 +27,8 @@ import getPrivateKey from "./widgets/address";
 
 import sendOcean from "./widgets/transaction";
 
+import { LitJsSdk } from "lit-js-sdk";
+
 // import { exec } from 'child_process';
 
 declare global {
@@ -117,6 +119,16 @@ function activate(
     },
   });
 
+  // Add a command
+  const command3 = "save_file";
+  commands.addCommand(command3, {
+    label: "save file",
+    caption: "save file",
+    execute: (args: any) => {
+      console.log("SAVE FILE EXTENSION LOADED");
+    },
+  });
+
   // add commands to registry
   commands.addCommand(CommandIDs.create, {
     label: trans.__("Open the Kernel Output Panel"),
@@ -172,6 +184,16 @@ async function getAccount() {
   console.log("Account:", await signer.getAddress());
   await signer.getAddress();
   // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+}
+
+async function saveFile() {
+  await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
+
+  const { zipBlob, encryptedString, symmetricKey } =
+    await LitJsSdk.encryptFileAndZipWithMetadata(
+      prompt("Enter file path.", "./")
+    );
+  console.log(symmetricKey);
 }
 
 /**
