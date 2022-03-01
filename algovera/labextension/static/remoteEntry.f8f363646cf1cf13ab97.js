@@ -202,7 +202,7 @@ var _JUPYTERLAB;
           "vendors-node_modules_jquery_dist_jquery_js": "afeee86c9790c447b0a8",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
             "55e80702cd02e7e671b6",
-          "lib_plugin_js-lib_widgets_frontend_js": "b7296f509a8c4c21db36",
+          "lib_plugin_js-lib_widgets_frontend_js": "64b77294ccd8e5b5a276",
           lib_index_js: "f6621001b911755234cc",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
             "1130b4fe5cc6c0440fed",
@@ -424,7 +424,7 @@ var _JUPYTERLAB;
                   )
               )
             );
-            /******/ register("algovera", "0.1.1", () =>
+            /******/ register("algovera", "0.1.2", () =>
               Promise.all([
                 __webpack_require__.e(
                   "vendors-node_modules_jquery_dist_jquery_js"
@@ -880,7 +880,7 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/application",
-          [1, 3, 2, 8]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?272d":
         () =>
@@ -898,25 +898,25 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/apputils",
-          [1, 3, 2, 8]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/launcher": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/launcher",
-          [1, 3, 2, 8]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/translation": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/translation",
-          [1, 3, 2, 8]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/rendermime",
-          [1, 3, 2, 8]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/ethers/ethers": () =>
         loadStrictVersionCheckFallback("default", "ethers", [1, 5, 5, 3], () =>
@@ -933,7 +933,7 @@ var _JUPYTERLAB;
           )
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/observables": () =>
-        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 8]),
+        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 9]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls":
         () =>
           loadStrictVersionCheckFallback(
@@ -956,7 +956,7 @@ var _JUPYTERLAB;
               )
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea": () =>
-        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 8]),
+        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 9]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?d99c":
         () =>
           loadSingletonVersionCheck(
@@ -1204,4 +1204,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.46d66ef14683b0b6cbce.js.map
+//# sourceMappingURL=remoteEntry.f8f363646cf1cf13ab97.js.map
