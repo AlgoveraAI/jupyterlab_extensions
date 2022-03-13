@@ -1,8 +1,8 @@
-import { LitJsSdk } from "lit-js-sdk";
+// import { LitJsSdk } from "lit-js-sdk";
 
-const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
+// const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
 
-const { zipBlob, encryptedString, symmetricKey } =
-  await LitJsSdk.encryptFileAndZipWithMetadata(
-    prompt("Enter file path.", "./")
-  );
+// const { zipBlob, encryptedString, symmetricKey } =
+//   await LitJsSdk.encryptFileAndZipWithMetadata(
+//     prompt("Enter file path.", "./")
+//   );

@@ -27,9 +27,11 @@ import getPrivateKey from "./widgets/address";
 
 import sendOcean from "./widgets/transaction";
 
-import { LitJsSdk } from "lit-js-sdk";
+// import { LitJsSdk } from "lit-js-sdk";
 
 // import { exec } from 'child_process';
+
+console.log("HELLO WORLD");
 
 declare global {
   interface Window {
@@ -121,12 +123,13 @@ function activate(
 
   // Add a command
   const command3 = "save_file";
+  console.log(command3);
   commands.addCommand(command3, {
     label: "save file",
     caption: "save file",
     execute: (args: any) => {
       console.log("SAVE FILE EXTENSION LOADED");
-      upload();
+      upload(args);
     },
   });
 
@@ -187,15 +190,15 @@ async function getAccount() {
   // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 }
 
-async function saveFile() {
-  await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
+// async function saveFile() {
+//   await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
 
-  const { zipBlob, encryptedString, symmetricKey } =
-    await LitJsSdk.encryptFileAndZipWithMetadata(
-      prompt("Enter file path.", "./")
-    );
-  console.log(symmetricKey);
-}
+//   const { zipBlob, encryptedString, symmetricKey } =
+//     await LitJsSdk.encryptFileAndZipWithMetadata(
+//       prompt("Enter file path.", "./")
+//     );
+//   console.log(symmetricKey);
+// }
 
 async function upload(e: any) {
   e.persist();

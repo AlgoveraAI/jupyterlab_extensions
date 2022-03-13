@@ -1,6 +1,6 @@
 {
   "name": "algovera",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Control JupyterLab from Python notebooks",
   "keywords": [
     "jupyter",
@@ -85,7 +85,8 @@
     "@lumino/messaging": "^1.10.1",
     "@lumino/widgets": "^1.19.0",
     "ethers": "^5.5.3",
-    "lit-js-sdk": "^1.1.119"
+    "lit-js-sdk": "^1.1.121",
+    "react-redux": "^7.2.6"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.2.3",
@@ -119,7 +120,7 @@
     },
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.6680c5a2e4731603f643.js",
+      "load": "static/remoteEntry.df9dc34c353fa7f81c07.js",
       "extension": "./extension",
       "style": "./style"
     }
