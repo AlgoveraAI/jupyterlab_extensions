@@ -30,7 +30,6 @@ import sendOcean from "./widgets/transaction";
 import { EstuaryWidget } from "./react";
 import { MainAreaWidget } from "@jupyterlab/apputils";
 import { reactIcon } from "@jupyterlab/ui-components";
-//import { Widget } from "@lumino/widgets";
 
 declare global {
   interface Window {
@@ -135,7 +134,7 @@ function activate(
   const command4 = "save_file";
   commands.addCommand(command4, {
     caption: "Decentralized storage using Estuary",
-    label: "Algovera",
+    label: "Algovera Widget",
     icon: (args) => (args["isPalette"] ? null : reactIcon),
     execute: () => {
       const content = new EstuaryWidget();

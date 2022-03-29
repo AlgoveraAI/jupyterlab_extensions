@@ -156,7 +156,7 @@
             labShell;
           const manager = app.serviceManager;
           const { commands, shell } = app;
-          const category = "Extension Examples";
+          const category = "Algovera Extension";
           const trans = translator.load("jupyterlab");
           registry.registerWidget({
             name: _version__WEBPACK_IMPORTED_MODULE_14__.MODULE_NAME,
@@ -201,19 +201,19 @@
             },
           });
           // Add a command
-          const command3 = "save_file";
-          console.log(command3);
-          commands.addCommand(command3, {
-            label: "save file",
-            caption: "save file",
-            execute: (args) => {
-              console.log("SAVE FILE EXTENSION LOADED");
-            },
-          });
-          const command4 = CommandIDs.create;
+          // const command3 = "save_file";
+          // console.log(command3);
+          // commands.addCommand(command3, {
+          //   label: "save file",
+          //   caption: "save file",
+          //   execute: (args: any) => {
+          //     console.log("SAVE FILE EXTENSION LOADED");
+          //   },
+          // });
+          const command4 = "save_file";
           commands.addCommand(command4, {
             caption: "Decentralized storage using Estuary",
-            label: "Algovera",
+            label: "Algovera Widget",
             icon: (args) =>
               args["isPalette"]
                 ? null
@@ -380,7 +380,7 @@
             xhr.open("POST", "https://shuttle-4.estuary.tech/content/add");
             xhr.setRequestHeader(
               "Authorization",
-              "Bearer EST35ed92ca-4318-4331-9e8f-5509b894da65ARY"
+              "Bearer REPLACE_WITH_API_KEY"
             );
             xhr.send(formData);
           }
@@ -405,7 +405,7 @@
           }
         }
         /**
-         *  Lumino Widget that wraps a EstuaryComponent.
+         *  Lumino Widget that wraps the EstuaryComponent.
          */
         class EstuaryWidget extends _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ReactWidget {
           /**
@@ -1887,4 +1887,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.4f06543515060c3e161c.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.8643d0c715067292c970.js.map

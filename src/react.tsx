@@ -29,10 +29,7 @@ class EstuaryComponent extends React.Component {
     };
 
     xhr.open("POST", "https://shuttle-4.estuary.tech/content/add");
-    xhr.setRequestHeader(
-      "Authorization",
-      "Bearer EST35ed92ca-4318-4331-9e8f-5509b894da65ARY"
-    );
+    xhr.setRequestHeader("Authorization", "Bearer REPLACE_WITH_API_KEY");
     xhr.send(formData);
   }
 
@@ -48,7 +45,7 @@ class EstuaryComponent extends React.Component {
 }
 
 /**
- *  Lumino Widget that wraps a EstuaryComponent.
+ *  Lumino Widget that wraps the EstuaryComponent.
  */
 export class EstuaryWidget extends ReactWidget {
   /**
