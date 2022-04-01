@@ -361,6 +361,23 @@
          */
         class EstuaryComponent extends react__WEBPACK_IMPORTED_MODULE_1___default()
           .Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              api: "",
+              file: {},
+              total: {},
+            };
+            this.handleChange = this.handleChange.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+          }
+          handleChange(event) {
+            this.setState({ api: event.target.value });
+          }
+          handleSubmit(event) {
+            alert("An API Key was submitted: " + this.state.api);
+            event.preventDefault();
+          }
           upload(e) {
             e.persist();
             console.log(e.target.files);
@@ -373,21 +390,43 @@
             const xhr = new XMLHttpRequest();
             xhr.upload.onprogress = (event) => {
               this.setState({
-                loaded: event.loaded,
+                file: event.loaded,
                 total: event.total,
               });
             };
             xhr.open("POST", "https://shuttle-4.estuary.tech/content/add");
-            xhr.setRequestHeader(
-              "Authorization",
-              "Bearer REPLACE_WITH_API_KEY"
-            );
+            xhr.setRequestHeader("Authorization", `Bearer ${this.state.api}`);
             xhr.send(formData);
           }
           render() {
             return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               react__WEBPACK_IMPORTED_MODULE_1___default().Fragment,
               null,
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                "form",
+                { onSubmit: this.handleSubmit },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                  "label",
+                  null,
+                  "API Key:",
+                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                    "input",
+                    {
+                      type: "text",
+                      value: this.state.api,
+                      onChange: this.handleChange,
+                    }
+                  )
+                ),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                  "input",
+                  { type: "submit", value: "Submit" }
+                )
+              ),
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                "br",
+                null
+              ),
               react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                 "input",
                 { type: "file", onChange: this.upload.bind(this) }
@@ -399,13 +438,13 @@
               react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                 "pre",
                 null,
-                JSON.stringify(this.state, null, 1)
+                JSON.stringify(this.state.api, null, 1)
               )
             );
           }
         }
         /**
-         *  Lumino Widget that wraps the EstuaryComponent.
+         *  Lumino Widget that wraps a EstuaryComponent.
          */
         class EstuaryWidget extends _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ReactWidget {
           /**
@@ -1887,4 +1926,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.8643d0c715067292c970.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.9f1855d3e0435e08f5cf.js.map
