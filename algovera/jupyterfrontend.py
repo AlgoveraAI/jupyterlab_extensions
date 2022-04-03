@@ -14,7 +14,7 @@ from .commands import CommandRegistry
 from .shell import Shell
 from .sessions import SessionManager
 from .ocean_transaction import OceanMarket
-
+from .storage import Storage
 
 @register
 class JupyterFrontEnd(Widget):
@@ -34,6 +34,7 @@ class JupyterFrontEnd(Widget):
             commands=CommandRegistry(),
             sessions=SessionManager(),
             ocean = OceanMarket(),
+            storage = Storage(),
             **kwargs
         )
         self._ready_event = asyncio.Event()
@@ -41,6 +42,7 @@ class JupyterFrontEnd(Widget):
         self.on_msg(self._on_frontend_msg)
         self.private_key = ''
         self.ocean = OceanMarket()
+        self.storage = Storage()
 
     def _on_frontend_msg(self, _, content, buffers):
         if content.get("event", "")[0:9] == "lab_ready":

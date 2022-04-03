@@ -202,8 +202,8 @@ var _JUPYTERLAB;
           "vendors-node_modules_jquery_dist_jquery_js": "afeee86c9790c447b0a8",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
             "55e80702cd02e7e671b6",
-          "lib_plugin_js-lib_widgets_frontend_js": "8643d0c715067292c970",
-          lib_index_js: "f6621001b911755234cc",
+          "lib_plugin_js-lib_widgets_frontend_js": "0ec390b169a7c14d055d",
+          lib_index_js: "12e3cb6eff5f6a9474de",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
             "1130b4fe5cc6c0440fed",
           style_style_js: "d00d12a32cb5898f6fb0",
@@ -1215,4 +1215,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.1f5188c7a838b3a74e87.js.map
+//# sourceMappingURL=remoteEntry.8cf147767045c34e9b50.js.map

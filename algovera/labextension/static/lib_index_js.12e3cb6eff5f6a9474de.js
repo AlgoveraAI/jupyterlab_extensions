@@ -35,12 +35,16 @@
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.SplitPanelView,
           /* harmony export */ TitleModel: () =>
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.TitleModel,
+          /* harmony export */ EstuaryWidget: () =>
+            /* reexport safe */ _react__WEBPACK_IMPORTED_MODULE_2__.EstuaryWidget,
           /* harmony export */
         });
         /* harmony import */ var _version__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! ./version */ "./lib/version.js");
         /* harmony import */ var _widget__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(/*! ./widget */ "./lib/widget.js");
+        /* harmony import */ var _react__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(/*! ./react */ "./lib/react.js");
         // Copyright (c) ipylab contributors
         // Distributed under the terms of the Modified BSD License.
 
@@ -50,4 +54,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_index_js.f6621001b911755234cc.js.map
+//# sourceMappingURL=lib_index_js.12e3cb6eff5f6a9474de.js.map
