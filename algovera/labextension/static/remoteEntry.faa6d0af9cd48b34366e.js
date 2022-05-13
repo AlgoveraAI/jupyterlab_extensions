@@ -880,7 +880,7 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/application",
-          [1, 3, 2, 1]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?272d":
         () =>
@@ -898,25 +898,25 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/apputils",
-          [1, 3, 2, 1]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/launcher": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/launcher",
-          [1, 3, 2, 1]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/translation": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/translation",
-          [1, 3, 2, 1]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/rendermime",
-          [1, 3, 2, 1]
+          [1, 3, 2, 9]
         ),
       /******/ "webpack/sharing/consume/default/ethers/ethers": () =>
         loadStrictVersionCheckFallback("default", "ethers", [1, 5, 5, 3], () =>
@@ -937,10 +937,10 @@ var _JUPYTERLAB;
           loadSingletonVersionCheck(
             "default",
             "@jupyterlab/ui-components",
-            [1, 3, 2, 1]
+            [1, 3, 2, 9]
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/observables": () =>
-        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 1]),
+        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 9]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls":
         () =>
           loadStrictVersionCheckFallback(
@@ -963,7 +963,7 @@ var _JUPYTERLAB;
               )
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea": () =>
-        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 1]),
+        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 9]),
       /******/ "webpack/sharing/consume/default/react": () =>
         loadSingletonVersionCheck("default", "react", [1, 17, 0, 1]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?d99c":
@@ -1215,4 +1215,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.8cf147767045c34e9b50.js.map
+//# sourceMappingURL=remoteEntry.faa6d0af9cd48b34366e.js.map
