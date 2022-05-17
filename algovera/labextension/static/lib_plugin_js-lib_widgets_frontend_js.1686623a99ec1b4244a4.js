@@ -1059,7 +1059,8 @@
             const existingLabel = document.createElement("label");
             existingLabel.textContent = "Site:";
             const input = document.createElement("input");
-            input.value = "";
+            input.value =
+              "https://lit-estuary-storage.herokuapp.com/example.html";
             input.placeholder = "http://path.to.site";
             body.appendChild(existingLabel);
             body.appendChild(input);
@@ -1123,7 +1124,7 @@
               }
             },
             isEnabled: () => true,
-            label: "Open IFrame",
+            label: "Algovera Storage",
           });
           // Add the command to the palette.
           palette.addItem({ command: open_command, category: "Sites" });
@@ -2232,4 +2233,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.0222b205f3ac748b7335.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.1686623a99ec1b4244a4.js.map

@@ -115,7 +115,7 @@ class OpenIFrameWidget extends Widget {
     existingLabel.textContent = "Site:";
 
     const input = document.createElement("input");
-    input.value = "";
+    input.value = "https://lit-estuary-storage.herokuapp.com/example.html";
     input.placeholder = "http://path.to.site";
 
     body.appendChild(existingLabel);
@@ -184,7 +184,7 @@ async function activate(app, palette) {
       }
     },
     isEnabled: () => true,
-    label: "Open IFrame",
+    label: "Algovera Storage",
   });
 
   // Add the command to the palette.
