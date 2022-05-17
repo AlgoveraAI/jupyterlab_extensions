@@ -22,3 +22,6 @@ with open(str(HERE / "labextension" / "package.json")) as fid:
 
 def _jupyter_labextension_paths():
     return [{"src": "labextension", "dest": data["name"]}]
+
+def _jupyter_server_extension_paths():
+    return [{"module": "algovera.extension"}]

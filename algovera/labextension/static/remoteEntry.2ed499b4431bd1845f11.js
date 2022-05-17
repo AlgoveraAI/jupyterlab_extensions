@@ -64,8 +64,8 @@ var _JUPYTERLAB;
         };
         var init = (shareScope, initScope) => {
           if (!__webpack_require__.S) return;
-          var oldScope = __webpack_require__.S["default"];
           var name = "default";
+          var oldScope = __webpack_require__.S[name];
           if (oldScope && oldScope !== shareScope)
             throw new Error(
               "Container initialization failed as it has already been initialized with a different share scope"
@@ -199,21 +199,22 @@ var _JUPYTERLAB;
         chunkId +
         "." +
         {
-          "vendors-node_modules_jquery_dist_jquery_js": "afeee86c9790c447b0a8",
+          "vendors-node_modules_jquery_dist_jquery_js": "c530717692342b88fa1c",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
             "55e80702cd02e7e671b6",
-          "lib_plugin_js-lib_widgets_frontend_js": "0ec390b169a7c14d055d",
-          lib_index_js: "12e3cb6eff5f6a9474de",
+          "lib_plugin_js-lib_widgets_frontend_js": "0222b205f3ac748b7335",
+          lib_index_js: "5ad2f37fb6ffad3bbc74",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
-            "1130b4fe5cc6c0440fed",
-          style_style_js: "d00d12a32cb5898f6fb0",
+            "85de68f7e747d90e5d46",
+          style_style_js: "0eb6acd1fedca551e250",
           "vendors-node_modules_jupyter-widgets_controls_lib_index_js":
-            "361d02ed940b95b2613e",
+            "a244f598d3e3bc4b2644",
           "webpack_sharing_consume_default_jupyter-widgets_base-webpack_sharing_consume_default_lumino_d-b18fc4":
             "2d25c59c3e9554e98c26",
           "vendors-node_modules_ethers_lib_esm_index_js":
-            "f95e80d94e56f6362ced",
+            "1f3336fc50e2ff3fa9f4",
           _4afa: "358ba94cf4ce009c8966",
+          "node_modules_requests-helper_lib_index_js": "1114c745e723f042e621",
         }[chunkId] +
         ".js"
       );
@@ -392,7 +393,7 @@ var _JUPYTERLAB;
             return promises.push(module.then(initFn, handleError));
           /******/ var initResult = initFn(module);
           /******/ if (initResult && initResult.then)
-            return promises.push(initResult.catch(handleError));
+            return promises.push(initResult["catch"](handleError));
           /******/
         } catch (err) {
           handleError(err);
@@ -403,7 +404,7 @@ var _JUPYTERLAB;
       /******/ switch (name) {
         /******/ case "default":
           {
-            /******/ register("@jupyter-widgets/controls", "3.0.0", () =>
+            /******/ register("@jupyter-widgets/controls", "3.1.0", () =>
               Promise.all([
                 __webpack_require__.e(
                   "vendors-node_modules_jquery_dist_jquery_js"
@@ -439,7 +440,7 @@ var _JUPYTERLAB;
                   __webpack_require__(/*! ./lib/index.js */ "./lib/index.js")
               )
             );
-            /******/ register("ethers", "5.5.3", () =>
+            /******/ register("ethers", "5.6.6", () =>
               Promise.all([
                 __webpack_require__.e(
                   "vendors-node_modules_ethers_lib_esm_index_js"
@@ -451,6 +452,16 @@ var _JUPYTERLAB;
                     /*! ./node_modules/ethers/lib.esm/index.js */ "./node_modules/ethers/lib.esm/index.js"
                   )
               )
+            );
+            /******/ register("requests-helper", "0.1.5", () =>
+              __webpack_require__
+                .e("node_modules_requests-helper_lib_index_js")
+                .then(
+                  () => () =>
+                    __webpack_require__(
+                      /*! ./node_modules/requests-helper/lib/index.js */ "./node_modules/requests-helper/lib/index.js"
+                    )
+                )
             );
             /******/
           }
@@ -652,6 +663,7 @@ var _JUPYTERLAB;
       /******/
     };
     /******/ var getInvalidSingletonVersionMessage = (
+      scope,
       key,
       version,
       requiredVersion
@@ -659,12 +671,19 @@ var _JUPYTERLAB;
       /******/ return (
         "Unsatisfied version " +
         version +
+        " from " +
+        (version && scope[key][version].from) +
         " of shared singleton module " +
         key +
         " (required " +
         rangeToString(requiredVersion) +
         ")"
       );
+      /******/
+    };
+    /******/ var getSingleton = (scope, scopeName, key, requiredVersion) => {
+      /******/ var version = findSingletonVersionKey(scope, key);
+      /******/ return get(scope[key][version]);
       /******/
     };
     /******/ var getSingletonVersion = (
@@ -678,7 +697,12 @@ var _JUPYTERLAB;
         typeof console !== "undefined" &&
           console.warn &&
           console.warn(
-            getInvalidSingletonVersionMessage(key, version, requiredVersion)
+            getInvalidSingletonVersionMessage(
+              scope,
+              key,
+              version,
+              requiredVersion
+            )
           );
       /******/ return get(scope[key][version]);
       /******/
@@ -692,7 +716,12 @@ var _JUPYTERLAB;
       /******/ var version = findSingletonVersionKey(scope, key);
       /******/ if (!satisfy(requiredVersion, version))
         throw new Error(
-          getInvalidSingletonVersionMessage(key, version, requiredVersion)
+          getInvalidSingletonVersionMessage(
+            scope,
+            key,
+            version,
+            requiredVersion
+          )
         );
       /******/ return get(scope[key][version]);
       /******/
@@ -799,6 +828,11 @@ var _JUPYTERLAB;
         /******/
       }
     );
+    /******/ var loadSingleton = /*#__PURE__*/ init((scopeName, scope, key) => {
+      /******/ ensureExistence(scopeName, key);
+      /******/ return getSingleton(scope, scopeName, key);
+      /******/
+    });
     /******/ var loadSingletonVersionCheck = /*#__PURE__*/ init(
       (scopeName, scope, key, version) => {
         /******/ ensureExistence(scopeName, key);
@@ -834,6 +868,14 @@ var _JUPYTERLAB;
             warnInvalidVersion(scope, scopeName, key, version) ||
             findVersion(scope, key)
         );
+        /******/
+      }
+    );
+    /******/ var loadSingletonFallback = /*#__PURE__*/ init(
+      (scopeName, scope, key, fallback) => {
+        /******/ if (!scope || !__webpack_require__.o(scope, key))
+          return fallback();
+        /******/ return getSingleton(scope, scopeName, key);
         /******/
       }
     );
@@ -880,7 +922,7 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/application",
-          [1, 3, 2, 9]
+          [1, 3, 3, 2]
         ),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?272d":
         () =>
@@ -898,25 +940,25 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/apputils",
-          [1, 3, 2, 9]
+          [1, 3, 3, 2]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/launcher": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/launcher",
-          [1, 3, 2, 9]
+          [1, 3, 3, 2]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/translation": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/translation",
-          [1, 3, 2, 9]
+          [1, 3, 3, 2]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/rendermime",
-          [1, 3, 2, 9]
+          [1, 3, 3, 2]
         ),
       /******/ "webpack/sharing/consume/default/ethers/ethers": () =>
         loadStrictVersionCheckFallback("default", "ethers", [1, 5, 5, 3], () =>
@@ -937,10 +979,32 @@ var _JUPYTERLAB;
           loadSingletonVersionCheck(
             "default",
             "@jupyterlab/ui-components",
-            [1, 3, 2, 9]
+            [1, 3, 3, 2]
+          ),
+      /******/ "webpack/sharing/consume/default/@jupyterlab/coreutils": () =>
+        loadSingletonVersionCheck(
+          "default",
+          "@jupyterlab/coreutils",
+          [1, 5, 3, 2]
+        ),
+      /******/ "webpack/sharing/consume/default/requests-helper/requests-helper":
+        () =>
+          loadStrictVersionCheckFallback(
+            "default",
+            "requests-helper",
+            [2, 0, 1, 5],
+            () =>
+              __webpack_require__
+                .e("node_modules_requests-helper_lib_index_js")
+                .then(
+                  () => () =>
+                    __webpack_require__(
+                      /*! requests-helper */ "./node_modules/requests-helper/lib/index.js"
+                    )
+                )
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/observables": () =>
-        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 9]),
+        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 3, 2]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls":
         () =>
           loadStrictVersionCheckFallback(
@@ -963,15 +1027,15 @@ var _JUPYTERLAB;
               )
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea": () =>
-        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 9]),
+        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 3, 2]),
       /******/ "webpack/sharing/consume/default/react": () =>
         loadSingletonVersionCheck("default", "react", [1, 17, 0, 1]),
-      /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?d99c":
+      /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?94ae":
         () =>
           loadSingletonVersionCheck(
             "default",
             "@jupyter-widgets/base",
-            [1, 4, 0, 0]
+            [1, 4, 1, 0]
           ),
       /******/ "webpack/sharing/consume/default/@lumino/signaling": () =>
         loadSingletonVersionCheck("default", "@lumino/signaling", [1, 1, 4, 3]),
@@ -997,6 +1061,8 @@ var _JUPYTERLAB;
         /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime",
         /******/ "webpack/sharing/consume/default/ethers/ethers",
         /******/ "webpack/sharing/consume/default/@jupyterlab/ui-components",
+        /******/ "webpack/sharing/consume/default/@jupyterlab/coreutils",
+        /******/ "webpack/sharing/consume/default/requests-helper/requests-helper",
         /******/ "webpack/sharing/consume/default/@jupyterlab/observables",
         /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls",
         /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea",
@@ -1005,7 +1071,7 @@ var _JUPYTERLAB;
       ],
       /******/ "webpack_sharing_consume_default_jupyter-widgets_base-webpack_sharing_consume_default_lumino_d-b18fc4":
         [
-          /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?d99c",
+          /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?94ae",
           /******/ "webpack/sharing/consume/default/@lumino/signaling",
           /******/ "webpack/sharing/consume/default/@lumino/domutils",
           /******/
@@ -1039,7 +1105,9 @@ var _JUPYTERLAB;
             /******/ var promise = moduleToHandlerMapping[id]();
             /******/ if (promise.then) {
               /******/ promises.push(
-                (installedModules[id] = promise.then(onFactory).catch(onError))
+                (installedModules[id] = promise
+                  .then(onFactory)
+                  ["catch"](onError))
               );
               /******/
             } else onFactory(promise);
@@ -1184,7 +1252,7 @@ var _JUPYTERLAB;
           /******/ installedChunks[chunkId][0]();
           /******/
         }
-        /******/ installedChunks[chunkIds[i]] = 0;
+        /******/ installedChunks[chunkId] = 0;
         /******/
       }
       /******/
@@ -1198,6 +1266,12 @@ var _JUPYTERLAB;
       null,
       chunkLoadingGlobal.push.bind(chunkLoadingGlobal)
     );
+    /******/
+  })();
+  /******/
+  /******/ /* webpack/runtime/nonce */
+  /******/ (() => {
+    /******/ __webpack_require__.nc = undefined;
     /******/
   })();
   /******/
@@ -1215,4 +1289,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.faa6d0af9cd48b34366e.js.map
+//# sourceMappingURL=remoteEntry.2ed499b4431bd1845f11.js.map

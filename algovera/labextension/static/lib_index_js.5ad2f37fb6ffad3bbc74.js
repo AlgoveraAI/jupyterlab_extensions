@@ -13,16 +13,18 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ MODULE_NAME: () =>
-            /* reexport safe */ _version__WEBPACK_IMPORTED_MODULE_0__.MODULE_NAME,
-          /* harmony export */ MODULE_VERSION: () =>
-            /* reexport safe */ _version__WEBPACK_IMPORTED_MODULE_0__.MODULE_VERSION,
           /* harmony export */ CommandPaletteModel: () =>
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.CommandPaletteModel,
           /* harmony export */ CommandRegistryModel: () =>
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.CommandRegistryModel,
+          /* harmony export */ EstuaryWidget: () =>
+            /* reexport safe */ _react__WEBPACK_IMPORTED_MODULE_2__.EstuaryWidget,
           /* harmony export */ JupyterFrontEndModel: () =>
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.JupyterFrontEndModel,
+          /* harmony export */ MODULE_NAME: () =>
+            /* reexport safe */ _version__WEBPACK_IMPORTED_MODULE_0__.MODULE_NAME,
+          /* harmony export */ MODULE_VERSION: () =>
+            /* reexport safe */ _version__WEBPACK_IMPORTED_MODULE_0__.MODULE_VERSION,
           /* harmony export */ PanelModel: () =>
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.PanelModel,
           /* harmony export */ SessionManagerModel: () =>
@@ -35,8 +37,6 @@
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.SplitPanelView,
           /* harmony export */ TitleModel: () =>
             /* reexport safe */ _widget__WEBPACK_IMPORTED_MODULE_1__.TitleModel,
-          /* harmony export */ EstuaryWidget: () =>
-            /* reexport safe */ _react__WEBPACK_IMPORTED_MODULE_2__.EstuaryWidget,
           /* harmony export */
         });
         /* harmony import */ var _version__WEBPACK_IMPORTED_MODULE_0__ =
@@ -54,4 +54,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_index_js.12e3cb6eff5f6a9474de.js.map
+//# sourceMappingURL=lib_index_js.5ad2f37fb6ffad3bbc74.js.map

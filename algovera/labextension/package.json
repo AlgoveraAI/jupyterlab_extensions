@@ -86,7 +86,8 @@
     "@lumino/widgets": "^1.19.0",
     "ethers": "^5.5.3",
     "lit-js-sdk": "^1.1.121",
-    "react-redux": "^7.2.6"
+    "react-redux": "^7.2.6",
+    "requests-helper": "^0.1.5"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.2.3",
@@ -120,7 +121,7 @@
     },
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.faa6d0af9cd48b34366e.js",
+      "load": "static/remoteEntry.2ed499b4431bd1845f11.js",
       "extension": "./extension",
       "style": "./style"
     }
