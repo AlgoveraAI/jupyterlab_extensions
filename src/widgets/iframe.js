@@ -133,19 +133,21 @@ class OpenIFrameWidget extends Widget {
   }
 }
 
-function registerSite(app, palette, site) {
-  const command = `iframe:open-${site}`;
+function registerSite(app, palette) {
+  const command_storage = `iframe:open-https://lit-estuary-storage.herokuapp.com/example.html`;
 
-  app.commands.addCommand(command, {
-    execute: () => {
-      const widget = new IFrameWidget(site);
+  app.commands.addCommand(command_storage, {
+    execute: async (args) => {
+      const widget = new IFrameWidget(
+        "https://lit-estuary-storage.herokuapp.com/example.html"
+      );
       app.shell.add(widget);
       app.shell.activateById(widget.id);
     },
     isEnabled: () => true,
-    label: `Open ${site}`,
+    label: `Open Algovera Storage`,
   });
-  palette.addItem({ command, category: "Sites" });
+  palette.addItem({ command_storage });
 }
 
 async function activate(app, palette) {

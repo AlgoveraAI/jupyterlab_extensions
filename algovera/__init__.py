@@ -12,7 +12,7 @@ from ._version import __version__, version_info
 
 from .jupyterfrontend import JupyterFrontEnd
 from .widgets import Panel, SplitPanel
-from .iframe import load_jupyter_server_extension
+from .extension import load_jupyter_server_extension
 
 HERE = Path(__file__).parent.resolve()
 
@@ -24,4 +24,4 @@ def _jupyter_labextension_paths():
     return [{"src": "labextension", "dest": data["name"]}]
 
 def _jupyter_server_extension_paths():
-    return [{"module": "algovera.extension"}]
+    return [{"module": "jupyterlab_iframe.extension"}]

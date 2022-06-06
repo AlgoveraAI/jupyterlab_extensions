@@ -18,5 +18,5 @@
     "target": "es2017",
     "allowJs": true
   },
-  "include": ["src/**/*", "src/**/*"]
+  "include": ["src/**/*", "src/**/*.tsx"]
 }
