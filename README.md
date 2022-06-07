@@ -1,6 +1,6 @@
 # 📚 Algovera Library
 
-The Algovera Library currently comprises of a Jupyter Lab extension for using MetaMask within Jupyter Lab to interact with the [Ocean market](https://market.oceanprotocol.com/).
+The Algovera Library currently comprises of a Jupyter Lab extension for using MetaMask within Jupyter Lab to interact with the [Ocean market](https://market.oceanprotocol.com/), and store on decentralized storage with decentralized access control (lit protocol for decentralized access control, Estuary/Filecoin for decentralized storage)
 
 ## Algovera
 
@@ -10,14 +10,16 @@ Website | Notion | Discord | Calendar | Twitter | YouTube
 
 ## 🏗 Setup
 
-To start using the library, simply run these three commands in your terminal:
+To start using the extension, simply run these three commands in your terminal::
 
 ```
 conda create -n algolab -c conda-forge jupyterlab
 
 conda activate algolab
 
-pip install dist/algovera-0.1.4-py3-none-any.whl
+pip install algovera
+
+jupyter lab
 
 ```
 

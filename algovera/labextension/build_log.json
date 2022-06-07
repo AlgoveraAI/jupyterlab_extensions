@@ -615,8 +615,11 @@
             "lit-js-sdk": {},
             "react-redux": {},
             "requests-helper": {},
+            "jupyter": {},
+            "lab": {},
+            "python": {},
             "algovera": {
-              "version": "0.1.3",
+              "version": "0.1.4",
               "singleton": true,
               "import": "/Users/keatonkirkpatrick/Desktop/Testing/jupyterlab_extensions/lib/index.js"
             }

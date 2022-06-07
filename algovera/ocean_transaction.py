@@ -41,6 +41,81 @@ class OceanMarket():
     def __init__(self, private_key=None) -> None:
         self.private_key = private_key
         self.wallet = None
+
+    def check_wallet(self) -> None:
+        self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
+        print(f"Environment Wallet Address = '{self.wallet.address}'")
+        print(f"Wallet OCEAN = {pretty_ether_and_wei(OCEAN_token.balanceOf(self.wallet.address))}")
+        print(f"Wallet ETH = {pretty_ether_and_wei(ocean.web3.eth.get_balance(self.wallet.address))}")
+
+    def check_dt_wallet(self, did, pool_address):
+        self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
+        assert self.wallet is not None, "Wallet error, initialize app again"
+        data_token_address = f'0x{did[7:]}'
+        data_token = ocean.get_data_token(data_token_address)
+        print(f"I have {pretty_ether_and_wei(data_token.balanceOf(self.wallet.address), data_token.symbol())}.")
+
+    def buy_dt(self, did, pool_address):
+        self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
+        assert self.wallet is not None, "Wallet error, initialize app again"
+        # Get asset, datatoken_address
+        asset = ocean.assets.resolve(did)
+        data_token_address = f'0x{did[7:]}'
+
+        print('Executing Transaction')
+        #my wallet
+        print(f"Environment Wallet Address = '{self.wallet.address}'")
+        print(f"Wallet OCEAN = {pretty_ether_and_wei(OCEAN_token.balanceOf(self.wallet.address))}")
+        print(f"Wallet ETH = {pretty_ether_and_wei(ocean.web3.eth.get_balance(self.wallet.address))}")
+        #Verify that Bob has ETH
+        assert ocean.web3.eth.get_balance(self.wallet.address) > 0, "need test ETH"
+        #Verify that Bob has OCEAN
+        assert OCEAN_token.balanceOf(self.wallet.address) > 0, "need test OCEAN"
+        # print(f"I have {pretty_ether_and_wei(data_token.balanceOf(wallet.address), data_token.symbol())}.")
+        # assert data_token.balanceOf(wallet.address) >= to_wei(1), "Bob didn't get 1.0 datatokens"
+        #Bob points to the service object
+        fee_receiver = ZERO_ADDRESS # could also be market address
+        #Bob buys 1.0 datatokens - the amount needed to consume the dataset.
+        data_token = ocean.get_data_token(data_token_address)
+        print('Buying Data Token')
+        ocean.pool.buy_data_tokens(
+            pool_address,
+            amount=to_wei(1), # buy 1.0 datatoken
+            max_OCEAN_amount=to_wei(10), # pay up to 10.0 OCEAN
+            from_wallet=self.wallet
+        )
+        print(f"I have {pretty_ether_and_wei(data_token.balanceOf(self.wallet.address), data_token.symbol())}.")
+
+    def buy_at(self, did, pool_address):
+        self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
+        assert self.wallet is not None, "Wallet error, initialize app again"
+        # Get asset, datatoken_address
+        data_token_address = f'0x{did[7:]}'
+
+        print('Executing Transaction')
+        #my wallet
+        print(f"Environment Wallet Address = '{self.wallet.address}'")
+        print(f"wallet ocean = {pretty_ether_and_wei(OCEAN_token.balanceOf(self.wallet.address))}")
+        print(f"wallet eth = {pretty_ether_and_wei(ocean.web3.eth.get_balance(self.wallet.address))}")
+        #Verify that Bob has ETH
+        assert ocean.web3.eth.get_balance(self.wallet.address) > 0, "need test ETH"
+        #Verify that Bob has OCEAN
+        assert OCEAN_token.balanceOf(self.wallet.address) > 0, "need test OCEAN"
+        # print(f"I have {pretty_ether_and_wei(data_token.balanceOf(wallet.address), data_token.symbol())}.")
+        # assert data_token.balanceOf(wallet.address) >= to_wei(1), "Bob didn't get 1.0 datatokens"
+        #Bob points to the service object
+        fee_receiver = ZERO_ADDRESS # could also be market address
+        #Bob buys 1.0 datatokens - the amount needed to consume the dataset.
+        data_token = ocean.get_data_token(data_token_address)
+        print('Buying Algorithm Token')
+        ocean.pool.buy_data_tokens(
+            pool_address,
+            amount=to_wei(1), # buy 1.0 datatoken
+            max_OCEAN_amount=to_wei(10), # pay up to 10.0 OCEAN
+            from_wallet=self.wallet
+        )
+        print(f"I have {pretty_ether_and_wei(data_token.balanceOf(self.wallet.address), data_token.symbol())}.")
+
     # BUY DATASET
     def buy_and_download(self, did, pool_address):
         self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
@@ -52,8 +127,8 @@ class OceanMarket():
         print('executing transaction')
         #my wallet
         print(f"wallet.address = '{self.wallet.address}'")
-        print(f"wallet ocean = {OCEAN_token.balanceOf(self.wallet.address)}")
-        print(f"wallet eth = {ocean.web3.eth.get_balance(self.wallet.address)}")
+        print(f"wallet ocean = {pretty_ether_and_wei(OCEAN_token.balanceOf(self.wallet.address))}")
+        print(f"wallet eth = {pretty_ether_and_wei(ocean.web3.eth.get_balance(self.wallet.address))}")
         #Verify that Bob has ETH
         assert ocean.web3.eth.get_balance(self.wallet.address) > 0, "need ganache ETH"
         #Verify that Bob has OCEAN
@@ -97,17 +172,33 @@ class OceanMarket():
         print(f"file_path = '{file_path}'")
         return file_path
 
-    def c2d(self, dataset_did, algorithm_did):
+    def c2d(self, dataset_did, dt_pool, algorithm_did, at_pool):
         self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
         DATA_DDO = ocean.assets.resolve(dataset_did)  # make sure we operate on the updated and indexed metadata_cache_uri versions
         ALG_DDO = ocean.assets.resolve(algorithm_did)
+
+        # Check if the wallet has DTs and ATs, if not: buy them
         ALG_address = f'0x{algorithm_did[7:]}'
+        algo_token = ocean.get_data_token(ALG_address)
+        data_token_address = f'0x{dataset_did[7:]}'
+        data_token = ocean.get_data_token(data_token_address)
+
+        if data_token.balanceOf(self.wallet.address) < to_wei(1):
+            print('Not enough datatokens in wallet, buying...')
+            self.buy_dt(dataset_did, dt_pool)
+
+        if algo_token.balanceOf(self.wallet.address) < to_wei(1):
+            print('Not enough algorithm tokens in wallet, buying...')
+            self.buy_at(algorithm_did, at_pool)
+
+        assert data_token.balanceOf(self.wallet.address) > 0, 'Not enough datatokens'
+        assert algo_token.balanceOf(self.wallet.address) > 0, 'Not enough algorithm tokens'
 
         compute_service = DATA_DDO.get_service('compute')
         algo_service = ALG_DDO.get_service('access')
 
         # order & pay for dataset
-        print('Buying datatoken...')
+        print('Buying datatoken compute service...')
         dataset_order_requirements = ocean.assets.order(
             dataset_did, self.wallet.address, service_type=compute_service.type
         )
@@ -121,10 +212,10 @@ class OceanMarket():
             self.wallet,
             dataset_order_requirements.computeAddress,
         )
-        print(f'Bought datatoken, tx_id: {DATA_order_tx_id}')
+        print(f'Paid for compute service on dataset, tx_id: {DATA_order_tx_id}')
 
         # order & pay for algo
-        print('Buying algorithm...')
+        print('Buying algorithm compute service...')
         algo_order_requirements = ocean.assets.order(
             algorithm_did, self.wallet.address, service_type=algo_service.type
         )
@@ -138,7 +229,7 @@ class OceanMarket():
                 self.wallet,
                 algo_order_requirements.computeAddress,
         )
-        print(f'Bought algorithm, tx_id: {ALG_order_tx_id}')
+        print(f'Paid for compute service with algorithm, tx_id: {ALG_order_tx_id}')
 
         compute_inputs = [ComputeInput(dataset_did, DATA_order_tx_id, compute_service.index)]
         job_id = ocean.compute.start(
