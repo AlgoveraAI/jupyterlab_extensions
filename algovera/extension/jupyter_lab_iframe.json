@@ -1,7 +1,7 @@
 {
   "ServerApp": {
     "jpserver_extensions": {
-      "algovera": true
+      "jupyterlab_iframe": true
     }
   }
 }

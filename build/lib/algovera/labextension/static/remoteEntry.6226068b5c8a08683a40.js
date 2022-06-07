@@ -202,7 +202,7 @@ var _JUPYTERLAB;
           "vendors-node_modules_jquery_dist_jquery_js": "c530717692342b88fa1c",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
             "55e80702cd02e7e671b6",
-          "lib_plugin_js-lib_widgets_frontend_js": "cf0b456be70505786d98",
+          "lib_plugin_js-lib_widgets_frontend_js": "e6bdef742858ca038282",
           lib_index_js: "5ad2f37fb6ffad3bbc74",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
             "85de68f7e747d90e5d46",
@@ -922,7 +922,7 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/application",
-          [1, 3, 3, 2]
+          [1, 3, 2, 6]
         ),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?272d":
         () =>
@@ -940,25 +940,25 @@ var _JUPYTERLAB;
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/apputils",
-          [1, 3, 3, 2]
+          [1, 3, 2, 6]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/launcher": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/launcher",
-          [1, 3, 3, 2]
+          [1, 3, 2, 6]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/translation": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/translation",
-          [1, 3, 3, 2]
+          [1, 3, 2, 6]
         ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/rendermime",
-          [1, 3, 3, 2]
+          [1, 3, 2, 6]
         ),
       /******/ "webpack/sharing/consume/default/ethers/ethers": () =>
         loadStrictVersionCheckFallback("default", "ethers", [1, 5, 5, 3], () =>
@@ -979,13 +979,13 @@ var _JUPYTERLAB;
           loadSingletonVersionCheck(
             "default",
             "@jupyterlab/ui-components",
-            [1, 3, 3, 2]
+            [1, 3, 2, 6]
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/coreutils": () =>
         loadSingletonVersionCheck(
           "default",
           "@jupyterlab/coreutils",
-          [1, 5, 3, 2]
+          [1, 5, 2, 6]
         ),
       /******/ "webpack/sharing/consume/default/requests-helper/requests-helper":
         () =>
@@ -1004,7 +1004,7 @@ var _JUPYTERLAB;
                 )
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/observables": () =>
-        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 3, 2]),
+        loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 2, 6]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls":
         () =>
           loadStrictVersionCheckFallback(
@@ -1027,7 +1027,7 @@ var _JUPYTERLAB;
               )
           ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea": () =>
-        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 3, 2]),
+        loadVersionCheck("default", "@jupyterlab/outputarea", [1, 3, 2, 6]),
       /******/ "webpack/sharing/consume/default/react": () =>
         loadSingletonVersionCheck("default", "react", [1, 17, 0, 1]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/base?94ae":
@@ -1289,4 +1289,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.33442c09f4a8316a2c40.js.map
+//# sourceMappingURL=remoteEntry.6226068b5c8a08683a40.js.map

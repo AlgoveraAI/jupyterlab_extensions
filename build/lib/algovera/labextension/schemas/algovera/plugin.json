@@ -1,0 +1,26 @@
+{
+  "title": "ipymetamask",
+  "description": "Metamask Extension for connecting to wallet",
+  "jupyter.lab.menus": {
+    "main": [
+      {
+        "id": "ipymetamask",
+        "label": "MetaMask",
+        "rank": 80,
+        "items": [
+          {
+            "command": "connect_wallet"
+          },
+          {
+            "command": "send_ocean"
+          },
+          {
+            "command": "save_file"
+          }
+        ]
+      }
+    ]
+  },
+  "additionalProperties": false,
+  "type": "object"
+}

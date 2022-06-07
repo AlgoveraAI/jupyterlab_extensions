@@ -112,6 +112,16 @@
   },
   "jupyterlab": {
     "extension": "lib/plugin",
+    "discovery": {
+      "server": {
+        "base": {
+          "name": "jupyterlab-iframe"
+        },
+        "managers": [
+          "pip"
+        ]
+      }
+    },
     "outputDir": "algovera/labextension/",
     "sharedPackages": {
       "@jupyter-widgets/base": {

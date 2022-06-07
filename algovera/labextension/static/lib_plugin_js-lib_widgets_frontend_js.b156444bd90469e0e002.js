@@ -2,6 +2,89 @@
 (self["webpackChunkalgovera"] = self["webpackChunkalgovera"] || []).push([
   ["lib_plugin_js-lib_widgets_frontend_js"],
   {
+    /***/ "./lib/iframe.js":
+      /*!***********************!*\
+  !*** ./lib/iframe.js ***!
+  \***********************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ IFrameWidget: () => /* binding */ IFrameWidget,
+          /* harmony export */
+        });
+        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils"
+          );
+        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! react */ "webpack/sharing/consume/default/react"
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+
+        /**
+         * React component for Estuary.
+         *
+         * @returns The React component
+         */
+        class IFrameComponent extends react__WEBPACK_IMPORTED_MODULE_1___default()
+          .Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              api: "",
+              file: {},
+              total: {},
+            };
+          }
+          render() {
+            return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_1___default().Fragment,
+              null,
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                "iframe",
+                {
+                  style: { width: "100%", height: "640px" },
+                  src: "https://lit-estuary-storage.herokuapp.com/example.html",
+                }
+              )
+            );
+          }
+        }
+        /**
+         *  Lumino Widget that wraps the Component.
+         */
+        class IFrameWidget extends _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ReactWidget {
+          /*
+           * Constructs a new IFrameWidget.
+           */
+          constructor() {
+            super();
+            this.addClass("jp-ReactWidget");
+          }
+          render() {
+            return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              IFrameComponent,
+              null
+            );
+          }
+        }
+        //# sourceMappingURL=iframe.js.map
+
+        /***/
+      },
+
     /***/ "./lib/plugin.js":
       /*!***********************!*\
   !*** ./lib/plugin.js ***!
@@ -13,8 +96,8 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
           /* harmony export */ privateKey: () => /* binding */ privateKey,
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
           /* harmony export */
         });
         /* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__ =
@@ -99,8 +182,6 @@
           __webpack_require__(
             /*! ./widgets/transaction */ "./lib/widgets/transaction.js"
           );
-        /* harmony import */ var _react__WEBPACK_IMPORTED_MODULE_18__ =
-          __webpack_require__(/*! ./react */ "./lib/react.js");
         /* harmony import */ var _jupyterlab_ui_components__WEBPACK_IMPORTED_MODULE_7__ =
           __webpack_require__(
             /*! @jupyterlab/ui-components */ "webpack/sharing/consume/default/@jupyterlab/ui-components"
@@ -109,12 +190,11 @@
           /*#__PURE__*/ __webpack_require__.n(
             _jupyterlab_ui_components__WEBPACK_IMPORTED_MODULE_7__
           );
+        /* harmony import */ var _iframe__WEBPACK_IMPORTED_MODULE_18__ =
+          __webpack_require__(/*! ./iframe */ "./lib/iframe.js");
         // Copyright (c) ipylab contributors
         // Distributed under the terms of the Modified BSD License.
 
-        const iframe_extension = __webpack_require__(
-          /*! ./widgets/iframe */ "./lib/widgets/iframe.js"
-        );
         const [privateKey, walletAddress] = (0,
         _widgets_address__WEBPACK_IMPORTED_MODULE_8__["default"])();
 
@@ -203,27 +283,17 @@
               );
             },
           });
-          // Add a command
-          // const command3 = "save_file";
-          // console.log(command3);
-          // commands.addCommand(command3, {
-          //   label: "save file",
-          //   caption: "save file",
-          //   execute: (args: any) => {
-          //     console.log("SAVE FILE EXTENSION LOADED");
-          //   },
-          // });
           const command4 = "save_file";
           commands.addCommand(command4, {
             caption: "Decentralized storage using Estuary",
-            label: "Algovera Widget",
+            label: "Algovera Storage",
             icon: (args) =>
               args["isPalette"]
                 ? null
                 : _jupyterlab_ui_components__WEBPACK_IMPORTED_MODULE_7__.reactIcon,
             execute: () => {
               const content =
-                new _react__WEBPACK_IMPORTED_MODULE_18__.EstuaryWidget();
+                new _iframe__WEBPACK_IMPORTED_MODULE_18__.IFrameWidget();
               const widget =
                 new _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_2__.MainAreaWidget(
                   { content }
@@ -237,7 +307,7 @@
           // const command5 = "iframe";
           // commands.addCommand(command5, {
           //   caption: "Iframe-Lit Secured Storage",
-          //   label: "Lit Access",
+          //   label: "Algovera Storage",
           //   icon: (args) => (args["isPalette"] ? null : reactIcon),
           //   execute: () => {
           //     const content = new iframe_extension();
@@ -247,7 +317,6 @@
           //     app.shell.add(widget, "main");
           //   },
           // });
-          iframe_extension;
           // add commands to registry
           commands.addCommand(CommandIDs.create, {
             label: trans.__("Open the Kernel Output Panel"),
@@ -340,149 +409,6 @@
         /***/
       },
 
-    /***/ "./lib/react.js":
-      /*!**********************!*\
-  !*** ./lib/react.js ***!
-  \**********************/
-      /***/ (
-        __unused_webpack_module,
-        __webpack_exports__,
-        __webpack_require__
-      ) => {
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ EstuaryWidget: () => /* binding */ EstuaryWidget,
-          /* harmony export */
-        });
-        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(
-            /*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils"
-          );
-        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! react */ "webpack/sharing/consume/default/react"
-          );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_1__
-          );
-
-        /**
-         * React component for Estuary.
-         *
-         * @returns The React component
-         */
-        class EstuaryComponent extends react__WEBPACK_IMPORTED_MODULE_1___default()
-          .Component {
-          constructor(props) {
-            super(props);
-            this.state = {
-              api: "",
-              file: {},
-              total: {},
-            };
-            this.handleChange = this.handleChange.bind(this);
-            this.handleSubmit = this.handleSubmit.bind(this);
-          }
-          handleChange(event) {
-            this.setState({ api: event.target.value });
-          }
-          handleSubmit(event) {
-            alert("An API Key was submitted: " + this.state.api);
-            event.preventDefault();
-          }
-          upload(e) {
-            e.persist();
-            console.log(e.target.files);
-            const formData = new FormData();
-            formData.append("data", e.target.files[0]);
-            // NOTE
-            // This example uses XMLHttpRequest() instead of fetch
-            // because we want to show progress. But you can use
-            // fetch in this example if you like.
-            const xhr = new XMLHttpRequest();
-            xhr.upload.onprogress = (event) => {
-              this.setState({
-                file: event.loaded,
-                total: event.total,
-              });
-            };
-            xhr.open("POST", "https://shuttle-4.estuary.tech/content/add");
-            xhr.setRequestHeader("Authorization", `Bearer ${this.state.api}`);
-            xhr.send(formData);
-          }
-          render() {
-            return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-              react__WEBPACK_IMPORTED_MODULE_1___default().Fragment,
-              null,
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                "form",
-                { onSubmit: this.handleSubmit },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                  "label",
-                  null,
-                  "API Key:",
-                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                    "input",
-                    {
-                      type: "text",
-                      value: this.state.api,
-                      onChange: this.handleChange,
-                    }
-                  )
-                ),
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                  "input",
-                  { type: "submit", value: "Submit" }
-                )
-              ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                "br",
-                null
-              ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                "input",
-                { type: "file", onChange: this.upload.bind(this) }
-              ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                "br",
-                null
-              ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                "pre",
-                null,
-                JSON.stringify(this.state.api, null, 1)
-              )
-            );
-          }
-        }
-        /**
-         *  Lumino Widget that wraps a EstuaryComponent.
-         */
-        class EstuaryWidget extends _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ReactWidget {
-          /**
-           * Constructs a new EstuaryWidget.
-           */
-          constructor() {
-            super();
-            this.addClass("jp-ReactWidget");
-          }
-          render() {
-            return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-              EstuaryComponent,
-              null
-            );
-          }
-        }
-        //# sourceMappingURL=react.js.map
-
-        /***/
-      },
-
     /***/ "./lib/version.js":
       /*!************************!*\
   !*** ./lib/version.js ***!
@@ -494,9 +420,9 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ MODULE_NAME: () => /* binding */ MODULE_NAME,
           /* harmony export */ MODULE_VERSION: () =>
             /* binding */ MODULE_VERSION,
+          /* harmony export */ MODULE_NAME: () => /* binding */ MODULE_NAME,
           /* harmony export */
         });
         // Copyright (c) ipylab contributors
@@ -532,16 +458,14 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ CommandPaletteModel: () =>
-            /* reexport safe */ _widgets_palette__WEBPACK_IMPORTED_MODULE_1__.CommandPaletteModel,
           /* harmony export */ CommandRegistryModel: () =>
             /* reexport safe */ _widgets_commands__WEBPACK_IMPORTED_MODULE_0__.CommandRegistryModel,
+          /* harmony export */ CommandPaletteModel: () =>
+            /* reexport safe */ _widgets_palette__WEBPACK_IMPORTED_MODULE_1__.CommandPaletteModel,
           /* harmony export */ JupyterFrontEndModel: () =>
             /* reexport safe */ _widgets_frontend__WEBPACK_IMPORTED_MODULE_2__.JupyterFrontEndModel,
           /* harmony export */ PanelModel: () =>
             /* reexport safe */ _widgets_panel__WEBPACK_IMPORTED_MODULE_3__.PanelModel,
-          /* harmony export */ SessionManagerModel: () =>
-            /* reexport safe */ _widgets_sessions__WEBPACK_IMPORTED_MODULE_7__.SessionManagerModel,
           /* harmony export */ ShellModel: () =>
             /* reexport safe */ _widgets_shell__WEBPACK_IMPORTED_MODULE_4__.ShellModel,
           /* harmony export */ SplitPanelModel: () =>
@@ -550,6 +474,8 @@
             /* reexport safe */ _widgets_split_panel__WEBPACK_IMPORTED_MODULE_5__.SplitPanelView,
           /* harmony export */ TitleModel: () =>
             /* reexport safe */ _widgets_title__WEBPACK_IMPORTED_MODULE_6__.TitleModel,
+          /* harmony export */ SessionManagerModel: () =>
+            /* reexport safe */ _widgets_sessions__WEBPACK_IMPORTED_MODULE_7__.SessionManagerModel,
           /* harmony export */
         });
         /* harmony import */ var _widgets_commands__WEBPACK_IMPORTED_MODULE_0__ =
@@ -900,298 +826,6 @@
         JupyterFrontEndModel.view_module_version =
           _version__WEBPACK_IMPORTED_MODULE_2__.MODULE_VERSION;
         //# sourceMappingURL=frontend.js.map
-
-        /***/
-      },
-
-    /***/ "./lib/widgets/iframe.js":
-      /*!*******************************!*\
-  !*** ./lib/widgets/iframe.js ***!
-  \*******************************/
-      /***/ (
-        __unused_webpack_module,
-        __webpack_exports__,
-        __webpack_require__
-      ) => {
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ _activate: () => /* binding */ activate,
-          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
-          /* harmony export */
-        });
-        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(
-            /*! @jupyterlab/apputils */ "webpack/sharing/consume/default/@jupyterlab/apputils"
-          );
-        /* harmony import */ var _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! @jupyterlab/coreutils */ "webpack/sharing/consume/default/@jupyterlab/coreutils"
-          );
-        /* harmony import */ var _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__
-          );
-        /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_2__ =
-          __webpack_require__(
-            /*! @lumino/widgets */ "webpack/sharing/consume/default/@lumino/widgets"
-          );
-        /* harmony import */ var _lumino_widgets__WEBPACK_IMPORTED_MODULE_2___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            _lumino_widgets__WEBPACK_IMPORTED_MODULE_2__
-          );
-        /* harmony import */ var requests_helper__WEBPACK_IMPORTED_MODULE_3__ =
-          __webpack_require__(
-            /*! requests-helper */ "webpack/sharing/consume/default/requests-helper/requests-helper"
-          );
-        /* harmony import */ var requests_helper__WEBPACK_IMPORTED_MODULE_3___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            requests_helper__WEBPACK_IMPORTED_MODULE_3__
-          );
-        /* eslint-disable max-classes-per-file */
-
-        //import "../style/index.css";
-        let unique = 0;
-        class IFrameWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_2__.Widget {
-          constructor(path) {
-            super();
-            this.id = `${path}-${unique}`;
-            this.path = path;
-            this.local_file = false;
-            this.init();
-          }
-          async init() {
-            const iconClass = `favicon-${unique}`;
-            this.title.iconClass = iconClass;
-            this.title.label = this.path;
-            this.title.closable = true;
-            this.local_file = this.path.startsWith("local://");
-            unique += 1;
-            if (!this.local_file && !this.path.startsWith("http")) {
-              // use https, its 2020
-              this.path = `https://${this.path}`;
-            }
-            const div = document.createElement("div");
-            div.classList.add("iframe-widget");
-            const iframe = document.createElement("iframe");
-            if (!this.local_file) {
-              // External website
-              // First try to get directly
-              const res = await (0,
-              requests_helper__WEBPACK_IMPORTED_MODULE_3__.request)(
-                "get",
-                this.path
-              );
-              if (
-                res.ok &&
-                !res.headers.includes("Access-Control-Allow-Origin")
-              ) {
-                // Site does not disable iframe
-                // eslint-disable-next-line no-console
-                console.log("site accessible: proceeding");
-                iframe.src = this.path;
-                const favicon_url = new URL("/favicon.ico", this.path).href;
-                const res2 = await (0,
-                requests_helper__WEBPACK_IMPORTED_MODULE_3__.request)(
-                  "get",
-                  favicon_url
-                );
-                if (res2.ok) {
-                  const style = document.createElement("style");
-                  style.innerHTML = `div.${iconClass} { background: url("${favicon_url}"); }`;
-                  document.head.appendChild(style);
-                }
-              } else {
-                // Site is blocked for some reason, so attempt to proxy through python.
-                // Reasons include: disallowing iframes, http/https mismatch, etc
-                // eslint-disable-next-line no-console
-                console.log(`site failed with code ${res.status.toString()}`);
-                // eslint-disable-next-line no-empty
-                if (res.status === 404) {
-                  // nothing we can do
-                  // eslint-disable-next-line no-empty
-                } else if (res.status === 401) {
-                  // nothing we can do
-                } else {
-                  // otherwise try to proxy
-                  const favicon_url = `${_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl()}iframes/proxy?path=${
-                    new URL("/favicon.ico", this.path).href
-                  }`;
-                  this.path = `iframes/proxy?path=${encodeURI(this.path)}`;
-                  iframe.src =
-                    _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl() +
-                    this.path;
-                  // eslint-disable-next-line no-console
-                  console.log(`setting proxy for ${this.path}`);
-                  const res2 = await (0,
-                  requests_helper__WEBPACK_IMPORTED_MODULE_3__.request)(
-                    "get",
-                    favicon_url
-                  );
-                  if (res2.ok) {
-                    const style = document.createElement("style");
-                    style.innerHTML = `div.${iconClass} { background: url("${favicon_url}"); }`;
-                    document.head.appendChild(style);
-                  }
-                }
-              }
-            } else {
-              // Local file, replace url and query for local
-              // eslint-disable-next-line no-console
-              console.log(`fetching local file ${this.path}`);
-              this.path = `iframes/local?path=${encodeURI(
-                this.path.replace("local://", "")
-              )}`;
-              iframe.src =
-                _jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl() +
-                this.path;
-            }
-            div.appendChild(iframe);
-            this.node.appendChild(div);
-          }
-        }
-        class OpenIFrameWidget extends _lumino_widgets__WEBPACK_IMPORTED_MODULE_2__.Widget {
-          constructor() {
-            const body = document.createElement("div");
-            const existingLabel = document.createElement("label");
-            existingLabel.textContent = "Site:";
-            const input = document.createElement("input");
-            input.value =
-              "https://lit-estuary-storage.herokuapp.com/example.html";
-            input.placeholder = "http://path.to.site";
-            body.appendChild(existingLabel);
-            body.appendChild(input);
-            super({ node: body });
-          }
-          get inputNode() {
-            return this.node.getElementsByTagName("input")[0];
-          }
-          getValue() {
-            return this.inputNode.value;
-          }
-        }
-        function registerSite(app, palette) {
-          const command_storage = `iframe:open-https://lit-estuary-storage.herokuapp.com/example.html`;
-          app.commands.addCommand(command_storage, {
-            execute: async (args) => {
-              const widget = new IFrameWidget(
-                "https://lit-estuary-storage.herokuapp.com/example.html"
-              );
-              app.shell.add(widget);
-              app.shell.activateById(widget.id);
-            },
-            isEnabled: () => true,
-            label: `Open Algovera Storage`,
-          });
-          palette.addItem({ command_storage });
-        }
-        async function activate(app, palette) {
-          // Declare a widget variable
-          let widget;
-          // Add an application command
-          const open_command = "iframe:open";
-          app.commands.addCommand(open_command, {
-            execute: async (args) => {
-              let path = typeof args.path === "undefined" ? "" : args.path;
-              if (path === "") {
-                const result = await (0,
-                _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.showDialog)({
-                  body: new OpenIFrameWidget(),
-                  buttons: [
-                    _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.cancelButton(),
-                    _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.Dialog.okButton(
-                      { label: "GO" }
-                    ),
-                  ],
-                  focusNodeSelector: "input",
-                  title: "Open site",
-                });
-                if (result.button.label === "Cancel") {
-                  return;
-                }
-                if (!result.value) {
-                  return;
-                }
-                path = result.value;
-                widget = new IFrameWidget(path);
-                app.shell.add(widget);
-                app.shell.activateById(widget.id);
-              } else {
-                widget = new IFrameWidget(path);
-                app.shell.add(widget);
-                app.shell.activateById(widget.id);
-              }
-            },
-            isEnabled: () => true,
-            label: "Algovera Storage",
-          });
-          // Add the command to the palette.
-          palette.addItem({ command: open_command, category: "Sites" });
-          // grab sites from serverextension
-          const res = await (0,
-          requests_helper__WEBPACK_IMPORTED_MODULE_3__.request)(
-            "get",
-            `${_jupyterlab_coreutils__WEBPACK_IMPORTED_MODULE_1__.PageConfig.getBaseUrl()}iframes/`
-          );
-          if (res.ok) {
-            const jsn = res.json();
-            const { welcome } = jsn;
-            const { local_files } = jsn;
-            let welcome_included = false;
-            const { sites } = jsn;
-            sites.forEach((site) => {
-              // eslint-disable-next-line no-console
-              console.log(`adding quicklink for ${site}`);
-              if (site === welcome) {
-                welcome_included = true;
-              }
-              if (site) {
-                registerSite(app, palette, site);
-              }
-            });
-            local_files.forEach((site) => {
-              const actual_site = `local://${site}`;
-              // eslint-disable-next-line no-console
-              console.log(`adding quicklink for ${actual_site}`);
-              if (actual_site === welcome) {
-                welcome_included = true;
-              }
-              if (actual_site) {
-                registerSite(app, palette, actual_site);
-              }
-            });
-            if (!welcome_included) {
-              if (welcome !== "") {
-                registerSite(app, palette, welcome);
-              }
-            }
-            if (welcome) {
-              app.restored.then(async () => {
-                if (!localStorage.getItem("jupyterlab_iframe_welcome")) {
-                  localStorage.setItem("jupyterlab_iframe_welcome", "false");
-                  await app.commands.execute(`iframe:open-${welcome}`);
-                }
-              });
-            }
-          }
-          // eslint-disable-next-line no-console
-          console.log("JupyterLab extension jupyterlab_iframe is activated!");
-        }
-        const iframe_extension = {
-          activate,
-          autoStart: true,
-          id: "jupyterlab_iframe",
-          requires: [
-            _jupyterlab_apputils__WEBPACK_IMPORTED_MODULE_0__.ICommandPalette,
-          ],
-        };
-        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
-          iframe_extension;
-
-        //# sourceMappingURL=iframe.js.map
 
         /***/
       },
@@ -2228,11 +1862,11 @@
   \**********************/
       /***/ (module) => {
         module.exports = JSON.parse(
-          '{"name":"algovera","version":"0.1.3","description":"Control JupyterLab from Python notebooks","keywords":["jupyter","jupyterlab","jupyterlab-extension","widgets"],"files":["lib/**/*.js","dist/*.js","style/*.css","style/*.js","schema/**/*.json"],"homepage":"https://github.com/AlgoveraAI/algovera","bugs":{"url":"https://github.com/jtpio/algovera/issues"},"license":"BSD-3-Clause","author":{"name":"algovera contributors","email":"jeremy@jtp.io"},"main":"lib/index.js","style":"style/widget.css","styleModule":"style/style.js","types":"./lib/index.d.ts","sideEffects":["style/*.css","style/style.js"],"repository":{"type":"git","url":"https://github.com/jtpio/algovera"},"scripts":{"build":"jlpm run build:lib && jlpm run build:labextension:dev","build:prod":"jlpm run build:lib && jlpm run build:labextension","build:lib":"tsc","build:labextension":"jupyter labextension build .","build:labextension:dev":"jupyter labextension build --development True .","clean":"rimraf lib tsconfig.tsbuildinfo algovera/labextension","clean:all":"jlpm run clean:lib && jlpm run clean:labextension","clean:labextension":"rimraf algovera/labextension","eslint":"eslint . --ext .ts,.tsx --fix","eslint:check":"eslint . --ext .ts,.tsx","lint":"jlpm && jlpm run prettier && jlpm run eslint","lint:check":"jlpm run prettier:check && jlpm run eslint:check","prepack":"npm run build","prettier":"prettier --write \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","prettier:check":"prettier --list-different \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","watch":"npm-run-all -p watch:*","watch:lib":"tsc -w"},"husky":{"hooks":{"pre-commit":"lint-staged"}},"lint-staged":{"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}":["prettier --write","git add"],"**/*{.py}":["black","git add"]},"dependencies":{"@jupyter-widgets/base":"^1 || ^2 || ^3 || ^4","@jupyter-widgets/controls":"^3.0.0","@jupyterlab/application":"^3.2.3","@jupyterlab/apputils":"^3.2.3","@jupyterlab/launcher":"^3.1.0","@jupyterlab/observables":"^4.2.3","@jupyterlab/outputarea":"^3.1.0","@jupyterlab/rendermime":"^3.2.8","@lumino/algorithm":"^1.9.1","@lumino/commands":"^1.12.0","@lumino/disposable":"^1.10.1","@lumino/messaging":"^1.10.1","@lumino/widgets":"^1.19.0","ethers":"^5.5.3","lit-js-sdk":"^1.1.121","react-redux":"^7.2.6","requests-helper":"^0.1.5"},"devDependencies":{"@jupyterlab/builder":"^3.2.3","@types/expect.js":"^0.3.29","@types/node":"^10.11.6","@typescript-eslint/eslint-plugin":"^2.26.0","@typescript-eslint/parser":"^2.26.0","eslint":"^6.8.0","eslint-config-prettier":"^6.10.1","eslint-plugin-jsdoc":"^22.1.0","eslint-plugin-prettier":"^3.1.2","eslint-plugin-react":"^7.18.3","expect.js":"^0.3.1","fs-extra":"^7.0.0","husky":"^3.1.0","lint-staged":"^9.4.3","mkdirp":"^0.5.1","npm-run-all":"^4.1.3","prettier":"^2.0.2","rimraf":"^2.6.2","typescript":"~4.4.4"},"jupyterlab":{"extension":"lib/plugin","outputDir":"algovera/labextension/","sharedPackages":{"@jupyter-widgets/base":{"bundled":false,"singleton":true}},"schemaDir":"schema"},"jupyter-releaser":{"hooks":{"before-build-npm":["python -m pip install jupyterlab~=3.0","jlpm"]}}}'
+          '{"name":"algovera","version":"0.1.3","description":"Control JupyterLab from Python notebooks","keywords":["jupyter","jupyterlab","jupyterlab-extension","widgets"],"files":["lib/**/*.js","dist/*.js","style/*.css","style/*.js","schema/**/*.json"],"homepage":"https://github.com/AlgoveraAI/algovera","bugs":{"url":"https://github.com/jtpio/algovera/issues"},"license":"BSD-3-Clause","author":{"name":"algovera contributors","email":"jeremy@jtp.io"},"main":"lib/index.js","style":"style/widget.css","styleModule":"style/style.js","types":"./lib/index.d.ts","sideEffects":["style/*.css","style/style.js"],"repository":{"type":"git","url":"https://github.com/jtpio/algovera"},"scripts":{"build":"jlpm run build:lib && jlpm run build:labextension:dev","build:prod":"jlpm run build:lib && jlpm run build:labextension","build:lib":"tsc","build:labextension":"jupyter labextension build .","build:labextension:dev":"jupyter labextension build --development True .","clean":"rimraf lib tsconfig.tsbuildinfo algovera/labextension","clean:all":"jlpm run clean:lib && jlpm run clean:labextension","clean:labextension":"rimraf algovera/labextension","eslint":"eslint . --ext .ts,.tsx --fix","eslint:check":"eslint . --ext .ts,.tsx","lint":"jlpm && jlpm run prettier && jlpm run eslint","lint:check":"jlpm run prettier:check && jlpm run eslint:check","prepack":"npm run build","prettier":"prettier --write \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","prettier:check":"prettier --list-different \\"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\\" \\"!dist/**\\" \\"!docs/**\\"","watch":"npm-run-all -p watch:*","watch:lib":"tsc -w"},"husky":{"hooks":{"pre-commit":"lint-staged"}},"lint-staged":{"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}":["prettier --write","git add"],"**/*{.py}":["black","git add"]},"dependencies":{"@jupyter-widgets/base":"^1 || ^2 || ^3 || ^4","@jupyter-widgets/controls":"^3.0.0","@jupyterlab/application":"^3.2.3","@jupyterlab/apputils":"^3.2.3","@jupyterlab/launcher":"^3.1.0","@jupyterlab/observables":"^4.2.3","@jupyterlab/outputarea":"^3.1.0","@jupyterlab/rendermime":"^3.2.8","@lumino/algorithm":"^1.9.1","@lumino/commands":"^1.12.0","@lumino/disposable":"^1.10.1","@lumino/messaging":"^1.10.1","@lumino/widgets":"^1.19.0","ethers":"^5.5.3","lit-js-sdk":"^1.1.121","react-redux":"^7.2.6","requests-helper":"^0.1.5"},"devDependencies":{"@jupyterlab/builder":"^3.2.3","@types/expect.js":"^0.3.29","@types/node":"^10.11.6","@typescript-eslint/eslint-plugin":"^2.26.0","@typescript-eslint/parser":"^2.26.0","eslint":"^6.8.0","eslint-config-prettier":"^6.10.1","eslint-plugin-jsdoc":"^22.1.0","eslint-plugin-prettier":"^3.1.2","eslint-plugin-react":"^7.18.3","expect.js":"^0.3.1","fs-extra":"^7.0.0","husky":"^3.1.0","lint-staged":"^9.4.3","mkdirp":"^0.5.1","npm-run-all":"^4.1.3","prettier":"^2.0.2","rimraf":"^2.6.2","typescript":"~4.4.4"},"jupyterlab":{"extension":"lib/plugin","discovery":{"server":{"base":{"name":"jupyterlab-iframe"},"managers":["pip"]}},"outputDir":"algovera/labextension/","sharedPackages":{"@jupyter-widgets/base":{"bundled":false,"singleton":true}},"schemaDir":"schema"},"jupyter-releaser":{"hooks":{"before-build-npm":["python -m pip install jupyterlab~=3.0","jlpm"]}}}'
         );
 
         /***/
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.cf0b456be70505786d98.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.b156444bd90469e0e002.js.map

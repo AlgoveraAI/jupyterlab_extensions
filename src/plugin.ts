@@ -27,10 +27,9 @@ import getPrivateKey from "./widgets/address";
 
 import sendOcean from "./widgets/transaction";
 
-import { EstuaryWidget } from "./react";
 import { MainAreaWidget } from "@jupyterlab/apputils";
 import { reactIcon } from "@jupyterlab/ui-components";
-const iframe_extension = require("./widgets/iframe");
+import { IFrameWidget } from "./iframe";
 
 declare global {
   interface Window {
@@ -121,25 +120,14 @@ function activate(
     },
   });
 
-  // Add a command
-  // const command3 = "save_file";
-  // console.log(command3);
-  // commands.addCommand(command3, {
-  //   label: "save file",
-  //   caption: "save file",
-  //   execute: (args: any) => {
-  //     console.log("SAVE FILE EXTENSION LOADED");
-  //   },
-  // });
-
   const command4 = "save_file";
   commands.addCommand(command4, {
     caption: "Decentralized storage using Estuary",
-    label: "Algovera Widget",
+    label: "Algovera Storage",
     icon: (args) => (args["isPalette"] ? null : reactIcon),
     execute: () => {
-      const content = new EstuaryWidget();
-      const widget = new MainAreaWidget<EstuaryWidget>({ content });
+      const content = new IFrameWidget();
+      const widget = new MainAreaWidget<IFrameWidget>({ content });
       widget.title.label = "Algovera";
       widget.title.icon = reactIcon;
       app.shell.add(widget, "main");
@@ -149,7 +137,7 @@ function activate(
   // const command5 = "iframe";
   // commands.addCommand(command5, {
   //   caption: "Iframe-Lit Secured Storage",
-  //   label: "Lit Access",
+  //   label: "Algovera Storage",
   //   icon: (args) => (args["isPalette"] ? null : reactIcon),
   //   execute: () => {
   //     const content = new iframe_extension();
@@ -159,8 +147,6 @@ function activate(
   //     app.shell.add(widget, "main");
   //   },
   // });
-
-  iframe_extension;
 
   // add commands to registry
   commands.addCommand(CommandIDs.create, {
