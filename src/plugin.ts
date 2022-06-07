@@ -124,7 +124,7 @@ function activate(
   commands.addCommand(command4, {
     caption: "Decentralized storage using Estuary",
     label: "Algovera Storage",
-    icon: (args) => (args["isPalette"] ? null : reactIcon),
+    icon: (args) => (args["isPalette"] ? null : "./style/algovera_logo"),
     execute: () => {
       const content = new IFrameWidget();
       const widget = new MainAreaWidget<IFrameWidget>({ content });
@@ -204,16 +204,6 @@ async function getAccount() {
   await signer.getAddress();
   // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 }
-
-// async function saveFile() {
-//   await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
-
-//   const { zipBlob, encryptedString, symmetricKey } =
-//     await LitJsSdk.encryptFileAndZipWithMetadata(
-//       prompt("Enter file path.", "./")
-//     );
-//   console.log(symmetricKey);
-// }
 
 /**
  * Initialization data for the main menu example.

@@ -288,9 +288,7 @@
             caption: "Decentralized storage using Estuary",
             label: "Algovera Storage",
             icon: (args) =>
-              args["isPalette"]
-                ? null
-                : _jupyterlab_ui_components__WEBPACK_IMPORTED_MODULE_7__.reactIcon,
+              args["isPalette"] ? null : "./style/algovera_logo",
             execute: () => {
               const content =
                 new _iframe__WEBPACK_IMPORTED_MODULE_18__.IFrameWidget();
@@ -376,14 +374,6 @@
           await signer.getAddress();
           // accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         }
-        // async function saveFile() {
-        //   await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
-        //   const { zipBlob, encryptedString, symmetricKey } =
-        //     await LitJsSdk.encryptFileAndZipWithMetadata(
-        //       prompt("Enter file path.", "./")
-        //     );
-        //   console.log(symmetricKey);
-        // }
         /**
          * Initialization data for the main menu example.
          */
@@ -1869,4 +1859,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.b156444bd90469e0e002.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.f130278e28397d1f897b.js.map
