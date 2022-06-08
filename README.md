@@ -6,7 +6,7 @@ The Algovera Library currently comprises of a Jupyter Lab extension for using Me
 
 Algovera is a community of individuals working to facilitate and accelerate the development of decentralised AI products and research.
 
-[Website](algovera.ai) | [Notion](https://algovera.notion.site/) | [Discord](https://discord.gg/xsxM6FjG) | [Calendar](https://algovera.notion.site/Calendar-9d79fab364234b47b6d24021efc28e42) | [Twitter](https://twitter.com/algoveraai?lang=en) | [YouTube](https://www.youtube.com/channel/UC2A5iUpP6k52ZZmC8LFj1IA)
+[Website](https://www.algovera.ai/) | [Notion](https://algovera.notion.site/) | [Discord](https://discord.gg/xsxM6FjG) | [Calendar](https://algovera.notion.site/Calendar-9d79fab364234b47b6d24021efc28e42) | [Twitter](https://twitter.com/algoveraai?lang=en) | [YouTube](https://www.youtube.com/channel/UC2A5iUpP6k52ZZmC8LFj1IA)
 
 ## 🏗 Setup
 
