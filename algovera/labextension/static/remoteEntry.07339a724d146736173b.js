@@ -202,7 +202,7 @@ var _JUPYTERLAB;
           "vendors-node_modules_jquery_dist_jquery_js": "afeee86c9790c447b0a8",
           "webpack_sharing_consume_default_lumino_algorithm-webpack_sharing_consume_default_lumino_messa-0edbf3":
             "55e80702cd02e7e671b6",
-          "lib_plugin_js-lib_widgets_frontend_js": "2d085a68f4302d1a2f81",
+          "lib_plugin_js-lib_widgets_frontend_js": "cf3834e9b9efbc724e8c",
           lib_index_js: "eef684a0bb7e3c78fa78",
           "vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1":
             "1130b4fe5cc6c0440fed",
@@ -932,13 +932,6 @@ var _JUPYTERLAB;
               )
           )
         ),
-      /******/ "webpack/sharing/consume/default/@jupyterlab/ui-components":
-        () =>
-          loadSingletonVersionCheck(
-            "default",
-            "@jupyterlab/ui-components",
-            [1, 3, 3, 2]
-          ),
       /******/ "webpack/sharing/consume/default/@jupyterlab/observables": () =>
         loadVersionCheck("default", "@jupyterlab/observables", [1, 4, 3, 2]),
       /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls":
@@ -996,7 +989,6 @@ var _JUPYTERLAB;
         /******/ "webpack/sharing/consume/default/@jupyterlab/translation",
         /******/ "webpack/sharing/consume/default/@jupyterlab/rendermime",
         /******/ "webpack/sharing/consume/default/ethers/ethers",
-        /******/ "webpack/sharing/consume/default/@jupyterlab/ui-components",
         /******/ "webpack/sharing/consume/default/@jupyterlab/observables",
         /******/ "webpack/sharing/consume/default/@jupyter-widgets/controls/@jupyter-widgets/controls",
         /******/ "webpack/sharing/consume/default/@jupyterlab/outputarea",
@@ -1215,4 +1207,4 @@ var _JUPYTERLAB;
   /******/
   /******/
 })();
-//# sourceMappingURL=remoteEntry.799abcb4dae273ededb2.js.map
+//# sourceMappingURL=remoteEntry.07339a724d146736173b.js.map

@@ -134,7 +134,7 @@
     },
     "schemaDir": "schema",
     "_build": {
-      "load": "static/remoteEntry.799abcb4dae273ededb2.js",
+      "load": "static/remoteEntry.07339a724d146736173b.js",
       "extension": "./extension",
       "style": "./style"
     }

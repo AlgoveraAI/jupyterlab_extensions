@@ -28,7 +28,6 @@ import getPrivateKey from "./widgets/address";
 import sendOcean from "./widgets/transaction";
 
 import { MainAreaWidget } from "@jupyterlab/apputils";
-import { reactIcon } from "@jupyterlab/ui-components";
 import { IFrameWidget } from "./iframe";
 
 declare global {
@@ -107,6 +106,7 @@ function activate(
     caption: "connect wallet",
     execute: (args: any) => {
       getAccount();
+      alert("Wallet connected!");
     },
   });
 
@@ -129,7 +129,7 @@ function activate(
       const content = new IFrameWidget();
       const widget = new MainAreaWidget<IFrameWidget>({ content });
       widget.title.label = "Algovera";
-      widget.title.icon = reactIcon;
+      widget.title.icon = "./style/algovera_logo";
       app.shell.add(widget, "main");
     },
   });
