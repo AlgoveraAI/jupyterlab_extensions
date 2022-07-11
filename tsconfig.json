@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "declaration": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -14,7 +15,8 @@
     "strict": true,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "target": "es2017"
+    "target": "es2017",
+    "allowJs": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*", "src/**/*.tsx"]
 }

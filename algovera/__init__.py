@@ -12,6 +12,7 @@ from ._version import __version__, version_info
 
 from .jupyterfrontend import JupyterFrontEnd
 from .widgets import Panel, SplitPanel
+from .extension import load_jupyter_server_extension
 
 HERE = Path(__file__).parent.resolve()
 

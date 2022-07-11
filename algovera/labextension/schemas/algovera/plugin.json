@@ -5,7 +5,7 @@
     "main": [
       {
         "id": "ipymetamask",
-        "label": "MetaMask",
+        "label": "Algovera",
         "rank": 80,
         "items": [
           {
@@ -13,6 +13,9 @@
           },
           {
             "command": "send_ocean"
+          },
+          {
+            "command": "save_file"
           }
         ]
       }

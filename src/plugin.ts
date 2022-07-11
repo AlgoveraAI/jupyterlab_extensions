@@ -27,7 +27,8 @@ import getPrivateKey from "./widgets/address";
 
 import sendOcean from "./widgets/transaction";
 
-// import { exec } from 'child_process';
+import { MainAreaWidget } from "@jupyterlab/apputils";
+import { IFrameWidget } from "./iframe";
 
 declare global {
   interface Window {
@@ -56,6 +57,7 @@ namespace CommandIDs {
  * @param translator Jupyter Translator
  * @param launcher [optional] Jupyter Launcher
  */
+
 function activate(
   app: JupyterFrontEnd,
   palette: ICommandPalette,
@@ -76,7 +78,7 @@ function activate(
 
   const manager = app.serviceManager;
   const { commands, shell } = app;
-  const category = "Extension Examples";
+  const category = "Algovera Extension";
   const trans = translator.load("jupyterlab");
   registry.registerWidget({
     name: MODULE_NAME,
@@ -104,6 +106,7 @@ function activate(
     caption: "connect wallet",
     execute: (args: any) => {
       getAccount();
+      alert("Wallet connected!");
     },
   });
 
@@ -116,6 +119,34 @@ function activate(
       sendOcean(walletAddress);
     },
   });
+
+  const command4 = "save_file";
+  commands.addCommand(command4, {
+    caption: "Decentralized storage using Estuary",
+    label: "Algovera Storage",
+    icon: (args) => (args["isPalette"] ? null : "./style/algovera_logo"),
+    execute: () => {
+      const content = new IFrameWidget();
+      const widget = new MainAreaWidget<IFrameWidget>({ content });
+      widget.title.label = "Algovera";
+      widget.title.icon = "./style/algovera_logo";
+      app.shell.add(widget, "main");
+    },
+  });
+
+  // const command5 = "iframe";
+  // commands.addCommand(command5, {
+  //   caption: "Iframe-Lit Secured Storage",
+  //   label: "Algovera Storage",
+  //   icon: (args) => (args["isPalette"] ? null : reactIcon),
+  //   execute: () => {
+  //     const content = new iframe_extension();
+  //     const widget = new MainAreaWidget<IFrameWidget>({ content });
+  //     widget.title.label = "Algovera";
+  //     widget.title.icon = reactIcon;
+  //     app.shell.add(widget, "main");
+  //   },
+  // });
 
   // add commands to registry
   commands.addCommand(CommandIDs.create, {

@@ -1,22 +1,25 @@
-# 📚 Algovera Library 
+# 📚 Algovera Library
 
-The Algovera Library currently comprises of a Jupyter Lab extension for using MetaMask within Jupyter Lab to interact with the [Ocean market](https://market.oceanprotocol.com/).
+The Algovera Library currently comprises of a Jupyter Lab extension for using MetaMask within Jupyter Lab to interact with the [Ocean market](https://market.oceanprotocol.com/), and store on decentralized storage with decentralized access control (lit protocol for decentralized access control, Estuary/Filecoin for decentralized storage)
 
 ## Algovera
+
 Algovera is a community of individuals working to facilitate and accelerate the development of decentralised AI products and research.
 
-Website | Notion | Discord | Calendar | Twitter | YouTube
+[Website](https://www.algovera.ai/) | [Notion](https://algovera.notion.site/) | [Discord](https://discord.gg/xsxM6FjG) | [Calendar](https://algovera.notion.site/Calendar-9d79fab364234b47b6d24021efc28e42) | [Twitter](https://twitter.com/algoveraai?lang=en) | [YouTube](https://www.youtube.com/channel/UC2A5iUpP6k52ZZmC8LFj1IA)
 
 ## 🏗 Setup
 
-To start using the library, simply run these three commands in your terminal:
+To start using the extension, simply run these commands in your terminal::
 
 ```
 conda create -n algolab -c conda-forge jupyterlab
 
 conda activate algolab
 
-pip install dist/algovera-0.1.0-py3-none-any.whl
+pip install algovera
+
+jupyter lab
 
 ```
 
@@ -25,6 +28,7 @@ pip install dist/algovera-0.1.0-py3-none-any.whl
 There are currently two ways to contribute to the Algovera Library: adding more functionality to the python package or improving the jupyter lab extension.
 
 First, clone the repository by running
+
 ```
 git clone https://github.com/AlgoveraAI/jupyterlab_extensions.git
 
