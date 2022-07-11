@@ -120,6 +120,15 @@ function activate(
     },
   });
 
+  const command3 = "publish_to_ocean";
+  commands.addCommand(command3, {
+    label: "publish to ocean",
+    caption: "publish to ocean",
+    execute: (args: any) => {
+      console.log("Publish to Ocean extension loaded!");
+    },
+  });
+
   const command4 = "save_file";
   commands.addCommand(command4, {
     caption: "Decentralized storage using Estuary",
