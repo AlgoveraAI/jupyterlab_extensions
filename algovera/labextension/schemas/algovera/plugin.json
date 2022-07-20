@@ -15,6 +15,9 @@
             "command": "send_ocean"
           },
           {
+            "command": "publish_to_ocean"
+          },
+          {
             "command": "save_file"
           }
         ]

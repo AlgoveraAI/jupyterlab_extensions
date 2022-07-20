@@ -96,8 +96,8 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ privateKey: () => /* binding */ privateKey,
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */ privateKey: () => /* binding */ privateKey,
           /* harmony export */
         });
         /* harmony import */ var _jupyterlab_application__WEBPACK_IMPORTED_MODULE_0__ =
@@ -276,6 +276,14 @@
               );
             },
           });
+          const command3 = "publish_to_ocean";
+          commands.addCommand(command3, {
+            label: "publish to ocean",
+            caption: "publish to ocean",
+            execute: (args) => {
+              console.log("Publish to Ocean extension loaded!");
+            },
+          });
           const command4 = "save_file";
           commands.addCommand(command4, {
             caption: "Decentralized storage using Estuary",
@@ -402,9 +410,9 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ MODULE_NAME: () => /* binding */ MODULE_NAME,
           /* harmony export */ MODULE_VERSION: () =>
             /* binding */ MODULE_VERSION,
-          /* harmony export */ MODULE_NAME: () => /* binding */ MODULE_NAME,
           /* harmony export */
         });
         // Copyright (c) ipylab contributors
@@ -440,14 +448,16 @@
       ) => {
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ CommandRegistryModel: () =>
-            /* reexport safe */ _widgets_commands__WEBPACK_IMPORTED_MODULE_0__.CommandRegistryModel,
           /* harmony export */ CommandPaletteModel: () =>
             /* reexport safe */ _widgets_palette__WEBPACK_IMPORTED_MODULE_1__.CommandPaletteModel,
+          /* harmony export */ CommandRegistryModel: () =>
+            /* reexport safe */ _widgets_commands__WEBPACK_IMPORTED_MODULE_0__.CommandRegistryModel,
           /* harmony export */ JupyterFrontEndModel: () =>
             /* reexport safe */ _widgets_frontend__WEBPACK_IMPORTED_MODULE_2__.JupyterFrontEndModel,
           /* harmony export */ PanelModel: () =>
             /* reexport safe */ _widgets_panel__WEBPACK_IMPORTED_MODULE_3__.PanelModel,
+          /* harmony export */ SessionManagerModel: () =>
+            /* reexport safe */ _widgets_sessions__WEBPACK_IMPORTED_MODULE_7__.SessionManagerModel,
           /* harmony export */ ShellModel: () =>
             /* reexport safe */ _widgets_shell__WEBPACK_IMPORTED_MODULE_4__.ShellModel,
           /* harmony export */ SplitPanelModel: () =>
@@ -456,8 +466,6 @@
             /* reexport safe */ _widgets_split_panel__WEBPACK_IMPORTED_MODULE_5__.SplitPanelView,
           /* harmony export */ TitleModel: () =>
             /* reexport safe */ _widgets_title__WEBPACK_IMPORTED_MODULE_6__.TitleModel,
-          /* harmony export */ SessionManagerModel: () =>
-            /* reexport safe */ _widgets_sessions__WEBPACK_IMPORTED_MODULE_7__.SessionManagerModel,
           /* harmony export */
         });
         /* harmony import */ var _widgets_commands__WEBPACK_IMPORTED_MODULE_0__ =
@@ -1851,4 +1859,4 @@
       },
   },
 ]);
-//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.cf3834e9b9efbc724e8c.js.map
+//# sourceMappingURL=lib_plugin_js-lib_widgets_frontend_js.b5cfe5f1da72ff9996ea.js.map
