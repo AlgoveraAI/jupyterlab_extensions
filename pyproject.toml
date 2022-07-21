@@ -1,5 +1,5 @@
 [build-system]
-requires = ["jupyter_packaging~=0.10", "jupyterlab~=3.1", "ocean-lib"]
+requires = ["jupyter_packaging~=0.10", "jupyterlab~=3.1", "ocean-lib==0.8.5"]
 build-backend = "jupyter_packaging.build_api"
 
 [license]
