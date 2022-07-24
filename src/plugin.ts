@@ -26,6 +26,7 @@ import * as ethers from "ethers";
 import getPrivateKey from "./widgets/address";
 
 import sendOcean from "./widgets/transaction";
+import publish from "./widgets/ocean_publish";
 
 import { MainAreaWidget } from "@jupyterlab/apputils";
 import { IFrameWidget } from "./iframe";
@@ -125,7 +126,7 @@ function activate(
     label: "publish to ocean",
     caption: "publish to ocean",
     execute: (args: any) => {
-      console.log("Publish to Ocean extension loaded!");
+      publish(walletAddress);
     },
   });
 
