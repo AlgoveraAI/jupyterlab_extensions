@@ -85,6 +85,8 @@
     "@lumino/messaging": "^1.10.1",
     "@lumino/widgets": "^1.19.0",
     "@oceanprotocol/lib": "^1.1.6",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
     "crypto-js": "^4.1.1",
     "ethers": "^5.5.3",
     "https-browserify": "^1.0.0",
@@ -94,8 +96,10 @@
     "python": "^0.0.4",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
+    "style-loader": "^3.3.1",
     "web3": "^1.7.4",
-    "web3-providers-http": "^1.7.4"
+    "web3-providers-http": "^1.7.4",
+    "webpack": "^5.73.0"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.2.3",
