@@ -87,11 +87,15 @@
     "@oceanprotocol/lib": "^1.1.6",
     "crypto-js": "^4.1.1",
     "ethers": "^5.5.3",
+    "https-browserify": "^1.0.0",
     "jupyter": "^0.0.0",
     "lab": "^18.0.2",
     "lit-js-sdk": "^1.1.121",
     "python": "^0.0.4",
-    "web3": "^1.7.4"
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "web3": "^1.7.4",
+    "web3-providers-http": "^1.7.4"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.2.3",
