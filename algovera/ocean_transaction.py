@@ -7,6 +7,8 @@ from ocean_lib.config import Config
 from ocean_lib.web3_internal.wallet import Wallet
 from ocean_lib.web3_internal.constants import ZERO_ADDRESS
 from ocean_lib.common.agreements.service_types import ServiceTypes
+from ocean_lib.services.service import Service
+from ocean_lib.data_provider.data_service_provider import DataServiceProvider
 from ocean_lib.web3_internal.currency import pretty_ether_and_wei
 from ocean_lib.models.compute_input import ComputeInput
 from ocean_lib.models.btoken import BToken #BToken is ERC20
@@ -249,3 +251,76 @@ class OceanMarket():
         print('Done! C2D successful.')
 
         return result
+
+    def algo_publish(self, algo_url=None):
+        """
+        Algorithm publishing
+
+        Requirements:
+
+        - Model script on GitHub
+        - wallet private key as environment variable
+        - dataset we want to train on specified
+        - model metadata (name, date, compute, etc.)
+        """
+        provider_url = DataServiceProvider.get_url(ocean.config)
+        assert algo_url is not None, "Algorithm URL not specified, try again"
+        self.wallet = Wallet(ocean.web3, private_key=self.private_key, transaction_timeout=20, block_confirmations=0)
+        assert self.wallet is not None, "Wallet error, initialize app again"
+
+
+        # Publish ALG datatoken
+        ALG_datatoken = ocean.create_data_token('ALG1', 'ALG1', self.wallet, blob=ocean.config.metadata_cache_uri)
+        ALG_datatoken.mint(self.wallet.address, to_wei(100), self.wallet)
+        print(f"ALG_datatoken.address = '{ALG_datatoken.address}'")
+
+        # Specify metadata and service attributes for algorithm script.
+        ALG_metadata = {
+            "main": {
+                "type": "algorithm",
+                "algorithm": {
+                    "language": "python",
+                    "format": "docker-image",
+                    "version": "1.0.0", # project-specific
+                    "container": {
+                    "entrypoint": "python $ALGO",
+                    "image": "oceanprotocol/algo_dockers",
+                    "tag": "ari", # project-specific
+                    },
+                },
+                "files": [
+            {
+                "url": algo_url, # not sure whether this works yet
+                "index": 0,
+                "contentType": "text/text",
+            },
+            ],
+            "name": "test", "author": "test", "license": "MIT", 
+            "dateCreated": "2022", # project-specific
+            }
+        }
+        ALG_service_attributes = {
+                "main": {
+                    "name": "ALG_dataAssetAccessServiceAgreement",
+                    "creator": self.wallet.address,
+                    "timeout": 3600 * 24,
+                    "datePublished": "2020-01-28T10:55:11Z",
+                    "cost": 1.0, # <don't change, this is obsolete>
+                }
+            }
+
+        # Calc ALG service access descriptor. We use the same service provider as DATA
+        ALG_access_service = Service(
+            service_endpoint=provider_url,
+            service_type=ServiceTypes.CLOUD_COMPUTE,
+            attributes=ALG_service_attributes
+        )
+
+        # Publish metadata and service info on-chain
+        ALG_ddo = ocean.assets.create(
+        metadata=ALG_metadata, # {"main" : {"type" : "algorithm", ..}, ..}
+        publisher_wallet=self.wallet,
+        services=[ALG_access_service],
+        data_token_address=ALG_datatoken.address)
+
+        return ALG_ddo, ALG_datatoken
