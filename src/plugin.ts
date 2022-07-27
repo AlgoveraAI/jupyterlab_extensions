@@ -126,7 +126,9 @@ function activate(
     label: "publish to ocean",
     caption: "publish to ocean",
     execute: (args: any) => {
-      publish(walletAddress);
+      const algo_url = publish();
+      console.log("Publish extension loaded");
+      console.log(algo_url);
     },
   });
 
