@@ -1,7 +1,13 @@
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
+  stats: {
+    errorDetails: true,
+    children: true,
+  },
   plugins: [
+    new NodePolyfillPlugin(),
     // Work around for Buffer is undefined:
     // https://github.com/webpack/changelog-v5/issues/10
     new webpack.ProvidePlugin({

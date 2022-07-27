@@ -25,6 +25,12 @@
     "email": "jeremy@jtp.io"
   },
   "main": "lib/index.js",
+  "browser": {
+    "stream": "stream-browserify",
+    "http": "stream-http",
+    "https": "https-browserify",
+    "web3": false
+  },
   "style": "style/widget.css",
   "styleModule": "style/style.js",
   "types": "./lib/index.d.ts",
@@ -93,12 +99,12 @@
     "jupyter": "^0.0.0",
     "lab": "^18.0.2",
     "lit-js-sdk": "^1.1.121",
+    "node-polyfill-webpack-plugin": "^2.0.0",
     "python": "^0.0.4",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "style-loader": "^3.3.1",
     "web3": "^1.7.4",
-    "web3-providers-http": "^1.7.4",
     "webpack": "^5.73.0"
   },
   "devDependencies": {
@@ -120,18 +126,6 @@
     "npm-run-all": "^4.1.3",
     "prettier": "^2.0.2",
     "typescript": "~4.4.4"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false,
-    "crypto": false,
-    "stream": false,
-    "http": false,
-    "tls": false,
-    "zlib": false,
-    "https": false,
-    "net": false
   },
   "jupyterlab": {
     "extension": "lib/plugin",
