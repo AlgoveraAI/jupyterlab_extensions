@@ -255,6 +255,11 @@ class OceanMarket():
     def algo_publish(self, algo_url=None):
         """
         Algorithm publishing
+        
+        Returns:
+
+        ALG_ddo: Algorithm DDO
+        ALG_datatoken: Algorithm Datatoken
 
         Requirements:
 
