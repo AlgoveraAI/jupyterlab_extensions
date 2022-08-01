@@ -26,7 +26,7 @@ import * as ethers from "ethers";
 import getPrivateKey from "./widgets/address";
 
 import sendOcean from "./widgets/transaction";
-import publish from "./widgets/ocean_publish";
+// import publish from "./widgets/ocean_publish";
 
 import { MainAreaWidget } from "@jupyterlab/apputils";
 import { IFrameWidget } from "./iframe";
@@ -121,16 +121,15 @@ function activate(
     },
   });
 
-  const command3 = "publish_to_ocean";
-  commands.addCommand(command3, {
-    label: "publish to ocean",
-    caption: "publish to ocean",
-    execute: (args: any) => {
-      const algo_url = publish();
-      console.log("Publish extension loaded");
-      console.log(algo_url);
-    },
-  });
+  // const command3 = "publish_to_ocean";
+  // commands.addCommand(command3, {
+  //   label: "publish to ocean",
+  //   caption: "publish to ocean",
+  //   execute: (args: any) => {
+  //     publish(walletAddress);
+  //     console.log("Publish extension loaded");
+  //   },
+  // });
 
   const command4 = "save_file";
   commands.addCommand(command4, {
